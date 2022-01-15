@@ -1,0 +1,106 @@
+# Module: zeek
+# Docs: https://www.elastic.co/guide/en/beats/filebeat/7.16/filebeat-module-zeek.html
+
+- module: zeek
+  capture_loss:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/capture_loss.log"]
+  connection:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/conn.log"]
+  dce_rpc:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/dce_rpc.log"]
+  dhcp:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/dhcp.log"]
+  dnp3:
+    enabled: false
+  dns:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/dns.log"]
+  dpd:
+    enabled: false
+  files:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/files.log"]
+  ftp:
+    enabled: false
+  http:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/http.log"]
+  intel:
+    enabled: false
+  irc:
+    enabled: false
+  kerberos:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/kerberos.log"]
+  modbus:
+    enabled: false
+  mysql:
+    enabled: false
+  notice:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/notice.log"]
+  ntp:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/ntp.log"]
+  ntlm:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/ntlm.log"]
+  ocsp:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/ocsp*.log"]
+  pe:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/pe.log"]
+  radius:
+    enabled: false
+  rdp:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/rdp.log"]
+  rfb:
+    enabled: false
+  signature:
+    enabled: false
+  sip:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/sip.log"]
+  smb_cmd:
+    enabled: false
+  smb_files:
+    enabled: false
+  smb_mapping:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/smb_mapping.log"]
+  smtp:
+    enabled: false
+  snmp:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/snmp.log"]
+  socks:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/socks.log"]
+  ssh:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/ssh.log"]
+  ssl:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/ssl.log"]
+  stats:
+    enabled: false
+  syslog:
+    enabled: false
+  traceroute:
+    enabled: false
+  tunnel:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/tunnel.log"]
+  weird:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/weird.log"]
+  x509:
+    enabled: true
+    var.paths: ["/var/log/nsm/zeek/x509.log"]
+
