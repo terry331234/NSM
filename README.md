@@ -51,5 +51,6 @@ By default, no dashboard is included in Kibana,\
 add sample dashboards by running
 
 ```console
+$ chmod -R g-w filebeat/*
 $ docker-compose exec filebeat filebeat setup
 ```
