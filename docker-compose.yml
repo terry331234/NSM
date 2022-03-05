@@ -10,6 +10,7 @@ services:
       - ./suricata/config:/etc/suricata
       - ${NSM_LOG_DIR?missing nsm directoy}/suricata:/var/log/suricata:z
     network_mode: "host"
+
   zeek:
     build:
       context: ./zeek
@@ -19,8 +20,9 @@ services:
     volumes:
       - ${NSM_LOG_DIR}/zeek:/var/log/zeek:z
     network_mode: "host"
+
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.3
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.1
     volumes:
      #- ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
      - elasticsearch:/usr/share/elasticsearch/data
@@ -29,17 +31,23 @@ services:
       - 9300:9300
     environment:
       ES_JAVA_OPTS: "-Xmx512m -Xms512m"
-#      ELASTIC_PASSWORD: changeme
+      ELASTICSEARCH_USERNAME: $ELASTICSEARCH_USERNAME:-elastic
+      ELASTICSEARCH_PASSWORD: $ELASTICSEARCH_PASSWORD:-changeme
       discovery.type: single-node
     networks:
      - elk
+
   filebeat:
-    image: docker.elastic.co/beats/filebeat:7.16.3
-    command: filebeat -e -strict.perms=false
+    image: docker.elastic.co/beats/filebeat:7.17.1
+    environment:
+      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
+      ELASTICSEARCH_USERNAME: $ELASTICSEARCH_USERNAME:-elastic
+      ELASTICSEARCH_PASSWORD: $ELASTICSEARCH_PASSWORD:-changeme
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - ./filebeat/modules.d/:/usr/share/filebeat/modules.d:ro
 #      - :/usr/share/filebeat/logs
+#     - /var/run/docker.sock:/var/run/docker.sock:ro  #autodiscovery
       -  ${NSM_LOG_DIR}/:/var/log/nsm/:z
     networks:
       - elk
@@ -49,12 +57,13 @@ services:
     links:
        - elasticsearch
        - kibana
+
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.16.3
+    image: docker.elastic.co/kibana/kibana:7.17.1
     environment:
-      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
-#      ELASTICSEARCH_USERNAME: elastic
-#      ELASTICSEARCH_PASSWORD: changeme
+      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
+      ELASTICSEARCH_USERNAME: $ELASTICSEARCH_USERNAME:-elastic
+      ELASTICSEARCH_PASSWORD: $ELASTICSEARCH_PASSWORD:-changeme
     ports:
       - 5601:5601
     networks:
