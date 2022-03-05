@@ -16,10 +16,8 @@ filebeat.config:
 setup:
   kibana:
     host: "kibana:5601"
-  #dashboards:
-    #enabled: true
-
-
+  dashboards:
+    enabled: true
 #setup.dashboards.retry.enabled: true #Retry in case Kibana is not up yet
 
 # The URL from where to download the dashboards archive. By default this URL
