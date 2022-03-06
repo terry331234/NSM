@@ -4,10 +4,11 @@
 redef Site::local_nets = { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 };
 
 redef Log::default_rotation_interval = 3600 secs;
+redef Log::default_rotation_dir = "/var/log/zeek/";
 
 redef LogAscii::use_json = T;
 
-redef LogAscii::logdir = "/var/log/zeek/";
+redef LogAscii::logdir = "/var/log/zeek/current/";
 
 # Installation-wide salt value that is used in some digest hashes, e.g., for
 # the creation of file IDs. Please change this to a hard to guess value.

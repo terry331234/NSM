@@ -1,93 +1,92 @@
 # Module: zeek
-# Docs: https://www.elastic.co/guide/en/beats/filebeat/7.16/filebeat-module-zeek.html
 
 - module: zeek
   capture_loss:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/capture_loss.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/capture_loss.log"]
   connection:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/conn.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/conn.log"]
   dce_rpc:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/dce_rpc.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/dce_rpc.log"]
   dhcp:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/dhcp.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/dhcp.log"]
   dnp3:
     enabled: false
   dns:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/dns.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/dns.log"]
   dpd:
     enabled: false
   files:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/files.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/files.log"]
   ftp:
     enabled: false
   http:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/http.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/http.log"]
   intel:
     enabled: false
   irc:
     enabled: false
   kerberos:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/kerberos.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/kerberos.log"]
   modbus:
     enabled: false
   mysql:
     enabled: false
   notice:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/notice.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/notice.log"]
   ntp:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/ntp.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/ntp.log"]
   ntlm:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/ntlm.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/ntlm.log"]
   ocsp:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/ocsp*.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/ocsp*.log"]
   pe:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/pe.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/pe.log"]
   radius:
     enabled: false
   rdp:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/rdp.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/rdp.log"]
   rfb:
     enabled: false
   signature:
     enabled: false
   sip:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/sip.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/sip.log"]
   smb_cmd:
     enabled: false
   smb_files:
     enabled: false
   smb_mapping:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/smb_mapping.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/smb_mapping.log"]
   smtp:
     enabled: false
   snmp:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/snmp.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/snmp.log"]
   socks:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/socks.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/socks.log"]
   ssh:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/ssh.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/ssh.log"]
   ssl:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/ssl.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/ssl.log"]
   stats:
     enabled: false
   syslog:
@@ -96,11 +95,11 @@
     enabled: false
   tunnel:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/tunnel.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/tunnel.log"]
   weird:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/weird.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/weird.log"]
   x509:
     enabled: true
-    var.paths: ["/var/log/nsm/zeek/x509.log"]
+    var.paths: ["${LOG_DIR}/zeek/current/x509.log"]
 

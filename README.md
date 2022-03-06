@@ -12,8 +12,11 @@ Create a .env file which contains:
 ```
 INTERFACE=interface
 NSM_LOG_DIR=/path/to/logdir/
+ELASTICSEARCH_USERNAME=username
+ELASTICSEARCH_PASSWORD=password
 ```
 Set the value to suit your usecase\
+*default username:elastic, password: changeme
 *The log dir need to be owned by UID 1000 or set to allow read and write for Others
 
 

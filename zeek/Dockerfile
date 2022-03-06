@@ -1,9 +1,12 @@
 FROM zeekurity/zeek:4.1.1
 
-# Install extra zeek packages
+# Install extra packages for zeek
 RUN apt-get update && \
     apt-get install -y cmake build-essential libssl-dev libpcap-dev libcap2-bin && \
     /usr/local/zeek/bin/zkg install --force ja3 hassh zeek-community-id
+
+# Install extra package for container
+RUN apt-get install -y tini gosu
 
 # Create Zeek User.
 RUN groupadd --gid 998 zeek  && \
@@ -14,7 +17,7 @@ VOLUME "/var/log/zeek"
 
 # Fix perms
 RUN chown -R zeek:zeek /usr/local/zeek && \
-    chown zeek:zeek var/log/zeek
+    chown zeek:zeek /var/log/zeek
 
 # Copy communityID script
 COPY --chown=zeek:zeek  files/communityid.zeek /usr/local/zeek/share/zeek/policy/custom/communityid.zeek
@@ -23,7 +26,7 @@ COPY --chown=zeek:zeek  files/communityid.zeek /usr/local/zeek/share/zeek/policy
 COPY --chown=zeek:zeek files/local.zeek /usr/local/zeek/share/zeek/site/local.zeek
 
 # Copy over the entry script.
-COPY --chown=zeek:zeek files/zeek.sh /usr/local/sbin/zeek.sh
-RUN chmod +x /usr/local/sbin/zeek.sh
+COPY --chown=root:root files/entrypoint.sh /usr/local/sbin/entrypoint.sh
+RUN chmod +x /usr/local/sbin/entrypoint.sh
 
-ENTRYPOINT ["/usr/local/sbin/zeek.sh"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/sbin/entrypoint.sh"]

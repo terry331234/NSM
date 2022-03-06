@@ -8,7 +8,7 @@ services:
       - SYS_NICE
     volumes:
       - ./suricata/config:/etc/suricata
-      - ${NSM_LOG_DIR?missing nsm directoy}/suricata:/var/log/suricata:z
+      - ${NSM_LOG_DIR?missing nsm directoy}/suricata:/var/log/suricata:rw
     network_mode: "host"
 
   zeek:
@@ -18,7 +18,7 @@ services:
     cap_add:
       - NET_ADMIN
     volumes:
-      - ${NSM_LOG_DIR}/zeek:/var/log/zeek:z
+      - ${NSM_LOG_DIR}/zeek:/var/log/zeek:rw
     network_mode: "host"
 
   elasticsearch:
@@ -44,6 +44,7 @@ services:
       ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
       ELASTICSEARCH_USERNAME: $ELASTICSEARCH_USERNAME:-elastic
       ELASTICSEARCH_PASSWORD: $ELASTICSEARCH_PASSWORD:-changeme
+      LOG_DIR: "/var/log/nsm"
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - ./filebeat/modules.d/:/usr/share/filebeat/modules.d:ro

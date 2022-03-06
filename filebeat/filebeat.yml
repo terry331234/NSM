@@ -43,3 +43,5 @@ output.elasticsearch:
   hosts: ${ELASTICSEARCH_HOSTS}
   username: "${ELASTICSEARCH_USERNAME}"
   password: "${ELASTICSEARCH_PASSWORD}"
+
+logging.level: warning
