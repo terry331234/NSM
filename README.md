@@ -12,7 +12,6 @@ Create a .env file which contains:
 ```
 INTERFACE=interface
 NSM_LOG_DIR=/path/to/logdir/
-ELASTICSEARCH_USERNAME=username
 ELASTICSEARCH_PASSWORD=password
 ```
 Set the value to suit your usecase\

@@ -3,7 +3,7 @@
 ##! This file will not be overwritten when upgrading or reinstalling!
 redef Site::local_nets = { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 };
 
-redef Log::default_rotation_interval = 3600 secs;
+redef Log::default_rotation_interval = 86400 secs;
 redef Log::default_rotation_dir = "/var/log/zeek/";
 
 redef LogAscii::use_json = T;
