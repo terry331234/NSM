@@ -8,16 +8,16 @@
 
 ### Usage
 #### Setting Up
-Create a .env file which contains:
+Create a .env file for setup:
 ```
 INTERFACE=interface
 NSM_LOG_DIR=/path/to/logdir/
-ELASTICSEARCH_PASSWORD=password
+PASSWORD=password #optional, default changeme
+KIBANA_PORT=port #optional, default 5601
 ```
 Set the value to suit your usecase\
-*default username:elastic, password: changeme
+*default username for kibana web: elastic
 *The log dir need to be owned by UID 1000 or set to allow read and write for Others
-
 
 Clone this repository and start services locally using Docker Compose:
 
@@ -26,8 +26,6 @@ $ docker-compose up
 ```
 
 Run the solution in the background by adding the `-d` flag to the above command.
-
-The Kibana HTTP web interface can be accessed at port 5601
 
 
 #### Cleanup

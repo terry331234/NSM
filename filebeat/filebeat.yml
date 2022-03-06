@@ -16,6 +16,8 @@ filebeat.config:
 setup:
   kibana:
     host: "kibana:5601"
+    username: elastic
+    password: "${ELASTICSEARCH_PASSWORD}"
   dashboards:
     enabled: true
 #setup.dashboards.retry.enabled: true #Retry in case Kibana is not up yet
@@ -41,7 +43,7 @@ processors:
 
 output.elasticsearch:
   hosts: ${ELASTICSEARCH_HOSTS}
-  username: "${ELASTICSEARCH_USERNAME}"
+  username: elastic
   password: "${ELASTICSEARCH_PASSWORD}"
 
 logging.level: warning

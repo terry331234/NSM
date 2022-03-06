@@ -38,13 +38,6 @@ server.host: "0.0.0.0"
 # The default application to load.
 #kibana.defaultAppId: "home"
 
-# If your Elasticsearch is protected with basic authentication, these settings provide
-# the username and password that the Kibana server uses to perform maintenance on the Kibana
-# index at startup. Your Kibana users still need to authenticate with Elasticsearch, which
-# is proxied through the Kibana server.
-#elasticsearch.username: "kibana_system"
-#elasticsearch.password: "pass"
-
 # Kibana can also authenticate to Elasticsearch via "service account tokens".
 # If may use this token instead of a username/password.
 # elasticsearch.serviceAccountToken: "my_token"

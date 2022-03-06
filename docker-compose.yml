@@ -24,24 +24,32 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.1
     volumes:
-     - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-     - elasticsearch:/usr/share/elasticsearch/data
-    #ports:
-    #  - 9200:9200
-    #  - 9300:9300
+      #- ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - elasticsearch:/usr/share/elasticsearch/data
     environment:
-      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
-      ELASTICSEARCH_PASSWORD: $ELASTICSEARCH_PASSWORD:-changeme
+      - ES_JAVA_OPTS=-Xmx512m -Xms512m
+      - ELASTIC_PASSWORD=${PASSWORD:-changeme}
+      - xpack.security.enabled=true
+      - discovery.type=single-node
     networks:
-     - elk
+      - elk
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -s -I http://localhost:9200 | grep -q 'HTTP/1.1 401 Unauthorized'",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:7.17.1
     command: --strict.perms=false #temp fix, maybe fix with custom image
     environment:
-      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
-      ELASTICSEARCH_PASSWORD: $ELASTICSEARCH_PASSWORD:-changeme
-      LOG_DIR: "/var/log/nsm"
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_PASSWORD="${PASSWORD:-changeme}"
+      - LOG_DIR=/var/log/nsm
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - ./filebeat/modules.d/:/usr/share/filebeat/modules.d:ro
@@ -52,26 +60,35 @@ services:
     networks:
       - elk
     depends_on:
-      - kibana
-      - elasticsearch
+      kibana:
+        condition: service_healthy
     links:
-       - elasticsearch
-       - kibana
-    restart: on-failure #Needed as setup.dashboards.retry.enabled in yml does not work
+      - elasticsearch
+      - kibana
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.17.1
     environment:
-      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
-      ELASTICSEARCH_PASSWORD: $ELASTICSEARCH_PASSWORD:-changeme
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD="${PASSWORD:-changeme}"
     ports:
-      - 5601:5601
+      - ${KIBANA_PORT:-5601}:5601
     networks:
       - elk
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
     links:
       - elasticsearch
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -s -I http://localhost:5601 | grep -q 'HTTP/1.1 302 Found'",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
 networks:  
   elk:
