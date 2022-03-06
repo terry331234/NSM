@@ -81,7 +81,7 @@ redef digest_salt = "Please change this value.";
 
 # If you have GeoIP support built in, do some geographic detections and
 # logging for SSH traffic.
-@load protocols/ssh/geo-data
+#@load protocols/ssh/geo-data
 # Detect hosts doing SSH bruteforce attacks.
 @load protocols/ssh/detect-bruteforcing
 # Detect logins using "interesting" hostnames.
@@ -116,7 +116,7 @@ redef digest_salt = "Please change this value.";
 # Uncomment this to source zkg's package state
 # @load packages
 
-@load misc/loaded-scripts
+#@load misc/loaded-scripts
 @load tuning/defaults
 @load misc/capture-loss
 @load misc/stats
@@ -133,7 +133,7 @@ redef digest_salt = "Please change this value.";
 @load protocols/ssl/known-certs
 @load protocols/ssl/validate-certs
 @load protocols/ssl/log-hostcerts-only
-@load protocols/ssh/geo-data
+#@load protocols/ssh/geo-data
 @load protocols/ssh/detect-bruteforcing
 @load protocols/ssh/interesting-hostnames
 @load protocols/http/detect-sqli
@@ -142,4 +142,3 @@ redef digest_salt = "Please change this value.";
 @load policy/frameworks/notice/extend-email/hostnames
 @load ja3
 @load hassh
-@load custom/communityid
