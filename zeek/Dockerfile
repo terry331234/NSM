@@ -1,12 +1,13 @@
 FROM zeekurity/zeek:4.1.1
 
 # Install extra packages for zeek
-RUN apt-get update && \
-    apt-get install -y cmake build-essential libssl-dev libpcap-dev libcap2-bin && \
-    /usr/local/zeek/bin/zkg install --force ja3 hassh zeek-community-id
+#    apt-get install -y cmake build-essential libssl-dev libpcap-dev && \
 
-# Install extra package for container
-RUN apt-get install -y tini gosu
+RUN /usr/local/zeek/bin/zkg install --force ja3 hassh
+
+# Install extra package for container/setcap
+RUN apt-get update && \
+        apt-get install -y tini gosu libcap2-bin
 
 # Create Zeek User.
 RUN groupadd --gid 998 zeek  && \

@@ -1,15 +1,19 @@
 version: '3'
 services:
   suricata:
-    image: jasonish/suricata:6.0.4
-    command: -i ${INTERFACE?missing interface}
+    build:
+      context: ./suricata
     cap_add:
       - NET_ADMIN
       - SYS_NICE
     volumes:
-      - ./suricata/config:/etc/suricata
+      - ./suricata/config/enable.conf:/etc/suricata/enable.conf:rw
+      - ./suricata/config/disable.conf:/etc/suricata/disable.conf:rw
+      - ./suricata/config/suricata.yaml:/etc/suricata/suricata.yaml:rw
       - ${NSM_LOG_DIR?missing nsm directoy}/suricata:/var/log/suricata:rw
-    network_mode: "host"
+    environment:
+      - SURICATA_OPTIONS=-i ${INTERFACE?missing interface}
+    network_mode: host
 
   zeek:
     build:
@@ -19,7 +23,7 @@ services:
       - NET_ADMIN
     volumes:
       - ${NSM_LOG_DIR}/zeek:/var/log/zeek:rw
-    network_mode: "host"
+    network_mode: host
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.1
@@ -71,6 +75,8 @@ services:
     environment:
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD="${PASSWORD:-changeme}"
+      - LOGGING_QUIET=true
+      #- XPACK_SECURITY_ENCRYPTIONKEY=
     ports:
       - ${KIBANA_PORT:-5601}:5601
     networks:
