@@ -12,7 +12,7 @@ services:
       - ./suricata/config/suricata.yaml:/etc/suricata/suricata.yaml:rw
       - ${NSM_LOG_DIR?missing nsm directoy}/suricata:/var/log/suricata:rw
     environment:
-      - SURICATA_OPTIONS=-i ${INTERFACE?missing interface}
+      - SURICATA_OPTIONS=-i ${INTERFACE?missing interface} --set vars.address-groups.HOME_NET=[${TRUSTED_NET:-192.168.0.0/16,10.0.0.0/8,172.16.0.0/12}]
     network_mode: host
 
   zeek:
@@ -23,6 +23,9 @@ services:
       - NET_ADMIN
     volumes:
       - ${NSM_LOG_DIR}/zeek:/var/log/zeek:rw
+      - ./zeek/files/local.zeek:/usr/local/zeek/share/zeek/site/local.zeek:rw
+    environment:
+      - TRUSTED_NET=${TRUSTED_NET:-192.168.0.0/16,10.0.0.0/8,172.16.0.0/12}
     network_mode: host
 
   elasticsearch:

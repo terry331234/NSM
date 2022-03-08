@@ -12,8 +12,9 @@ Create a .env file for setup:
 ```
 INTERFACE=interface
 NSM_LOG_DIR=/path/to/logdir/
-PASSWORD=password #optional, default changeme
-KIBANA_PORT=port #optional, default 5601
+PASSWORD=password             #optional, default changeme
+KIBANA_PORT=port              #optional, default 5601
+TRUSTED_NET=CIDR1,CIDR2       #optional, default 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12
 ```
 Set the value to suit your usecase\
 *default username for kibana web: elastic
@@ -38,10 +39,4 @@ To entirely shutdown the solution remove all persisted data, run:
 $ docker-compose down -v
 ```
 
-### Useful Commands
-
-#### Update Suricata rules
-```console
-$ docker-compose exec --user suricata suricata suricata-update -f
-```
 

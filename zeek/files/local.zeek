@@ -1,7 +1,7 @@
 ##! Local site policy. Customize as appropriate.
 ##!
 ##! This file will not be overwritten when upgrading or reinstalling!
-redef Site::local_nets = { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 };
+redef Site::local_nets = { to_subnet(getenv("TRUSTED_NET")) };
 
 redef Log::default_rotation_interval = 86400 secs;
 redef Log::default_rotation_dir = "/var/log/zeek/";
@@ -59,7 +59,7 @@ redef digest_salt = "Please change this value.";
 # This script detects DNS results pointing toward your Site::local_nets
 # where the name is not part of your local DNS zone and is being hosted
 # externally.  Requires that the Site::local_zones variable is defined.
-@load protocols/dns/detect-external-names
+#@load protocols/dns/detect-external-names
 
 # Script to detect various activity in FTP sessions.
 @load protocols/ftp/detect
@@ -70,7 +70,7 @@ redef digest_salt = "Please change this value.";
 @load protocols/ssl/known-certs
 
 # This script enables SSL/TLS certificate validation.
-@load protocols/ssl/validate-certs
+#@load protocols/ssl/validate-certs
 
 # This script prevents the logging of SSL CA certificates in x509.log
 @load protocols/ssl/log-hostcerts-only
@@ -83,7 +83,7 @@ redef digest_salt = "Please change this value.";
 # logging for SSH traffic.
 #@load protocols/ssh/geo-data
 # Detect hosts doing SSH bruteforce attacks.
-@load protocols/ssh/detect-bruteforcing
+#@load protocols/ssh/detect-bruteforcing
 # Detect logins using "interesting" hostnames.
 @load protocols/ssh/interesting-hostnames
 
@@ -116,29 +116,7 @@ redef digest_salt = "Please change this value.";
 # Uncomment this to source zkg's package state
 # @load packages
 
-#@load misc/loaded-scripts
-@load tuning/defaults
-@load misc/capture-loss
-@load misc/stats
-@load frameworks/software/vulnerable
-@load frameworks/software/version-changes
-@load protocols/ftp/software
-@load protocols/smtp/software
-@load protocols/ssh/software
-@load protocols/http/software
-@load protocols/dns/detect-external-names
-@load protocols/ftp/detect
-@load protocols/conn/known-hosts
-@load protocols/conn/known-services
-@load protocols/ssl/known-certs
-@load protocols/ssl/validate-certs
-@load protocols/ssl/log-hostcerts-only
-#@load protocols/ssh/geo-data
-@load protocols/ssh/detect-bruteforcing
-@load protocols/ssh/interesting-hostnames
-@load protocols/http/detect-sqli
-@load frameworks/files/hash-all-files
-@load frameworks/files/detect-MHR
-@load policy/frameworks/notice/extend-email/hostnames
 @load ja3
 @load hassh
+#@load policy/custom/setvar
+
