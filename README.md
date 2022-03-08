@@ -10,24 +10,26 @@
 #### Setting Up
 Create a .env file for setup:
 ```
-INTERFACE=interface
-NSM_LOG_DIR=/path/to/logdir/
+INTERFACE=interface           #required
+NSM_LOG_DIR=/path/to/logdir/  #required
 PASSWORD=password             #optional, default changeme
 KIBANA_PORT=port              #optional, default 5601
 TRUSTED_NET=CIDR1,CIDR2       #optional, default 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12
+UID=uid                       #optional, default 1000
+GID=gid                       #optional, default 1000
 ```
 Set the value to suit your usecase\
-*default username for kibana web: elastic
-*The log dir need to be owned by UID 1000 or set to allow read and write for Others
+- Username for kibana web: elastic
+- `UID/GID` set the owner of files in `NSM_LOG_DIR`, and user/group running zeek & suricata
+- `TRUSTED_NET` set the trusted subnet for zeek & suricata
 
 Clone this repository and start services locally using Docker Compose:
 
 ```console
 $ docker-compose up
+#Run in background
+$ docker-compose up -d
 ```
-
-Run the solution in the background by adding the `-d` flag to the above command.
-
 
 #### Cleanup
 

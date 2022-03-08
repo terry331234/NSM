@@ -1,23 +1,31 @@
 #!/bin/bash
 
-setcap cap_net_raw,cap_net_admin=eip /usr/local/zeek/bin/zeek
-setcap cap_net_raw,cap_net_admin=eip /usr/local/zeek/bin/capstats
+fix_perms() {
+    if [[ "${PGID}" -ne "$(id -g zeek)" ]]; then
+        echo "Setting zeek group id to $PGID"
+        groupmod -o -g "${PGID}" zeek
+    fi
 
-#copy default config to volume
-#default="/usr/local/zeek/share/zeek/site/local.zeek.dist"
-config="/usr/local/zeek/share/zeek/site/local.zeek"
-#if ! test -e "${config}"; then
-#    echo "Creating ${config}"
-#    cp -a "${default}" "${config}"
-#    chown zeek:zeek "${config}"
-#    chown zeek:zeek /var/log/zeek
-#fi
+    if [[ "${PUID}" -ne "$(id -u zeek)" ]]; then
+        echo "Setting zeek user id to $PUID"
+        usermod -o -u "${PUID}" zeek
+    fi
+
+    echo "Updating log dir owner..."
+    chown -R zeek:zeek /var/log/zeek
+    chown -R zeek:zeek /var/log/zeek/current
+}
 
 if [ ! -d "/var/log/zeek/current" ]; then
     mkdir /var/log/zeek/current
 fi
 
-chown zeek:zeek "${config}" /var/log/zeek /var/log/zeek/current
+if [[ "${PGID}" ]] || [[ "${PUID}" ]]; then
+    fix_perms
+fi
 
-command='/usr/local/zeek/bin/zeek -C -i eth0 local'
-/usr/sbin/gosu zeek /usr/local/zeek/bin/zeek -C local $@
+#fix capture permission, requires addcap option in docker
+setcap cap_net_raw,cap_net_admin=eip /usr/local/zeek/bin/zeek
+setcap cap_net_raw,cap_net_admin=eip /usr/local/zeek/bin/capstats
+
+/usr/sbin/gosu zeek:zeek /usr/local/zeek/bin/zeek -C local $@
