@@ -118,5 +118,3 @@ redef digest_salt = "Please change this value.";
 
 @load ja3
 @load hassh
-#@load policy/custom/setvar
-
