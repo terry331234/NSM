@@ -17,10 +17,10 @@ VOLUME "/var/log/zeek"
 RUN chown -R zeek:zeek /usr/local/zeek
 
 # Copy zeek default config
-COPY --chown=zeek:zeek files/local.zeek /usr/local/zeek/share/zeek/site/local.zeek
+#COPY --chown=zeek:zeek ./zeek/config/local.zeek /usr/local/zeek/share/zeek/site/local.zeek
 
 # Copy over the entry script.
-COPY --chown=root:root files/entrypoint.sh /usr/local/sbin/entrypoint.sh
+COPY --chown=root:root ./zeek/entrypoint.sh /usr/local/sbin/entrypoint.sh
 RUN chmod +x /usr/local/sbin/entrypoint.sh
 
 ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/sbin/entrypoint.sh"]

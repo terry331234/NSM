@@ -2,14 +2,15 @@ version: '3'
 services:
   suricata:
     build:
-      context: ./suricata
+      context: ./services
+      dockerfile: ./suricata/Dockerfile
     cap_add:
       - NET_ADMIN
       - SYS_NICE
     volumes:
-      - ./suricata/config/enable.conf:/etc/suricata/enable.conf:rw
-      - ./suricata/config/disable.conf:/etc/suricata/disable.conf:rw
-      - ./suricata/config/suricata.yaml:/etc/suricata/suricata.yaml:rw
+      - ./services/suricata/config/enable.conf:/etc/suricata/enable.conf:rw
+      - ./services/suricata/config/disable.conf:/etc/suricata/disable.conf:rw
+      - ./services/suricata/config/suricata.yaml:/etc/suricata/suricata.yaml:rw
       - ${NSM_LOG_DIR?missing nsm directoy}/suricata:/var/log/suricata:rw
     environment:
       - SURICATA_OPTIONS=-i ${INTERFACE?missing interface} --set vars.address-groups.HOME_NET=[${TRUSTED_NET:-192.168.0.0/16,10.0.0.0/8,172.16.0.0/12}]
@@ -19,17 +20,18 @@ services:
 
   zeek:
     build:
-      context: ./zeek
+      context: ./services
+      dockerfile: ./zeek/Dockerfile
     command: -i ${INTERFACE?missing interface}
     cap_add:
       - NET_ADMIN
     volumes:
       - ${NSM_LOG_DIR}/zeek:/var/log/zeek:rw
-      - ./zeek/files/local.zeek:/usr/local/zeek/share/zeek/site/local.zeek:rw
+      - ./services/zeek/config/local.zeek:/usr/local/zeek/share/zeek/site/local.zeek:ro
     environment:
       - TRUSTED_NET=${TRUSTED_NET:-192.168.0.0/16,10.0.0.0/8,172.16.0.0/12}
-      - PGID=${GID}
-      - PUID=${UID}
+      - PGID=${GID:-1000}
+      - PUID=${UID:-1000}
     network_mode: host
 
   elasticsearch:
@@ -44,37 +46,26 @@ services:
       - discovery.type=single-node
     networks:
       - elk
-    healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "curl -s -I http://localhost:9200 | grep -q 'HTTP/1.1 401 Unauthorized'",
-        ]
-      interval: 5s
-      timeout: 5s
-      retries: 20
 
   filebeat:
-    image: docker.elastic.co/beats/filebeat:7.17.1
+    build:
+      context: ./services
+      dockerfile: ./filebeat/Dockerfile
     command: --strict.perms=false #temp fix, maybe fix with custom image
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - ELASTICSEARCH_PASSWORD="${PASSWORD:-changeme}"
       - LOG_DIR=/var/log/nsm
     volumes:
-      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
-      - ./filebeat/modules.d/:/usr/share/filebeat/modules.d:ro
-      - ./filebeat/kibana/:/usr/share/filebeat/kibana:ro  #dashboards
+      - ./services/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./services/filebeat/modules.d/:/usr/share/filebeat/modules.d:ro
+      - ./services/filebeat/kibana/:/usr/share/filebeat/kibana:ro  #dashboards
 #      - :/usr/share/filebeat/logs
 #     - /var/run/docker.sock:/var/run/docker.sock:ro  #autodiscovery
       -  ${NSM_LOG_DIR}/:/var/log/nsm/:z
     networks:
       - elk
     depends_on:
-      kibana:
-        condition: service_healthy
-    links:
-      - elasticsearch
       - kibana
 
   kibana:
@@ -83,25 +74,13 @@ services:
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD="${PASSWORD:-changeme}"
       - LOGGING_QUIET=true
-      #- XPACK_SECURITY_ENCRYPTIONKEY=
+      - XPACK_SECURITY_ENCRYPTIONKEY=fjsdfhsdjkafjklsdfsdjkfhsdjghjjksfjg1223rf
     ports:
       - ${KIBANA_PORT:-5601}:5601
     networks:
       - elk
     depends_on:
-      elasticsearch:
-        condition: service_healthy
-    links:
       - elasticsearch
-    healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "curl -s -I http://localhost:5601 | grep -q 'HTTP/1.1 302 Found'",
-        ]
-      interval: 5s
-      timeout: 5s
-      retries: 20
 
 networks:  
   elk:
