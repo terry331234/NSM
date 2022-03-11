@@ -54,7 +54,7 @@ services:
     command: --strict.perms=false #temp fix, maybe fix with custom image
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      - ELASTICSEARCH_PASSWORD="${PASSWORD:-changeme}"
+      - ELASTICSEARCH_PASSWORD=${PASSWORD:-changeme}
       - LOG_DIR=/var/log/nsm
     volumes:
       - ./services/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
