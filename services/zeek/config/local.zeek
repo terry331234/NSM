@@ -65,9 +65,9 @@ redef digest_salt = "Please change this value.";
 @load protocols/ftp/detect
 
 # Scripts that do asset tracking.
-@load protocols/conn/known-hosts
-@load protocols/conn/known-services
-@load protocols/ssl/known-certs
+#@load protocols/conn/known-hosts
+#@load protocols/conn/known-services
+#@load protocols/ssl/known-certs
 
 # This script enables SSL/TLS certificate validation.
 #@load protocols/ssl/validate-certs

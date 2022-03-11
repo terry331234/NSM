@@ -8,8 +8,7 @@
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/conn.log"]
   dce_rpc:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/dce_rpc.log"]
+    enabled: false
   dhcp:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/dhcp.log"]
@@ -33,8 +32,7 @@
   irc:
     enabled: false
   kerberos:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/kerberos.log"]
+    enabled: false
   modbus:
     enabled: false
   mysql:
@@ -46,11 +44,9 @@
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/ntp.log"]
   ntlm:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/ntlm.log"]
+    enabled: false
   ocsp:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/ocsp*.log"]
+    enabled: false
   pe:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/pe.log"]
@@ -71,16 +67,14 @@
   smb_files:
     enabled: false
   smb_mapping:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/smb_mapping.log"]
+    enabled: false
   smtp:
     enabled: false
   snmp:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/snmp.log"]
   socks:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/socks.log"]
+    enabled: false
   ssh:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/ssh.log"]
@@ -88,14 +82,14 @@
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/ssl.log"]
   stats:
-    enabled: false
+    enabled: true
+    var.paths: ["${LOG_DIR}/zeek/current/stats.log"]
   syslog:
     enabled: false
   traceroute:
     enabled: false
   tunnel:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/tunnel.log"]
+    enabled: false
   weird:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/weird.log"]
