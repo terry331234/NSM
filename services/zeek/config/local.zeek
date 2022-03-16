@@ -70,7 +70,7 @@ redef digest_salt = "Please change this value.";
 #@load protocols/ssl/known-certs
 
 # This script enables SSL/TLS certificate validation.
-#@load protocols/ssl/validate-certs
+@load protocols/ssl/validate-certs
 
 # This script prevents the logging of SSL CA certificates in x509.log
 @load protocols/ssl/log-hostcerts-only

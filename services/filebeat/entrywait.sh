@@ -20,6 +20,9 @@ CONTAINER_INITED="script/CONTAINER_INITED"
 if [ ! -e $CONTAINER_INITED ]; then
   echo "Doing first time setup for Kibana"
 
+  chmod go-w /usr/share/filebeat/filebeat.yml
+  chmod -R go-w /usr/share/filebeat/modules.d
+
   attempt_counter=0
   until $(curl -s -u elastic:${ELASTICSEARCH_PASSWORD} --location --request GET 'kibana:5601/api/spaces/space/default' | grep -q 'disabledFeatures'); do
       if [ ${attempt_counter} -eq ${max_attempts} ]; then

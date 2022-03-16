@@ -51,14 +51,13 @@ services:
     build:
       context: ./services
       dockerfile: ./filebeat/Dockerfile
-    command: --strict.perms=false #temp fix, maybe fix with custom image
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - ELASTICSEARCH_PASSWORD=${PASSWORD:-changeme}
       - LOG_DIR=/var/log/nsm
     volumes:
-      - ./services/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
-      - ./services/filebeat/modules.d/:/usr/share/filebeat/modules.d:ro
+      - ./services/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:rw
+      - ./services/filebeat/modules.d/:/usr/share/filebeat/modules.d:rw
       - ./services/filebeat/kibana/:/usr/share/filebeat/kibana:ro  #dashboards
 #      - :/usr/share/filebeat/logs
 #     - /var/run/docker.sock:/var/run/docker.sock:ro  #autodiscovery
@@ -74,7 +73,7 @@ services:
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD="${PASSWORD:-changeme}"
       - LOGGING_QUIET=true
-      - XPACK_SECURITY_ENCRYPTIONKEY=fjsdfhsdjkafjklsdfsdjkfhsdjghjjksfjg1223rf
+      - XPACK_SECURITY_ENCRYPTIONKEY=EePXCifCaykPORwjqKGbINHCPFYnNXZT
     ports:
       - ${KIBANA_PORT:-5601}:5601
     networks:
