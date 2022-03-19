@@ -3,13 +3,14 @@
 attempt_counter=0
 max_attempts=30
 
+# ensure correct permission
+chmod go-w /usr/share/filebeat/filebeat.yml
+chmod -R go-w /usr/share/filebeat/modules.d
+
 # first time setup
 CONTAINER_INITED="script/CONTAINER_INITED"
 if [ ! -e $CONTAINER_INITED ]; then
   echo "Doing first time setup for Kibana"
-
-  chmod go-w /usr/share/filebeat/filebeat.yml
-  chmod -R go-w /usr/share/filebeat/modules.d
 
   attempt_counter=0
   echo "Trying to connect to Kibana..."
