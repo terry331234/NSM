@@ -1,0 +1,36 @@
+{
+    "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "title": "Navigation",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+            "aggs": [],
+            "params": {
+                "fontSize": 12,
+                "markdown": "**Alerts**    \n[Suricata Alerts](/app/dashboards#/view/5b685c20-af3b-11ec-b242-538620b91dcb)\n\n**Zeek Datasets**    \n[Connection](/app/dashboards#/view/b968aa40-b725-11ec-8557-1b440f769a60) |\n[SSL](/app/dashboards#/view/d3d3b0b0-b7f1-11ec-8557-1b440f769a60) |",
+                "openLinksInNewTab": false
+            },
+            "title": "Navigation",
+            "type": "markdown"
+        }
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "a8124790-b736-11ec-8557-1b440f769a60",
+    "migrationVersion": {
+        "visualization": "7.17.0"
+    },
+    "references": [],
+    "type": "visualization",
+    "updated_at": "2022-04-09T10:43:30.161Z",
+    "version": "WzIwOTM2LDVd"
+}

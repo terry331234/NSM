@@ -1,0 +1,49 @@
+{
+    "attributes": {
+        "columns": [
+            "rule.name",
+            "rule.id",
+            "event.severity",
+            "search_community_id",
+            "source.ip",
+            "destination.ip",
+            "source.port",
+            "destination.port"
+        ],
+        "description": "",
+        "grid": {},
+        "hideChart": false,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                "query": {
+                    "language": "kuery",
+                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" "
+                }
+            }
+        },
+        "sort": [
+            [
+                "@timestamp",
+                "desc"
+            ]
+        ],
+        "title": "Suricata Alerts"
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+    "migrationVersion": {
+        "search": "7.9.3"
+    },
+    "references": [
+        {
+            "id": "filebeat-*",
+            "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "search",
+    "updated_at": "2022-04-09T13:01:38.177Z",
+    "version": "WzIxMjAzLDVd"
+}

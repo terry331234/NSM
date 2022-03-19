@@ -1,0 +1,51 @@
+{
+    "attributes": {
+        "columns": [
+            "network.community_id",
+            "destination.ip",
+            "destination.port",
+            "source.ip",
+            "source.port",
+            "tls.client.ja3",
+            "tls.server.ja3s",
+            "zeek.ssl.server.name",
+            "tls.version",
+            "tls.server.subject"
+        ],
+        "description": "",
+        "grid": {},
+        "hideChart": false,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                "query": {
+                    "language": "kuery",
+                    "query": "event.module : \"zeek\" and fileset.name : \"ssl\"   "
+                }
+            }
+        },
+        "sort": [
+            [
+                "@timestamp",
+                "desc"
+            ]
+        ],
+        "title": "Zeek SSL"
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
+    "migrationVersion": {
+        "search": "7.9.3"
+    },
+    "references": [
+        {
+            "id": "filebeat-*",
+            "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "search",
+    "updated_at": "2022-04-09T10:26:30.333Z",
+    "version": "WzIwODgwLDVd"
+}

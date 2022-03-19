@@ -1,0 +1,670 @@
+{
+    "attributes": {
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 9,
+                    "i": "3cc7629b-42ea-41fe-af40-520bfde9839f",
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "3cc7629b-42ea-41fe-af40-520bfde9839f",
+                "panelRefName": "panel_3cc7629b-42ea-41fe-af40-520bfde9839f",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "filebeat-*",
+                                "name": "indexpattern-datasource-current-indexpattern",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "filebeat-*",
+                                "name": "indexpattern-datasource-layer-719039c1-13ac-4b93-85e8-858f6719e886",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "datasourceStates": {
+                                "indexpattern": {
+                                    "layers": {
+                                        "719039c1-13ac-4b93-85e8-858f6719e886": {
+                                            "columnOrder": [
+                                                "04902e9c-64a1-4fb2-9e2b-bbc7a222e6fa",
+                                                "943357b1-434a-483d-b44c-99e210f9c1f0",
+                                                "4bc3ae2e-c271-42b2-be5c-ad671b3d24ed"
+                                            ],
+                                            "columns": {
+                                                "04902e9c-64a1-4fb2-9e2b-bbc7a222e6fa": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top values of network.direction",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "missingBucket": true,
+                                                        "orderBy": {
+                                                            "columnId": "4bc3ae2e-c271-42b2-be5c-ad671b3d24ed",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "size": 5
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "network.direction"
+                                                },
+                                                "4bc3ae2e-c271-42b2-be5c-ad671b3d24ed": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count of records",
+                                                    "operationType": "count",
+                                                    "scale": "ratio",
+                                                    "sourceField": "Records"
+                                                },
+                                                "943357b1-434a-483d-b44c-99e210f9c1f0": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "incompleteColumns": {}
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.module : \"zeek\" and fileset.name : \"connection\" "
+                            },
+                            "visualization": {
+                                "axisTitlesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "fittingFunction": "None",
+                                "gridlinesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "labelsOrientation": {
+                                    "x": 0,
+                                    "yLeft": 0,
+                                    "yRight": 0
+                                },
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "4bc3ae2e-c271-42b2-be5c-ad671b3d24ed"
+                                        ],
+                                        "layerId": "719039c1-13ac-4b93-85e8-858f6719e886",
+                                        "layerType": "data",
+                                        "position": "top",
+                                        "seriesType": "bar_stacked",
+                                        "showGridlines": false,
+                                        "splitAccessor": "04902e9c-64a1-4fb2-9e2b-bbc7a222e6fa",
+                                        "xAccessor": "943357b1-434a-483d-b44c-99e210f9c1f0"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "bar_stacked",
+                                "tickLabelsVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "valueLabels": "hide",
+                                "yLeftExtent": {
+                                    "mode": "full"
+                                },
+                                "yRightExtent": {
+                                    "mode": "full"
+                                }
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {},
+                    "hidePanelTitles": false
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "737c77cf-057e-4b1b-a3ab-23ab87aca47d",
+                    "w": 36,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "737c77cf-057e-4b1b-a3ab-23ab87aca47d",
+                "title": "Connection By Direction",
+                "type": "lens",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "index": "filebeat-*",
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\"  "
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": false,
+                            "addTooltip": true,
+                            "metric": {
+                                "colorSchema": "Green to Red",
+                                "colorsRange": [
+                                    {
+                                        "from": 0,
+                                        "to": 10000
+                                    }
+                                ],
+                                "invertColors": false,
+                                "labels": {
+                                    "show": true
+                                },
+                                "metricColorMode": "None",
+                                "percentageMode": false,
+                                "style": {
+                                    "bgColor": false,
+                                    "bgFill": "#000",
+                                    "fontSize": 60,
+                                    "labelColor": false,
+                                    "subText": ""
+                                },
+                                "useRanges": false
+                            },
+                            "type": "metric"
+                        },
+                        "title": "",
+                        "type": "metric",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 7,
+                    "i": "60cba221-b9d8-4007-828c-02739f71c5a7",
+                    "w": 12,
+                    "x": 0,
+                    "y": 9
+                },
+                "panelIndex": "60cba221-b9d8-4007-828c-02739f71c5a7",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Source IP",
+                                        "field": "source.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 382
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 117
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750",
+                    "w": 13,
+                    "x": 0,
+                    "y": 16
+                },
+                "panelIndex": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750",
+                "title": "Top 10 Source IP",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Destination IP",
+                                        "field": "destination.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 397
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 116
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "8f9ee6c1-4b36-4c6a-a1f5-1d5cfffdc692",
+                    "w": 13,
+                    "x": 13,
+                    "y": 16
+                },
+                "panelIndex": "8f9ee6c1-4b36-4c6a-a1f5-1d5cfffdc692",
+                "title": "Top 10 Destination IP",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Port",
+                                        "field": "destination.port",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 123
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 129
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "867757b0-db98-4f23-9e1c-874ff442dfc2",
+                    "w": 7,
+                    "x": 26,
+                    "y": 16
+                },
+                "panelIndex": "867757b0-db98-4f23-9e1c-874ff442dfc2",
+                "title": "Top 10 Destination Port",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Connection State",
+                                        "field": "zeek.connection.state_message",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 20
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 492
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 105
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "e2efd156-5d8e-467a-ac2b-67f2759da39e",
+                    "w": 15,
+                    "x": 33,
+                    "y": 16
+                },
+                "panelIndex": "e2efd156-5d8e-467a-ac2b-67f2759da39e",
+                "title": "Connection State",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 18,
+                    "i": "798c6d65-9fff-4252-b316-b84c1517fe66",
+                    "w": 48,
+                    "x": 0,
+                    "y": 30
+                },
+                "panelIndex": "798c6d65-9fff-4252-b316-b84c1517fe66",
+                "panelRefName": "panel_798c6d65-9fff-4252-b316-b84c1517fe66",
+                "type": "search",
+                "version": "7.17.1"
+            }
+        ],
+        "timeRestore": false,
+        "title": "Zeek Connection",
+        "version": 1
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "b968aa40-b725-11ec-8557-1b440f769a60",
+    "migrationVersion": {
+        "dashboard": "7.17.0"
+    },
+    "references": [
+        {
+            "id": "a8124790-b736-11ec-8557-1b440f769a60",
+            "name": "3cc7629b-42ea-41fe-af40-520bfde9839f:panel_3cc7629b-42ea-41fe-af40-520bfde9839f",
+            "type": "visualization"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "737c77cf-057e-4b1b-a3ab-23ab87aca47d:indexpattern-datasource-current-indexpattern",
+            "type": "index-pattern"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "737c77cf-057e-4b1b-a3ab-23ab87aca47d:indexpattern-datasource-layer-719039c1-13ac-4b93-85e8-858f6719e886",
+            "type": "index-pattern"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "60cba221-b9d8-4007-828c-02739f71c5a7:kibanaSavedObjectMeta.searchSourceJSON.index",
+            "type": "index-pattern"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "60cba221-b9d8-4007-828c-02739f71c5a7:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "8f9ee6c1-4b36-4c6a-a1f5-1d5cfffdc692:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "867757b0-db98-4f23-9e1c-874ff442dfc2:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "e2efd156-5d8e-467a-ac2b-67f2759da39e:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "798c6d65-9fff-4252-b316-b84c1517fe66:panel_798c6d65-9fff-4252-b316-b84c1517fe66",
+            "type": "search"
+        }
+    ],
+    "type": "dashboard",
+    "updated_at": "2022-04-09T11:31:12.234Z",
+    "version": "WzIwOTQ1LDVd"
+}

@@ -18,9 +18,6 @@ setup:
     host: "kibana:5601"
     username: elastic
     password: "${ELASTICSEARCH_PASSWORD}"
-  dashboards:
-    enabled: true
-#setup.dashboards.retry.enabled: true #Retry in case Kibana is not up yet
 
 # The URL from where to download the dashboards archive. By default this URL
 # has a value which is computed based on the Beat name and version. For released

@@ -1,0 +1,52 @@
+{
+    "attributes": {
+        "columns": [
+            "destination.ip",
+            "destination.port",
+            "source.ip",
+            "source.port",
+            "network.protocol",
+            "search_community_id",
+            "zeek.connection.history",
+            "zeek.connection.state_message",
+            "destination.bytes",
+            "source.bytes",
+            "event.duration"
+        ],
+        "description": "",
+        "grid": {},
+        "hideChart": false,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                "query": {
+                    "language": "kuery",
+                    "query": "event.module : \"zeek\" and fileset.name : \"connection\"  "
+                }
+            }
+        },
+        "sort": [
+            [
+                "@timestamp",
+                "desc"
+            ]
+        ],
+        "title": "Zeek Connection"
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+    "migrationVersion": {
+        "search": "7.9.3"
+    },
+    "references": [
+        {
+            "id": "filebeat-*",
+            "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "search",
+    "updated_at": "2022-04-09T12:36:12.297Z",
+    "version": "WzIxMDI2LDVd"
+}

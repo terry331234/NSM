@@ -1,0 +1,570 @@
+{
+    "attributes": {
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 9,
+                    "i": "e338ff3a-8693-4a67-8b2f-7fe7fb1f231d",
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "e338ff3a-8693-4a67-8b2f-7fe7fb1f231d",
+                "panelRefName": "panel_e338ff3a-8693-4a67-8b2f-7fe7fb1f231d",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "filebeat-*",
+                                "name": "indexpattern-datasource-current-indexpattern",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "filebeat-*",
+                                "name": "indexpattern-datasource-layer-0d9c942d-5ed3-4b23-bc71-a9975e527411",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "datasourceStates": {
+                                "indexpattern": {
+                                    "layers": {
+                                        "0d9c942d-5ed3-4b23-bc71-a9975e527411": {
+                                            "columnOrder": [
+                                                "2a66c43f-84c9-4076-ba10-1e36fbd5f03f",
+                                                "be4fcee4-efa8-4715-a60f-e718540d877d",
+                                                "971ca6b9-f10f-4b3b-ad17-b3df43045b8b"
+                                            ],
+                                            "columns": {
+                                                "2a66c43f-84c9-4076-ba10-1e36fbd5f03f": {
+                                                    "customLabel": true,
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Protocol",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "missingBucket": true,
+                                                        "orderBy": {
+                                                            "columnId": "971ca6b9-f10f-4b3b-ad17-b3df43045b8b",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "size": 10
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "zeek.ssl.version"
+                                                },
+                                                "971ca6b9-f10f-4b3b-ad17-b3df43045b8b": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count of logs",
+                                                    "operationType": "count",
+                                                    "scale": "ratio",
+                                                    "sourceField": "Records"
+                                                },
+                                                "be4fcee4-efa8-4715-a60f-e718540d877d": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "incompleteColumns": {}
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.module : \"zeek\" and fileset.name : \"ssl\" "
+                            },
+                            "visualization": {
+                                "axisTitlesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "fittingFunction": "None",
+                                "gridlinesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "labelsOrientation": {
+                                    "x": 0,
+                                    "yLeft": 0,
+                                    "yRight": 0
+                                },
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "971ca6b9-f10f-4b3b-ad17-b3df43045b8b"
+                                        ],
+                                        "layerId": "0d9c942d-5ed3-4b23-bc71-a9975e527411",
+                                        "layerType": "data",
+                                        "position": "top",
+                                        "seriesType": "bar_stacked",
+                                        "showGridlines": false,
+                                        "splitAccessor": "2a66c43f-84c9-4076-ba10-1e36fbd5f03f",
+                                        "xAccessor": "be4fcee4-efa8-4715-a60f-e718540d877d"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "bar_stacked",
+                                "tickLabelsVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "valueLabels": "hide",
+                                "yLeftExtent": {
+                                    "mode": "full"
+                                },
+                                "yRightExtent": {
+                                    "mode": "full"
+                                }
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "9be44bf0-db6b-4e57-903b-5aaee042efda",
+                    "w": 36,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "9be44bf0-db6b-4e57-903b-5aaee042efda",
+                "type": "lens",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                }
+                            ],
+                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {}
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": false,
+                            "addTooltip": true,
+                            "metric": {
+                                "colorSchema": "Green to Red",
+                                "colorsRange": [
+                                    {
+                                        "from": 0,
+                                        "to": 10000
+                                    }
+                                ],
+                                "invertColors": false,
+                                "labels": {
+                                    "show": true
+                                },
+                                "metricColorMode": "None",
+                                "percentageMode": false,
+                                "style": {
+                                    "bgColor": false,
+                                    "bgFill": "#000",
+                                    "fontSize": 60,
+                                    "labelColor": false,
+                                    "subText": ""
+                                },
+                                "useRanges": false
+                            },
+                            "type": "metric"
+                        },
+                        "title": "",
+                        "type": "metric",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 7,
+                    "i": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                    "w": 12,
+                    "x": 0,
+                    "y": 9
+                },
+                "panelIndex": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Server Name",
+                                        "field": "zeek.ssl.server.name",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 100
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 431
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 99
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "7b1dab77-edba-42f6-9693-aba21a13862f",
+                    "w": 14,
+                    "x": 21,
+                    "y": 16
+                },
+                "panelIndex": "7b1dab77-edba-42f6-9693-aba21a13862f",
+                "title": "SSL Server Name",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "field": "zeek.ssl.validation.status",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "segment",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": false,
+                            "addTooltip": true,
+                            "distinctColors": false,
+                            "isDonut": true,
+                            "labels": {
+                                "last_level": false,
+                                "percentDecimals": 2,
+                                "position": "default",
+                                "show": true,
+                                "truncate": 100,
+                                "values": true,
+                                "valuesFormat": "percent"
+                            },
+                            "legendPosition": "right",
+                            "maxLegendLines": 1,
+                            "nestedLegend": false,
+                            "palette": {
+                                "name": "default",
+                                "type": "palette"
+                            },
+                            "truncateLegend": true,
+                            "type": "pie"
+                        },
+                        "title": "",
+                        "type": "pie",
+                        "uiState": {
+                            "vis": {
+                                "legendOpen": false
+                            }
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
+                    "w": 13,
+                    "x": 35,
+                    "y": 16
+                },
+                "panelIndex": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
+                "title": "Cert Validation Status",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Issuer",
+                                        "field": "tls.server.issuer",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 100
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 731
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 99
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "9160a4a7-1121-4ce0-a810-b3473dbf1bf1",
+                    "w": 21,
+                    "x": 0,
+                    "y": 16
+                },
+                "panelIndex": "9160a4a7-1121-4ce0-a810-b3473dbf1bf1",
+                "title": "SSL Server Cert Issuer",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 26,
+                    "i": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                    "w": 48,
+                    "x": 0,
+                    "y": 31
+                },
+                "panelIndex": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                "panelRefName": "panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                "type": "search",
+                "version": "7.17.1"
+            }
+        ],
+        "timeRestore": false,
+        "title": "Zeek SSL",
+        "version": 1
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "d3d3b0b0-b7f1-11ec-8557-1b440f769a60",
+    "migrationVersion": {
+        "dashboard": "7.17.0"
+    },
+    "references": [
+        {
+            "id": "a8124790-b736-11ec-8557-1b440f769a60",
+            "name": "e338ff3a-8693-4a67-8b2f-7fe7fb1f231d:panel_e338ff3a-8693-4a67-8b2f-7fe7fb1f231d",
+            "type": "visualization"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "9be44bf0-db6b-4e57-903b-5aaee042efda:indexpattern-datasource-current-indexpattern",
+            "type": "index-pattern"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "9be44bf0-db6b-4e57-903b-5aaee042efda:indexpattern-datasource-layer-0d9c942d-5ed3-4b23-bc71-a9975e527411",
+            "type": "index-pattern"
+        },
+        {
+            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
+            "name": "add0871e-edb3-4c66-be27-4555dcd4511a:search_0",
+            "type": "search"
+        },
+        {
+            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
+            "name": "7b1dab77-edba-42f6-9693-aba21a13862f:search_0",
+            "type": "search"
+        },
+        {
+            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
+            "name": "a07d5399-9d41-46ba-94f4-3351c7d95fa2:search_0",
+            "type": "search"
+        },
+        {
+            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
+            "name": "9160a4a7-1121-4ce0-a810-b3473dbf1bf1:search_0",
+            "type": "search"
+        },
+        {
+            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
+            "name": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063:panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+            "type": "search"
+        }
+    ],
+    "type": "dashboard",
+    "updated_at": "2022-04-09T11:31:17.683Z",
+    "version": "WzIwOTQ2LDVd"
+}

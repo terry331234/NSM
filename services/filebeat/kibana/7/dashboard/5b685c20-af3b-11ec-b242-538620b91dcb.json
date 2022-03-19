@@ -1,0 +1,790 @@
+{
+    "attributes": {
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 9,
+                    "i": "cb0a348e-560f-423f-815f-b11e2ff5f0fb",
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "cb0a348e-560f-423f-815f-b11e2ff5f0fb",
+                "panelRefName": "panel_cb0a348e-560f-423f-815f-b11e2ff5f0fb",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                }
+                            ],
+                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {}
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": false,
+                            "addTooltip": true,
+                            "metric": {
+                                "colorSchema": "Green to Red",
+                                "colorsRange": [
+                                    {
+                                        "from": 0,
+                                        "to": 10000
+                                    }
+                                ],
+                                "invertColors": false,
+                                "labels": {
+                                    "show": true
+                                },
+                                "metricColorMode": "None",
+                                "percentageMode": false,
+                                "style": {
+                                    "bgColor": false,
+                                    "bgFill": "#000",
+                                    "fontSize": 60,
+                                    "labelColor": false,
+                                    "subText": ""
+                                },
+                                "useRanges": false
+                            },
+                            "type": "metric"
+                        },
+                        "title": "",
+                        "type": "metric",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 9,
+                    "i": "c2236d90-7c44-498f-8034-419a238f0430",
+                    "w": 12,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "c2236d90-7c44-498f-8034-419a238f0430",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": true,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [],
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "controls": [
+                                {
+                                    "fieldName": "event.severity",
+                                    "id": "1648542807518",
+                                    "indexPatternRefName": "control_ec78b5bb-8f3d-4d50-93d8-129272785602_0_index_pattern",
+                                    "label": "Alert Severity",
+                                    "options": {
+                                        "dynamicOptions": true,
+                                        "multiselect": true,
+                                        "order": "desc",
+                                        "size": 3,
+                                        "type": "terms"
+                                    },
+                                    "parent": "",
+                                    "type": "list"
+                                }
+                            ],
+                            "pinFilters": false,
+                            "updateFiltersOnChange": false,
+                            "useTimeFilter": false
+                        },
+                        "title": "",
+                        "type": "input_control_vis",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 9,
+                    "i": "ec78b5bb-8f3d-4d50-93d8-129272785602",
+                    "w": 12,
+                    "x": 24,
+                    "y": 0
+                },
+                "panelIndex": "ec78b5bb-8f3d-4d50-93d8-129272785602",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Rule Name",
+                                        "field": "rule.name",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 20
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "3",
+                                    "params": {
+                                        "customLabel": "Severity",
+                                        "field": "event.severity"
+                                    },
+                                    "schema": "metric",
+                                    "type": "median"
+                                }
+                            ],
+                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "row": false,
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 541
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 95
+                                },
+                                {
+                                    "colIndex": 2,
+                                    "width": 88
+                                }
+                            ],
+                            "sort": {
+                                "columnIndex": null,
+                                "direction": null
+                            }
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "b6a60756-8923-4261-bd35-f8f1d996148a",
+                    "w": 19,
+                    "x": 29,
+                    "y": 9
+                },
+                "panelIndex": "b6a60756-8923-4261-bd35-f8f1d996148a",
+                "title": "Top 20 Alerts",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "filebeat-*",
+                                "name": "indexpattern-datasource-current-indexpattern",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "filebeat-*",
+                                "name": "indexpattern-datasource-layer-3448c725-4547-46bb-9df3-f7edd0cf5564",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "datasourceStates": {
+                                "indexpattern": {
+                                    "layers": {
+                                        "3448c725-4547-46bb-9df3-f7edd0cf5564": {
+                                            "columnOrder": [
+                                                "36861d3f-3af5-4d48-b83c-3c180a6b29df",
+                                                "b3557268-e1ed-4e29-82e2-c0c13186b395",
+                                                "d92581c6-bdae-4ba0-a56d-3a77247ccd5e",
+                                                "d92581c6-bdae-4ba0-a56d-3a77247ccd5eX0"
+                                            ],
+                                            "columns": {
+                                                "36861d3f-3af5-4d48-b83c-3c180a6b29df": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                },
+                                                "b3557268-e1ed-4e29-82e2-c0c13186b395": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top values of rule.category",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "fallback": true,
+                                                            "type": "alphabetical"
+                                                        },
+                                                        "orderDirection": "asc",
+                                                        "otherBucket": true,
+                                                        "size": 8
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "rule.category"
+                                                },
+                                                "d92581c6-bdae-4ba0-a56d-3a77247ccd5e": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "alert count",
+                                                    "operationType": "formula",
+                                                    "params": {
+                                                        "formula": "count()",
+                                                        "isFormulaBroken": false
+                                                    },
+                                                    "references": [
+                                                        "d92581c6-bdae-4ba0-a56d-3a77247ccd5eX0"
+                                                    ],
+                                                    "scale": "ratio"
+                                                },
+                                                "d92581c6-bdae-4ba0-a56d-3a77247ccd5eX0": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Part of alert count",
+                                                    "operationType": "count",
+                                                    "scale": "ratio",
+                                                    "sourceField": "Records"
+                                                }
+                                            },
+                                            "incompleteColumns": {}
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.kind : \"alert\" and event.module : \"suricata\" "
+                            },
+                            "visualization": {
+                                "axisTitlesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "curveType": "LINEAR",
+                                "fittingFunction": "Zero",
+                                "gridlinesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "labelsOrientation": {
+                                    "x": 0,
+                                    "yLeft": 0,
+                                    "yRight": 0
+                                },
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "d92581c6-bdae-4ba0-a56d-3a77247ccd5e"
+                                        ],
+                                        "layerId": "3448c725-4547-46bb-9df3-f7edd0cf5564",
+                                        "layerType": "data",
+                                        "position": "top",
+                                        "seriesType": "bar_stacked",
+                                        "showGridlines": false,
+                                        "splitAccessor": "b3557268-e1ed-4e29-82e2-c0c13186b395",
+                                        "xAccessor": "36861d3f-3af5-4d48-b83c-3c180a6b29df"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "bar_stacked",
+                                "tickLabelsVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "valueLabels": "hide",
+                                "yLeftExtent": {
+                                    "mode": "full"
+                                },
+                                "yRightExtent": {
+                                    "mode": "full"
+                                }
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {},
+                    "hidePanelTitles": false
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "08b493a6-4b43-4c66-8870-e21eaea42fc9",
+                    "w": 29,
+                    "x": 0,
+                    "y": 9
+                },
+                "panelIndex": "08b493a6-4b43-4c66-8870-e21eaea42fc9",
+                "title": "Alert Types over Time",
+                "type": "lens",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Destination IP",
+                                        "field": "destination.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 489
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 134
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "ab997834-0c74-4d24-a43d-3c482f4e389e",
+                    "w": 15,
+                    "x": 33,
+                    "y": 23
+                },
+                "panelIndex": "ab997834-0c74-4d24-a43d-3c482f4e389e",
+                "title": "Top 10 Alerting Destination IP",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hiddenLayers": [],
+                    "isLayerTOCOpen": false,
+                    "mapBuffer": {
+                        "maxLat": 85.05113,
+                        "maxLon": 360,
+                        "minLat": -85.05113,
+                        "minLon": -180
+                    },
+                    "mapCenter": {
+                        "lat": 23.39299,
+                        "lon": 2.3153,
+                        "zoom": 0.55
+                    },
+                    "openTOCDetails": []
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "8ea259c5-02af-48da-9d11-b0ac344ff601",
+                    "w": 18,
+                    "x": 0,
+                    "y": 23
+                },
+                "panelIndex": "8ea259c5-02af-48da-9d11-b0ac344ff601",
+                "panelRefName": "panel_8ea259c5-02af-48da-9d11-b0ac344ff601",
+                "type": "map",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Source IP",
+                                        "field": "source.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 125.5
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 441.5
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "90eafb24-f942-46a5-a88b-7c699254a4f6",
+                    "w": 15,
+                    "x": 18,
+                    "y": 23
+                },
+                "panelIndex": "90eafb24-f942-46a5-a88b-7c699254a4f6",
+                "title": "Top 10 Alerting Source IP",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Destination Port",
+                                        "field": "destination.port",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 96.5
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 524.5
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 8,
+                    "i": "07b42183-d557-4543-91d5-fa0bcf2641f8",
+                    "w": 16,
+                    "x": 0,
+                    "y": 37
+                },
+                "panelIndex": "07b42183-d557-4543-91d5-fa0bcf2641f8",
+                "title": "Top 10 Destination Port",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "13f4e595-2319-47f8-8d96-546ae071fb18",
+                    "w": 48,
+                    "x": 0,
+                    "y": 45
+                },
+                "panelIndex": "13f4e595-2319-47f8-8d96-546ae071fb18",
+                "panelRefName": "panel_13f4e595-2319-47f8-8d96-546ae071fb18",
+                "type": "search",
+                "version": "7.17.1"
+            }
+        ],
+        "timeRestore": false,
+        "title": "Suricata Alerts",
+        "version": 1
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "5b685c20-af3b-11ec-b242-538620b91dcb",
+    "migrationVersion": {
+        "dashboard": "7.17.0"
+    },
+    "references": [
+        {
+            "id": "a8124790-b736-11ec-8557-1b440f769a60",
+            "name": "cb0a348e-560f-423f-815f-b11e2ff5f0fb:panel_cb0a348e-560f-423f-815f-b11e2ff5f0fb",
+            "type": "visualization"
+        },
+        {
+            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+            "name": "c2236d90-7c44-498f-8034-419a238f0430:search_0",
+            "type": "search"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "ec78b5bb-8f3d-4d50-93d8-129272785602:control_ec78b5bb-8f3d-4d50-93d8-129272785602_0_index_pattern",
+            "type": "index-pattern"
+        },
+        {
+            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+            "name": "b6a60756-8923-4261-bd35-f8f1d996148a:search_0",
+            "type": "search"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "08b493a6-4b43-4c66-8870-e21eaea42fc9:indexpattern-datasource-current-indexpattern",
+            "type": "index-pattern"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "08b493a6-4b43-4c66-8870-e21eaea42fc9:indexpattern-datasource-layer-3448c725-4547-46bb-9df3-f7edd0cf5564",
+            "type": "index-pattern"
+        },
+        {
+            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+            "name": "ab997834-0c74-4d24-a43d-3c482f4e389e:search_0",
+            "type": "search"
+        },
+        {
+            "id": "a7cd32d0-b737-11ec-8557-1b440f769a60",
+            "name": "8ea259c5-02af-48da-9d11-b0ac344ff601:panel_8ea259c5-02af-48da-9d11-b0ac344ff601",
+            "type": "map"
+        },
+        {
+            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+            "name": "90eafb24-f942-46a5-a88b-7c699254a4f6:search_0",
+            "type": "search"
+        },
+        {
+            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+            "name": "07b42183-d557-4543-91d5-fa0bcf2641f8:search_0",
+            "type": "search"
+        },
+        {
+            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+            "name": "13f4e595-2319-47f8-8d96-546ae071fb18:panel_13f4e595-2319-47f8-8d96-546ae071fb18",
+            "type": "search"
+        }
+    ],
+    "type": "dashboard",
+    "updated_at": "2022-04-09T11:31:48.575Z",
+    "version": "WzIwOTUwLDVd"
+}
