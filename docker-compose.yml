@@ -55,6 +55,7 @@ services:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - ELASTICSEARCH_PASSWORD=${PASSWORD:-changeme}
       - LOG_DIR=/var/log/nsm
+      - TRUSTED_NET=${TRUSTED_NET:-192.168.0.0/16,10.0.0.0/8,172.16.0.0/12}
     volumes:
       - ./services/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:rw
       - ./services/filebeat/modules.d/:/usr/share/filebeat/modules.d:rw

@@ -7,16 +7,19 @@
   connection:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/conn.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   dce_rpc:
     enabled: false
   dhcp:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/dhcp.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   dnp3:
     enabled: false
   dns:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/dns.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   dpd:
     enabled: false
   files:
@@ -27,6 +30,7 @@
   http:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/http.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   intel:
     enabled: false
   irc:
@@ -40,9 +44,11 @@
   notice:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/notice.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   ntp:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/ntp.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   ntlm:
     enabled: false
   ocsp:
@@ -55,6 +61,7 @@
   rdp:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/rdp.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   rfb:
     enabled: false
   signature:
@@ -62,6 +69,7 @@
   sip:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/sip.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   smb_cmd:
     enabled: false
   smb_files:
@@ -73,14 +81,17 @@
   snmp:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/snmp.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   socks:
     enabled: false
   ssh:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/ssh.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   ssl:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/ssl.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   stats:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/stats.log"]
@@ -93,6 +104,7 @@
   weird:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/weird.log"]
+    var.internal_networks: "${TRUSTED_NET}"
   x509:
     enabled: true
     var.paths: ["${LOG_DIR}/zeek/current/x509.log"]
