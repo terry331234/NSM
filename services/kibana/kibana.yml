@@ -29,7 +29,7 @@ server.host: "0.0.0.0"
 #server.name: "your-hostname"
 
 # The URLs of the Elasticsearch instances to use for all your queries.
-#elasticsearch.hosts: ["http://elasticsearch:9200"]
+elasticsearch.hosts: ["http://elasticsearch:9200"]
 
 # Kibana uses an index in Elasticsearch to store saved searches, visualizations and
 # dashboards. Kibana creates a new index if the index doesn't already exist.
@@ -93,3 +93,6 @@ server.host: "0.0.0.0"
 # Specifies locale to be used for all localizable strings, dates and number formats.
 # Supported languages are the following: English - en , by default , Chinese - zh-CN .
 #i18n.locale: "en"
+
+server.shutdownTimeout: "5s"
+vis_type_vega.enableExternalUrls: true

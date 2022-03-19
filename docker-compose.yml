@@ -75,6 +75,8 @@ services:
       - ELASTICSEARCH_PASSWORD="${PASSWORD:-changeme}"
       - LOGGING_QUIET=true
       - XPACK_SECURITY_ENCRYPTIONKEY=EePXCifCaykPORwjqKGbINHCPFYnNXZT
+    volumes:
+      - ./services/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
     ports:
       - ${KIBANA_PORT:-5601}:5601
     networks:
