@@ -1,14 +1,8 @@
 {
     "attributes": {
         "columns": [
-            "rule.name",
-            "rule.id",
-            "event.severity",
-            "search_community_id",
             "source.ip",
-            "destination.ip",
-            "source.port",
-            "destination.port"
+            "destination.ip"
         ],
         "description": "",
         "grid": {},
@@ -19,7 +13,7 @@
                 "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
                 "query": {
                     "language": "kuery",
-                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" "
+                    "query": "event.module : \"zeek\" and fileset.name : \"ntp\" "
                 }
             }
         },
@@ -29,10 +23,10 @@
                 "desc"
             ]
         ],
-        "title": "Suricata Alerts"
+        "title": "Zeek NTP"
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+    "id": "05593960-b721-11ec-8557-1b440f769a60",
     "migrationVersion": {
         "search": "7.9.3"
     },
@@ -44,6 +38,6 @@
         }
     ],
     "type": "search",
-    "updated_at": "2022-04-09T13:01:38.177Z",
-    "version": "WzU0NTAwLDdd"
+    "updated_at": "2022-04-15T12:52:03.272Z",
+    "version": "WzYyOTYxLDdd"
 }

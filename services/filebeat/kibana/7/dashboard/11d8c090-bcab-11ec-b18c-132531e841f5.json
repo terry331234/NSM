@@ -1,0 +1,129 @@
+{
+    "attributes": {
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 11,
+                    "i": "4447ccaf-8a60-4e64-8106-c631ed18aed3",
+                    "w": 14,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "4447ccaf-8a60-4e64-8106-c631ed18aed3",
+                "panelRefName": "panel_4447ccaf-8a60-4e64-8106-c631ed18aed3",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Metadata Log Type",
+                                        "field": "fileset.name",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "searchSource": {
+                                "filter": [],
+                                "index": "filebeat-*",
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 11,
+                    "i": "107e57b7-7f09-4634-963d-04e8d9e7a867",
+                    "w": 21,
+                    "x": 14,
+                    "y": 0
+                },
+                "panelIndex": "107e57b7-7f09-4634-963d-04e8d9e7a867",
+                "type": "visualization",
+                "version": "7.17.1"
+            }
+        ],
+        "timeRestore": false,
+        "title": "Related Metadata",
+        "version": 1
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "11d8c090-bcab-11ec-b18c-132531e841f5",
+    "migrationVersion": {
+        "dashboard": "7.17.0"
+    },
+    "references": [
+        {
+            "id": "a8124790-b736-11ec-8557-1b440f769a60",
+            "name": "4447ccaf-8a60-4e64-8106-c631ed18aed3:panel_4447ccaf-8a60-4e64-8106-c631ed18aed3",
+            "type": "visualization"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "107e57b7-7f09-4634-963d-04e8d9e7a867:kibanaSavedObjectMeta.searchSourceJSON.index",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "dashboard",
+    "updated_at": "2022-04-15T10:59:06.653Z",
+    "version": "WzYyNjYxLDdd"
+}

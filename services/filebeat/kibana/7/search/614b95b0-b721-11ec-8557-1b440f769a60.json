@@ -1,17 +1,19 @@
 {
     "attributes": {
         "columns": [
-            "rule.name",
-            "rule.id",
-            "event.severity",
-            "search_community_id",
-            "source.ip",
-            "destination.ip",
-            "source.port",
-            "destination.port"
+            "file.x509.issuer.common_name",
+            "zeek.x509.certificate.issuer.organization",
+            "zeek.x509.certificate.issuer.country",
+            "zeek.x509.san.dns"
         ],
         "description": "",
-        "grid": {},
+        "grid": {
+            "columns": {
+                "zeek.x509.certificate.issuer.country": {
+                    "width": 276
+                }
+            }
+        },
         "hideChart": false,
         "kibanaSavedObjectMeta": {
             "searchSourceJSON": {
@@ -19,7 +21,7 @@
                 "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
                 "query": {
                     "language": "kuery",
-                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" "
+                    "query": "event.module : \"zeek\" and fileset.name : \"x509\"   "
                 }
             }
         },
@@ -29,10 +31,10 @@
                 "desc"
             ]
         ],
-        "title": "Suricata Alerts"
+        "title": "Zeek X509"
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+    "id": "614b95b0-b721-11ec-8557-1b440f769a60",
     "migrationVersion": {
         "search": "7.9.3"
     },
@@ -44,6 +46,6 @@
         }
     ],
     "type": "search",
-    "updated_at": "2022-04-09T13:01:38.177Z",
-    "version": "WzU0NTAwLDdd"
+    "updated_at": "2022-04-15T14:58:52.744Z",
+    "version": "WzY1NDc4LDdd"
 }

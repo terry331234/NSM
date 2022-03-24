@@ -1,14 +1,14 @@
 {
     "attributes": {
         "columns": [
-            "rule.name",
-            "rule.id",
-            "event.severity",
-            "search_community_id",
-            "source.ip",
             "destination.ip",
-            "source.port",
-            "destination.port"
+            "destination.port",
+            "source.ip",
+            "zeek.sip.request.from",
+            "zeek.sip.request.to",
+            "zeek.sip.sequence.method",
+            "zeek.sip.uri",
+            "zeek.sip.user_agent"
         ],
         "description": "",
         "grid": {},
@@ -19,7 +19,7 @@
                 "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
                 "query": {
                     "language": "kuery",
-                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" "
+                    "query": "event.module : \"zeek\" and fileset.name : \"sip\" "
                 }
             }
         },
@@ -29,10 +29,10 @@
                 "desc"
             ]
         ],
-        "title": "Suricata Alerts"
+        "title": "Zeek SIP"
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+    "id": "339bb910-b721-11ec-8557-1b440f769a60",
     "migrationVersion": {
         "search": "7.9.3"
     },
@@ -44,6 +44,6 @@
         }
     ],
     "type": "search",
-    "updated_at": "2022-04-09T13:01:38.177Z",
-    "version": "WzU0NTAwLDdd"
+    "updated_at": "2022-04-15T13:28:07.813Z",
+    "version": "WzYzMzE3LDdd"
 }

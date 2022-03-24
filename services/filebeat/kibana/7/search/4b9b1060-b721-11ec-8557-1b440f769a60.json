@@ -10,14 +10,37 @@
             "tls.server.ja3s",
             "zeek.ssl.server.name",
             "tls.version",
-            "tls.server.subject"
+            "tls.server.subject",
+            "zeek.ssl.server.cert_chain_fuids"
         ],
         "description": "",
         "grid": {},
         "hideChart": false,
         "kibanaSavedObjectMeta": {
             "searchSourceJSON": {
-                "filter": [],
+                "filter": [
+                    {
+                        "$state": {
+                            "store": "appState"
+                        },
+                        "meta": {
+                            "alias": null,
+                            "disabled": false,
+                            "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                            "key": "tls.version",
+                            "negate": true,
+                            "params": {
+                                "query": "1.3"
+                            },
+                            "type": "phrase"
+                        },
+                        "query": {
+                            "match_phrase": {
+                                "tls.version": "1.3"
+                            }
+                        }
+                    }
+                ],
                 "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
                 "query": {
                     "language": "kuery",
@@ -43,9 +66,14 @@
             "id": "filebeat-*",
             "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
             "type": "index-pattern"
+        },
+        {
+            "id": "filebeat-*",
+            "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+            "type": "index-pattern"
         }
     ],
     "type": "search",
-    "updated_at": "2022-04-09T10:26:30.333Z",
-    "version": "WzIwODgwLDVd"
+    "updated_at": "2022-04-15T15:13:10.988Z",
+    "version": "WzY1ODY3LDdd"
 }

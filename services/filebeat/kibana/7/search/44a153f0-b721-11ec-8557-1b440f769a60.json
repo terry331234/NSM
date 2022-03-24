@@ -1,14 +1,13 @@
 {
     "attributes": {
         "columns": [
-            "rule.name",
-            "rule.id",
-            "event.severity",
-            "search_community_id",
-            "source.ip",
+            "destination.port",
             "destination.ip",
+            "source.ip",
             "source.port",
-            "destination.port"
+            "zeek.ssh.client",
+            "zeek.ssh.server",
+            "zeek.ssh.auth.attempts"
         ],
         "description": "",
         "grid": {},
@@ -19,7 +18,7 @@
                 "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
                 "query": {
                     "language": "kuery",
-                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" "
+                    "query": "event.module : \"zeek\" and fileset.name : \"ssh\" "
                 }
             }
         },
@@ -29,10 +28,10 @@
                 "desc"
             ]
         ],
-        "title": "Suricata Alerts"
+        "title": "Zeek SSH"
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+    "id": "44a153f0-b721-11ec-8557-1b440f769a60",
     "migrationVersion": {
         "search": "7.9.3"
     },
@@ -44,6 +43,6 @@
         }
     ],
     "type": "search",
-    "updated_at": "2022-04-09T13:01:38.177Z",
-    "version": "WzU0NTAwLDdd"
+    "updated_at": "2022-04-15T10:12:49.184Z",
+    "version": "WzYxNDU2LDdd"
 }

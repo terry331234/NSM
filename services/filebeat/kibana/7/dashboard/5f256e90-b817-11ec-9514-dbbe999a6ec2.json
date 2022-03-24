@@ -76,7 +76,7 @@
                                                         "size": 10
                                                     },
                                                     "scale": "ordinal",
-                                                    "sourceField": "zeek.ssl.version"
+                                                    "sourceField": "zeek.dhcp.msg.types"
                                                 },
                                                 "971ca6b9-f10f-4b3b-ad17-b3df43045b8b": {
                                                     "customLabel": true,
@@ -107,7 +107,7 @@
                             "filters": [],
                             "query": {
                                 "language": "kuery",
-                                "query": "event.module : \"zeek\" and fileset.name : \"ssl\" "
+                                "query": "event.module : \"zeek\" and fileset.name : \"dhcp\"  "
                             },
                             "visualization": {
                                 "axisTitlesVisibilitySettings": {
@@ -174,7 +174,7 @@
                     "y": 0
                 },
                 "panelIndex": "9be44bf0-db6b-4e57-903b-5aaee042efda",
-                "title": "SSL with Protocol",
+                "title": "DHCP with Types",
                 "type": "lens",
                 "version": "7.17.1"
             },
@@ -192,7 +192,7 @@
                                     "type": "count"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "5b152610-b71d-11ec-8557-1b440f769a60",
                             "searchSource": {}
                         },
                         "description": "",
@@ -232,12 +232,12 @@
                 },
                 "gridData": {
                     "h": 6,
-                    "i": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                    "i": "1ccc296b-1e58-493b-afff-4fb805aa6b48",
                     "w": 12,
                     "x": 0,
                     "y": 10
                 },
-                "panelIndex": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                "panelIndex": "1ccc296b-1e58-493b-afff-4fb805aa6b48",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -259,8 +259,8 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "JA3",
-                                        "field": "tls.client.ja3",
+                                        "customLabel": "Requested Address",
+                                        "field": "zeek.dhcp.address.requested",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
                                         "order": "desc",
@@ -273,177 +273,7 @@
                                     "type": "terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
-                        },
-                        "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 1,
-                                    "width": 127
-                                },
-                                {
-                                    "colIndex": 0,
-                                    "width": 423
-                                }
-                            ]
-                        }
-                    }
-                },
-                "gridData": {
-                    "h": 17,
-                    "i": "0fd66c4a-20c2-458a-831c-1e3614a76a27",
-                    "w": 14,
-                    "x": 0,
-                    "y": 16
-                },
-                "panelIndex": "0fd66c4a-20c2-458a-831c-1e3614a76a27",
-                "title": "SSL Client JA3",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "JA3S",
-                                        "field": "tls.server.ja3s",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 100
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                }
-                            ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
-                        },
-                        "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 1,
-                                    "width": 127
-                                },
-                                {
-                                    "colIndex": 0,
-                                    "width": 418
-                                }
-                            ]
-                        }
-                    }
-                },
-                "gridData": {
-                    "h": 17,
-                    "i": "2e75dc41-0387-479b-bc69-c0a2b7c2b595",
-                    "w": 14,
-                    "x": 14,
-                    "y": 16
-                },
-                "panelIndex": "2e75dc41-0387-479b-bc69-c0a2b7c2b595",
-                "title": "SSL Server JA3S",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "Server Name",
-                                        "field": "zeek.ssl.server.name",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 100
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                }
-                            ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "5b152610-b71d-11ec-8557-1b440f769a60",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -474,25 +304,25 @@
                             "colWidth": [
                                 {
                                     "colIndex": 0,
-                                    "width": 335
+                                    "width": 283
                                 },
                                 {
                                     "colIndex": 1,
-                                    "width": 99
+                                    "width": 151
                                 }
                             ]
                         }
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "7b1dab77-edba-42f6-9693-aba21a13862f",
+                    "h": 13,
+                    "i": "d94a0eb8-b60c-484b-91ae-a294a5757499",
                     "w": 11,
-                    "x": 28,
+                    "x": 19,
                     "y": 16
                 },
-                "panelIndex": "7b1dab77-edba-42f6-9693-aba21a13862f",
-                "title": "SSL Server Name",
+                "panelIndex": "d94a0eb8-b60c-484b-91ae-a294a5757499",
+                "title": "DHCP Requested Address",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -514,12 +344,12 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "field": "zeek.ssl.validation.status",
+                                        "field": "zeek.dhcp.lease_time",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
                                         "order": "desc",
                                         "orderBy": "1",
-                                        "otherBucket": false,
+                                        "otherBucket": true,
                                         "otherBucketLabel": "Other",
                                         "size": 10
                                     },
@@ -527,7 +357,7 @@
                                     "type": "terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "5b152610-b71d-11ec-8557-1b440f769a60",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -572,14 +402,183 @@
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
-                    "w": 9,
-                    "x": 39,
+                    "h": 13,
+                    "i": "9730eeb8-f0fa-46e9-8912-4b790c1f4990",
+                    "w": 10,
+                    "x": 30,
                     "y": 16
                 },
-                "panelIndex": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
-                "title": "Cert Validation Status",
+                "panelIndex": "9730eeb8-f0fa-46e9-8912-4b790c1f4990",
+                "title": "DHCP Lease Time",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "MAC Address",
+                                        "field": "zeek.dhcp.address.mac",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 100
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "5b152610-b71d-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 165
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 122
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 13,
+                    "i": "b50d56f0-5fe2-43d2-9690-54af685794e3",
+                    "w": 8,
+                    "x": 0,
+                    "y": 16
+                },
+                "panelIndex": "b50d56f0-5fe2-43d2-9690-54af685794e3",
+                "title": "DHCP MAC",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Assigned Address",
+                                        "field": "zeek.dhcp.address.assigned",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 100
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "5b152610-b71d-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 283
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 151
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 13,
+                    "i": "b10894b0-3c44-4edb-bb99-d58c1c621896",
+                    "w": 11,
+                    "x": 8,
+                    "y": 16
+                },
+                "panelIndex": "b10894b0-3c44-4edb-bb99-d58c1c621896",
+                "title": "DHCP Assigned Address",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -588,24 +587,24 @@
                     "enhancements": {}
                 },
                 "gridData": {
-                    "h": 26,
-                    "i": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                    "h": 18,
+                    "i": "14d2a525-5cfd-4531-988d-fbc27551b2ff",
                     "w": 48,
                     "x": 0,
-                    "y": 33
+                    "y": 29
                 },
-                "panelIndex": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
-                "panelRefName": "panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                "panelIndex": "14d2a525-5cfd-4531-988d-fbc27551b2ff",
+                "panelRefName": "panel_14d2a525-5cfd-4531-988d-fbc27551b2ff",
                 "type": "search",
                 "version": "7.17.1"
             }
         ],
         "timeRestore": false,
-        "title": "Zeek SSL",
+        "title": "Zeek DHCP",
         "version": 1
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "d3d3b0b0-b7f1-11ec-8557-1b440f769a60",
+    "id": "5f256e90-b817-11ec-9514-dbbe999a6ec2",
     "migrationVersion": {
         "dashboard": "7.17.0"
     },
@@ -626,37 +625,37 @@
             "type": "index-pattern"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "add0871e-edb3-4c66-be27-4555dcd4511a:search_0",
+            "id": "5b152610-b71d-11ec-8557-1b440f769a60",
+            "name": "1ccc296b-1e58-493b-afff-4fb805aa6b48:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "0fd66c4a-20c2-458a-831c-1e3614a76a27:search_0",
+            "id": "5b152610-b71d-11ec-8557-1b440f769a60",
+            "name": "d94a0eb8-b60c-484b-91ae-a294a5757499:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "2e75dc41-0387-479b-bc69-c0a2b7c2b595:search_0",
+            "id": "5b152610-b71d-11ec-8557-1b440f769a60",
+            "name": "9730eeb8-f0fa-46e9-8912-4b790c1f4990:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "7b1dab77-edba-42f6-9693-aba21a13862f:search_0",
+            "id": "5b152610-b71d-11ec-8557-1b440f769a60",
+            "name": "b50d56f0-5fe2-43d2-9690-54af685794e3:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "a07d5399-9d41-46ba-94f4-3351c7d95fa2:search_0",
+            "id": "5b152610-b71d-11ec-8557-1b440f769a60",
+            "name": "b10894b0-3c44-4edb-bb99-d58c1c621896:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063:panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+            "id": "5b152610-b71d-11ec-8557-1b440f769a60",
+            "name": "14d2a525-5cfd-4531-988d-fbc27551b2ff:panel_14d2a525-5cfd-4531-988d-fbc27551b2ff",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T14:48:02.970Z",
-    "version": "WzY1MjMzLDdd"
+    "updated_at": "2022-04-15T13:59:07.857Z",
+    "version": "WzYzOTE5LDdd"
 }

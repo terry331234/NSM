@@ -22,7 +22,7 @@
                     "enhancements": {}
                 },
                 "gridData": {
-                    "h": 9,
+                    "h": 10,
                     "i": "3cc7629b-42ea-41fe-af40-520bfde9839f",
                     "w": 12,
                     "x": 0,
@@ -62,7 +62,7 @@
                                                 "04902e9c-64a1-4fb2-9e2b-bbc7a222e6fa": {
                                                     "dataType": "string",
                                                     "isBucketed": true,
-                                                    "label": "Top values of network.direction",
+                                                    "label": "Top values of network.transport",
                                                     "operationType": "terms",
                                                     "params": {
                                                         "missingBucket": true,
@@ -75,7 +75,7 @@
                                                         "size": 5
                                                     },
                                                     "scale": "ordinal",
-                                                    "sourceField": "network.direction"
+                                                    "sourceField": "network.transport"
                                                 },
                                                 "4bc3ae2e-c271-42b2-be5c-ad671b3d24ed": {
                                                     "dataType": "number",
@@ -172,7 +172,7 @@
                     "y": 0
                 },
                 "panelIndex": "737c77cf-057e-4b1b-a3ab-23ab87aca47d",
-                "title": "Connection By Direction",
+                "title": "Connection With Protocol",
                 "type": "lens",
                 "version": "7.17.1"
             },
@@ -236,98 +236,13 @@
                     }
                 },
                 "gridData": {
-                    "h": 7,
+                    "h": 6,
                     "i": "60cba221-b9d8-4007-828c-02739f71c5a7",
                     "w": 12,
                     "x": 0,
-                    "y": 9
+                    "y": 10
                 },
                 "panelIndex": "60cba221-b9d8-4007-828c-02739f71c5a7",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "Source IP",
-                                        "field": "source.ip",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 10
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                }
-                            ],
-                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
-                        },
-                        "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 0,
-                                    "width": 382
-                                },
-                                {
-                                    "colIndex": 1,
-                                    "width": 117
-                                }
-                            ]
-                        }
-                    }
-                },
-                "gridData": {
-                    "h": 14,
-                    "i": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750",
-                    "w": 13,
-                    "x": 0,
-                    "y": 16
-                },
-                "panelIndex": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750",
-                "title": "Top 10 Source IP",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -588,14 +503,302 @@
             },
             {
                 "embeddableConfig": {
-                    "enhancements": {}
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Source IP",
+                                        "field": "source.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 382
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 117
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750",
+                    "w": 13,
+                    "x": 0,
+                    "y": 16
+                },
+                "panelIndex": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750",
+                "title": "Top 10 Source IP",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {
+                                        "customLabel": ""
+                                    },
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Source IP Organization",
+                                        "field": "source.as.organization.name",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 107.5
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "22db1b8a-8f1c-408f-ab72-f51ad2fde64e",
+                    "w": 10,
+                    "x": 26,
+                    "y": 30
+                },
+                "panelIndex": "22db1b8a-8f1c-408f-ab72-f51ad2fde64e",
+                "title": "Top Source IP Org",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Protocol",
+                                        "field": "network.protocol",
+                                        "missingBucket": true,
+                                        "missingBucketLabel": "unknown",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": true,
+                                        "otherBucketLabel": "Other",
+                                        "size": 30
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 145
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 321
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "022d1241-72d5-434e-8c48-16ebd81e8898",
+                    "w": 12,
+                    "x": 36,
+                    "y": 30
+                },
+                "panelIndex": "022d1241-72d5-434e-8c48-16ebd81e8898",
+                "title": "Detected Protocols",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hiddenLayers": [],
+                    "isLayerTOCOpen": false,
+                    "mapBuffer": {
+                        "maxLat": 85.05113,
+                        "maxLon": 180,
+                        "minLat": -66.51326,
+                        "minLon": -180
+                    },
+                    "mapCenter": {
+                        "lat": 39.63351,
+                        "lon": 21.98461,
+                        "zoom": 1.17
+                    },
+                    "openTOCDetails": []
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "dc9429c7-0151-4b98-9a67-3f81910e2233",
+                    "w": 26,
+                    "x": 0,
+                    "y": 30
+                },
+                "panelIndex": "dc9429c7-0151-4b98-9a67-3f81910e2233",
+                "panelRefName": "panel_dc9429c7-0151-4b98-9a67-3f81910e2233",
+                "type": "map",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "sort": [
+                        [
+                            "zeek.connection.history",
+                            "asc"
+                        ]
+                    ]
                 },
                 "gridData": {
                     "h": 18,
                     "i": "798c6d65-9fff-4252-b316-b84c1517fe66",
                     "w": 48,
                     "x": 0,
-                    "y": 30
+                    "y": 45
                 },
                 "panelIndex": "798c6d65-9fff-4252-b316-b84c1517fe66",
                 "panelRefName": "panel_798c6d65-9fff-4252-b316-b84c1517fe66",
@@ -640,11 +843,6 @@
         },
         {
             "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
-            "name": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750:search_0",
-            "type": "search"
-        },
-        {
-            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
             "name": "8f9ee6c1-4b36-4c6a-a1f5-1d5cfffdc692:search_0",
             "type": "search"
         },
@@ -660,11 +858,31 @@
         },
         {
             "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "c4ec85e5-ceca-4956-8a0a-c339b0fc1750:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "22db1b8a-8f1c-408f-ab72-f51ad2fde64e:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "022d1241-72d5-434e-8c48-16ebd81e8898:search_0",
+            "type": "search"
+        },
+        {
+            "id": "d369fe00-bc05-11ec-b18c-132531e841f5",
+            "name": "dc9429c7-0151-4b98-9a67-3f81910e2233:panel_dc9429c7-0151-4b98-9a67-3f81910e2233",
+            "type": "map"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
             "name": "798c6d65-9fff-4252-b316-b84c1517fe66:panel_798c6d65-9fff-4252-b316-b84c1517fe66",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-09T11:31:12.234Z",
-    "version": "WzIwOTQ1LDVd"
+    "updated_at": "2022-04-15T13:58:57.064Z",
+    "version": "WzYzOTA2LDdd"
 }

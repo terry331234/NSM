@@ -44,7 +44,7 @@
                             },
                             {
                                 "id": "filebeat-*",
-                                "name": "indexpattern-datasource-layer-0d9c942d-5ed3-4b23-bc71-a9975e527411",
+                                "name": "indexpattern-datasource-layer-a67b35c9-dbcb-4a2b-bca4-687d0877d938",
                                 "type": "index-pattern"
                             }
                         ],
@@ -52,42 +52,13 @@
                             "datasourceStates": {
                                 "indexpattern": {
                                     "layers": {
-                                        "0d9c942d-5ed3-4b23-bc71-a9975e527411": {
+                                        "a67b35c9-dbcb-4a2b-bca4-687d0877d938": {
                                             "columnOrder": [
-                                                "2a66c43f-84c9-4076-ba10-1e36fbd5f03f",
-                                                "be4fcee4-efa8-4715-a60f-e718540d877d",
-                                                "971ca6b9-f10f-4b3b-ad17-b3df43045b8b"
+                                                "4aa53593-09c1-4844-9e2d-c690e655c2a9",
+                                                "8732697e-6f29-4230-8ec2-9dd09526dbf8"
                                             ],
                                             "columns": {
-                                                "2a66c43f-84c9-4076-ba10-1e36fbd5f03f": {
-                                                    "customLabel": true,
-                                                    "dataType": "string",
-                                                    "isBucketed": true,
-                                                    "label": "Protocol",
-                                                    "operationType": "terms",
-                                                    "params": {
-                                                        "missingBucket": true,
-                                                        "orderBy": {
-                                                            "columnId": "971ca6b9-f10f-4b3b-ad17-b3df43045b8b",
-                                                            "type": "column"
-                                                        },
-                                                        "orderDirection": "desc",
-                                                        "otherBucket": true,
-                                                        "size": 10
-                                                    },
-                                                    "scale": "ordinal",
-                                                    "sourceField": "zeek.ssl.version"
-                                                },
-                                                "971ca6b9-f10f-4b3b-ad17-b3df43045b8b": {
-                                                    "customLabel": true,
-                                                    "dataType": "number",
-                                                    "isBucketed": false,
-                                                    "label": "Count of logs",
-                                                    "operationType": "count",
-                                                    "scale": "ratio",
-                                                    "sourceField": "Records"
-                                                },
-                                                "be4fcee4-efa8-4715-a60f-e718540d877d": {
+                                                "4aa53593-09c1-4844-9e2d-c690e655c2a9": {
                                                     "dataType": "date",
                                                     "isBucketed": true,
                                                     "label": "@timestamp",
@@ -97,6 +68,14 @@
                                                     },
                                                     "scale": "interval",
                                                     "sourceField": "@timestamp"
+                                                },
+                                                "8732697e-6f29-4230-8ec2-9dd09526dbf8": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count of records",
+                                                    "operationType": "count",
+                                                    "scale": "ratio",
+                                                    "sourceField": "Records"
                                                 }
                                             },
                                             "incompleteColumns": {}
@@ -107,37 +86,20 @@
                             "filters": [],
                             "query": {
                                 "language": "kuery",
-                                "query": "event.module : \"zeek\" and fileset.name : \"ssl\" "
+                                "query": "event.module : \"zeek\" and fileset.name : \"files\"   "
                             },
                             "visualization": {
-                                "axisTitlesVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
-                                "fittingFunction": "None",
-                                "gridlinesVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
-                                "labelsOrientation": {
-                                    "x": 0,
-                                    "yLeft": 0,
-                                    "yRight": 0
-                                },
                                 "layers": [
                                     {
                                         "accessors": [
-                                            "971ca6b9-f10f-4b3b-ad17-b3df43045b8b"
+                                            "8732697e-6f29-4230-8ec2-9dd09526dbf8"
                                         ],
-                                        "layerId": "0d9c942d-5ed3-4b23-bc71-a9975e527411",
+                                        "layerId": "a67b35c9-dbcb-4a2b-bca4-687d0877d938",
                                         "layerType": "data",
                                         "position": "top",
                                         "seriesType": "bar_stacked",
                                         "showGridlines": false,
-                                        "splitAccessor": "2a66c43f-84c9-4076-ba10-1e36fbd5f03f",
-                                        "xAccessor": "be4fcee4-efa8-4715-a60f-e718540d877d"
+                                        "xAccessor": "4aa53593-09c1-4844-9e2d-c690e655c2a9"
                                     }
                                 ],
                                 "legend": {
@@ -145,11 +107,7 @@
                                     "position": "right"
                                 },
                                 "preferredSeriesType": "bar_stacked",
-                                "tickLabelsVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
+                                "title": "Empty XY chart",
                                 "valueLabels": "hide",
                                 "yLeftExtent": {
                                     "mode": "full"
@@ -168,13 +126,13 @@
                 },
                 "gridData": {
                     "h": 16,
-                    "i": "9be44bf0-db6b-4e57-903b-5aaee042efda",
+                    "i": "32e9308b-a6bf-4043-8011-f2594728efd6",
                     "w": 36,
                     "x": 12,
                     "y": 0
                 },
-                "panelIndex": "9be44bf0-db6b-4e57-903b-5aaee042efda",
-                "title": "SSL with Protocol",
+                "panelIndex": "32e9308b-a6bf-4043-8011-f2594728efd6",
+                "title": "Files",
                 "type": "lens",
                 "version": "7.17.1"
             },
@@ -192,7 +150,7 @@
                                     "type": "count"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
                             "searchSource": {}
                         },
                         "description": "",
@@ -232,19 +190,18 @@
                 },
                 "gridData": {
                     "h": 6,
-                    "i": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                    "i": "811fa9d9-28e2-4959-be78-0ba59ce66d31",
                     "w": 12,
                     "x": 0,
                     "y": 10
                 },
-                "panelIndex": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                "panelIndex": "811fa9d9-28e2-4959-be78-0ba59ce66d31",
                 "type": "visualization",
                 "version": "7.17.1"
             },
             {
                 "embeddableConfig": {
                     "enhancements": {},
-                    "hidePanelTitles": false,
                     "savedVis": {
                         "data": {
                             "aggs": [
@@ -259,21 +216,15 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "JA3",
-                                        "field": "tls.client.ja3",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 100
+                                        "customLabel": "Top 50 unusual file names",
+                                        "field": "zeek.files.filename",
+                                        "size": 50
                                     },
                                     "schema": "bucket",
-                                    "type": "terms"
+                                    "type": "significant_terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -304,25 +255,24 @@
                             "colWidth": [
                                 {
                                     "colIndex": 1,
-                                    "width": 127
+                                    "width": 93
                                 },
                                 {
                                     "colIndex": 0,
-                                    "width": 423
+                                    "width": 624
                                 }
                             ]
                         }
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "0fd66c4a-20c2-458a-831c-1e3614a76a27",
-                    "w": 14,
-                    "x": 0,
+                    "h": 18,
+                    "i": "4bf5797b-8e84-47c5-99d1-6025d36057da",
+                    "w": 18,
+                    "x": 12,
                     "y": 16
                 },
-                "panelIndex": "0fd66c4a-20c2-458a-831c-1e3614a76a27",
-                "title": "SSL Client JA3",
+                "panelIndex": "4bf5797b-8e84-47c5-99d1-6025d36057da",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -344,177 +294,7 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "JA3S",
-                                        "field": "tls.server.ja3s",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 100
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                }
-                            ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
-                        },
-                        "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 1,
-                                    "width": 127
-                                },
-                                {
-                                    "colIndex": 0,
-                                    "width": 418
-                                }
-                            ]
-                        }
-                    }
-                },
-                "gridData": {
-                    "h": 17,
-                    "i": "2e75dc41-0387-479b-bc69-c0a2b7c2b595",
-                    "w": 14,
-                    "x": 14,
-                    "y": 16
-                },
-                "panelIndex": "2e75dc41-0387-479b-bc69-c0a2b7c2b595",
-                "title": "SSL Server JA3S",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "Server Name",
-                                        "field": "zeek.ssl.server.name",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 100
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                }
-                            ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
-                        },
-                        "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 0,
-                                    "width": 335
-                                },
-                                {
-                                    "colIndex": 1,
-                                    "width": 99
-                                }
-                            ]
-                        }
-                    }
-                },
-                "gridData": {
-                    "h": 17,
-                    "i": "7b1dab77-edba-42f6-9693-aba21a13862f",
-                    "w": 11,
-                    "x": 28,
-                    "y": 16
-                },
-                "panelIndex": "7b1dab77-edba-42f6-9693-aba21a13862f",
-                "title": "SSL Server Name",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "field": "zeek.ssl.validation.status",
+                                        "field": "zeek.files.source",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
                                         "order": "desc",
@@ -527,7 +307,7 @@
                                     "type": "terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -572,14 +352,91 @@
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
-                    "w": 9,
-                    "x": 39,
+                    "h": 18,
+                    "i": "3169316d-5561-4d32-8bba-e195e3c3f13d",
+                    "w": 10,
+                    "x": 30,
                     "y": 16
                 },
-                "panelIndex": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
-                "title": "Cert Validation Status",
+                "panelIndex": "3169316d-5561-4d32-8bba-e195e3c3f13d",
+                "title": "Source of File",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Top 50 unusual file types",
+                                        "field": "file.mime_type",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "significant_terms"
+                                }
+                            ],
+                            "savedSearchId": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 93
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 376
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 18,
+                    "i": "1ca88d8c-57f5-4299-9b2d-1c763c9e0767",
+                    "w": 12,
+                    "x": 0,
+                    "y": 16
+                },
+                "panelIndex": "1ca88d8c-57f5-4299-9b2d-1c763c9e0767",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -588,24 +445,24 @@
                     "enhancements": {}
                 },
                 "gridData": {
-                    "h": 26,
-                    "i": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                    "h": 20,
+                    "i": "3d13ed64-b25c-4dd9-b1b8-ccc207076dc8",
                     "w": 48,
                     "x": 0,
-                    "y": 33
+                    "y": 34
                 },
-                "panelIndex": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
-                "panelRefName": "panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                "panelIndex": "3d13ed64-b25c-4dd9-b1b8-ccc207076dc8",
+                "panelRefName": "panel_3d13ed64-b25c-4dd9-b1b8-ccc207076dc8",
                 "type": "search",
                 "version": "7.17.1"
             }
         ],
         "timeRestore": false,
-        "title": "Zeek SSL",
+        "title": "Zeek Files",
         "version": 1
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "d3d3b0b0-b7f1-11ec-8557-1b440f769a60",
+    "id": "50406300-bca7-11ec-b18c-132531e841f5",
     "migrationVersion": {
         "dashboard": "7.17.0"
     },
@@ -617,46 +474,41 @@
         },
         {
             "id": "filebeat-*",
-            "name": "9be44bf0-db6b-4e57-903b-5aaee042efda:indexpattern-datasource-current-indexpattern",
+            "name": "32e9308b-a6bf-4043-8011-f2594728efd6:indexpattern-datasource-current-indexpattern",
             "type": "index-pattern"
         },
         {
             "id": "filebeat-*",
-            "name": "9be44bf0-db6b-4e57-903b-5aaee042efda:indexpattern-datasource-layer-0d9c942d-5ed3-4b23-bc71-a9975e527411",
+            "name": "32e9308b-a6bf-4043-8011-f2594728efd6:indexpattern-datasource-layer-a67b35c9-dbcb-4a2b-bca4-687d0877d938",
             "type": "index-pattern"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "add0871e-edb3-4c66-be27-4555dcd4511a:search_0",
+            "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+            "name": "811fa9d9-28e2-4959-be78-0ba59ce66d31:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "0fd66c4a-20c2-458a-831c-1e3614a76a27:search_0",
+            "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+            "name": "4bf5797b-8e84-47c5-99d1-6025d36057da:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "2e75dc41-0387-479b-bc69-c0a2b7c2b595:search_0",
+            "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+            "name": "3169316d-5561-4d32-8bba-e195e3c3f13d:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "7b1dab77-edba-42f6-9693-aba21a13862f:search_0",
+            "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+            "name": "1ca88d8c-57f5-4299-9b2d-1c763c9e0767:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "a07d5399-9d41-46ba-94f4-3351c7d95fa2:search_0",
-            "type": "search"
-        },
-        {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063:panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+            "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+            "name": "3d13ed64-b25c-4dd9-b1b8-ccc207076dc8:panel_3d13ed64-b25c-4dd9-b1b8-ccc207076dc8",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T14:48:02.970Z",
-    "version": "WzY1MjMzLDdd"
+    "updated_at": "2022-04-15T14:02:53.903Z",
+    "version": "WzY0MTM0LDdd"
 }

@@ -54,30 +54,10 @@
                                     "layers": {
                                         "0d9c942d-5ed3-4b23-bc71-a9975e527411": {
                                             "columnOrder": [
-                                                "2a66c43f-84c9-4076-ba10-1e36fbd5f03f",
                                                 "be4fcee4-efa8-4715-a60f-e718540d877d",
                                                 "971ca6b9-f10f-4b3b-ad17-b3df43045b8b"
                                             ],
                                             "columns": {
-                                                "2a66c43f-84c9-4076-ba10-1e36fbd5f03f": {
-                                                    "customLabel": true,
-                                                    "dataType": "string",
-                                                    "isBucketed": true,
-                                                    "label": "Protocol",
-                                                    "operationType": "terms",
-                                                    "params": {
-                                                        "missingBucket": true,
-                                                        "orderBy": {
-                                                            "columnId": "971ca6b9-f10f-4b3b-ad17-b3df43045b8b",
-                                                            "type": "column"
-                                                        },
-                                                        "orderDirection": "desc",
-                                                        "otherBucket": true,
-                                                        "size": 10
-                                                    },
-                                                    "scale": "ordinal",
-                                                    "sourceField": "zeek.ssl.version"
-                                                },
                                                 "971ca6b9-f10f-4b3b-ad17-b3df43045b8b": {
                                                     "customLabel": true,
                                                     "dataType": "number",
@@ -107,7 +87,7 @@
                             "filters": [],
                             "query": {
                                 "language": "kuery",
-                                "query": "event.module : \"zeek\" and fileset.name : \"ssl\" "
+                                "query": "event.module : \"zeek\" and fileset.name : \"http\"  "
                             },
                             "visualization": {
                                 "axisTitlesVisibilitySettings": {
@@ -136,7 +116,6 @@
                                         "position": "top",
                                         "seriesType": "bar_stacked",
                                         "showGridlines": false,
-                                        "splitAccessor": "2a66c43f-84c9-4076-ba10-1e36fbd5f03f",
                                         "xAccessor": "be4fcee4-efa8-4715-a60f-e718540d877d"
                                     }
                                 ],
@@ -174,7 +153,7 @@
                     "y": 0
                 },
                 "panelIndex": "9be44bf0-db6b-4e57-903b-5aaee042efda",
-                "title": "SSL with Protocol",
+                "title": "HTTP",
                 "type": "lens",
                 "version": "7.17.1"
             },
@@ -192,7 +171,7 @@
                                     "type": "count"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
                             "searchSource": {}
                         },
                         "description": "",
@@ -232,12 +211,12 @@
                 },
                 "gridData": {
                     "h": 6,
-                    "i": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                    "i": "c25d6136-65e0-4eb9-90d2-81ba7f2eb350",
                     "w": 12,
                     "x": 0,
                     "y": 10
                 },
-                "panelIndex": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                "panelIndex": "c25d6136-65e0-4eb9-90d2-81ba7f2eb350",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -259,8 +238,8 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "JA3",
-                                        "field": "tls.client.ja3",
+                                        "customLabel": "Source IP",
+                                        "field": "source.ip",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
                                         "order": "desc",
@@ -273,7 +252,7 @@
                                     "type": "terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -296,33 +275,43 @@
                         },
                         "title": "",
                         "type": "table",
-                        "uiState": {}
+                        "uiState": {
+                            "vis": {
+                                "params": {
+                                    "colWidth": [
+                                        {
+                                            "colIndex": 1,
+                                            "width": 100
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "table": null,
                     "vis": {
                         "params": {
                             "colWidth": [
                                 {
                                     "colIndex": 1,
-                                    "width": 127
+                                    "width": 100
                                 },
                                 {
                                     "colIndex": 0,
-                                    "width": 423
+                                    "width": 373
                                 }
                             ]
                         }
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "0fd66c4a-20c2-458a-831c-1e3614a76a27",
-                    "w": 14,
+                    "h": 14,
+                    "i": "850f5727-9ef3-4eb4-9d07-a5a453c38a3e",
+                    "w": 12,
                     "x": 0,
                     "y": 16
                 },
-                "panelIndex": "0fd66c4a-20c2-458a-831c-1e3614a76a27",
-                "title": "SSL Client JA3",
+                "panelIndex": "850f5727-9ef3-4eb4-9d07-a5a453c38a3e",
+                "title": "HTTP Source IP",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -344,8 +333,8 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "JA3S",
-                                        "field": "tls.server.ja3s",
+                                        "customLabel": "Destination IP",
+                                        "field": "destination.ip",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
                                         "order": "desc",
@@ -358,7 +347,91 @@
                                     "type": "terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 100
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 373
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "5be850d3-6426-4e14-92fb-9b820843bdd7",
+                    "w": 12,
+                    "x": 12,
+                    "y": 16
+                },
+                "panelIndex": "5be850d3-6426-4e14-92fb-9b820843bdd7",
+                "title": "HTTP Destination IP",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Destination Port",
+                                        "field": "destination.port",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -388,26 +461,22 @@
                         "params": {
                             "colWidth": [
                                 {
-                                    "colIndex": 1,
-                                    "width": 127
-                                },
-                                {
                                     "colIndex": 0,
-                                    "width": 418
+                                    "width": 369
                                 }
                             ]
                         }
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "2e75dc41-0387-479b-bc69-c0a2b7c2b595",
-                    "w": 14,
-                    "x": 14,
+                    "h": 14,
+                    "i": "7e6aad25-21ef-4920-8e52-abecf0338dda",
+                    "w": 12,
+                    "x": 24,
                     "y": 16
                 },
-                "panelIndex": "2e75dc41-0387-479b-bc69-c0a2b7c2b595",
-                "title": "SSL Server JA3S",
+                "panelIndex": "7e6aad25-21ef-4920-8e52-abecf0338dda",
+                "title": "HTTP Destination Port",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -421,7 +490,9 @@
                                 {
                                     "enabled": true,
                                     "id": "1",
-                                    "params": {},
+                                    "params": {
+                                        "customLabel": ""
+                                    },
                                     "schema": "metric",
                                     "type": "count"
                                 },
@@ -429,21 +500,15 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "Server Name",
-                                        "field": "zeek.ssl.server.name",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 100
+                                        "customLabel": "Top 5 Significant HTTP Method",
+                                        "field": "http.request.method",
+                                        "size": 5
                                     },
-                                    "schema": "bucket",
-                                    "type": "terms"
+                                    "schema": "segment",
+                                    "type": "significant_terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -455,44 +520,30 @@
                         "description": "",
                         "id": "",
                         "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
+                            "maxFontSize": 72,
+                            "minFontSize": 18,
+                            "orientation": "single",
+                            "palette": {
+                                "name": "default",
+                                "type": "palette"
+                            },
+                            "scale": "linear",
+                            "showLabel": true
                         },
                         "title": "",
-                        "type": "table",
+                        "type": "tagcloud",
                         "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 0,
-                                    "width": 335
-                                },
-                                {
-                                    "colIndex": 1,
-                                    "width": 99
-                                }
-                            ]
-                        }
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "7b1dab77-edba-42f6-9693-aba21a13862f",
-                    "w": 11,
-                    "x": 28,
-                    "y": 16
+                    "h": 14,
+                    "i": "b6fd37f4-cee4-401a-88ce-49f3ec925673",
+                    "w": 12,
+                    "x": 0,
+                    "y": 30
                 },
-                "panelIndex": "7b1dab77-edba-42f6-9693-aba21a13862f",
-                "title": "SSL Server Name",
+                "panelIndex": "b6fd37f4-cee4-401a-88ce-49f3ec925673",
+                "title": "HTTP Request Method",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -514,20 +565,14 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "field": "zeek.ssl.validation.status",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
+                                        "field": "zeek.http.status_msg",
                                         "size": 10
                                     },
                                     "schema": "segment",
-                                    "type": "terms"
+                                    "type": "significant_terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -572,14 +617,89 @@
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
-                    "w": 9,
-                    "x": 39,
-                    "y": 16
+                    "h": 14,
+                    "i": "d57d585b-5a67-49ba-8dc4-cc4e863cd8a7",
+                    "w": 18,
+                    "x": 12,
+                    "y": 30
                 },
-                "panelIndex": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
-                "title": "Cert Validation Status",
+                "panelIndex": "d57d585b-5a67-49ba-8dc4-cc4e863cd8a7",
+                "title": "HTTP Significant Response Message",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Top 20 Significant User Agent",
+                                        "field": "user_agent.original",
+                                        "size": 20
+                                    },
+                                    "schema": "bucket",
+                                    "type": "significant_terms"
+                                }
+                            ],
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 615.5
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "60fec35e-2965-441a-844b-cecc316a317c",
+                    "w": 18,
+                    "x": 30,
+                    "y": 30
+                },
+                "panelIndex": "60fec35e-2965-441a-844b-cecc316a317c",
+                "title": "HTTP Significant User Agent",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -588,24 +708,24 @@
                     "enhancements": {}
                 },
                 "gridData": {
-                    "h": 26,
-                    "i": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                    "h": 18,
+                    "i": "49808b50-1864-407e-88de-2029cf9f50b0",
                     "w": 48,
                     "x": 0,
-                    "y": 33
+                    "y": 44
                 },
-                "panelIndex": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
-                "panelRefName": "panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                "panelIndex": "49808b50-1864-407e-88de-2029cf9f50b0",
+                "panelRefName": "panel_49808b50-1864-407e-88de-2029cf9f50b0",
                 "type": "search",
                 "version": "7.17.1"
             }
         ],
         "timeRestore": false,
-        "title": "Zeek SSL",
+        "title": "Zeek HTTP",
         "version": 1
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "d3d3b0b0-b7f1-11ec-8557-1b440f769a60",
+    "id": "c58530a0-b81f-11ec-9514-dbbe999a6ec2",
     "migrationVersion": {
         "dashboard": "7.17.0"
     },
@@ -626,37 +746,47 @@
             "type": "index-pattern"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "add0871e-edb3-4c66-be27-4555dcd4511a:search_0",
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "c25d6136-65e0-4eb9-90d2-81ba7f2eb350:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "0fd66c4a-20c2-458a-831c-1e3614a76a27:search_0",
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "850f5727-9ef3-4eb4-9d07-a5a453c38a3e:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "2e75dc41-0387-479b-bc69-c0a2b7c2b595:search_0",
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "5be850d3-6426-4e14-92fb-9b820843bdd7:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "7b1dab77-edba-42f6-9693-aba21a13862f:search_0",
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "7e6aad25-21ef-4920-8e52-abecf0338dda:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "a07d5399-9d41-46ba-94f4-3351c7d95fa2:search_0",
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "b6fd37f4-cee4-401a-88ce-49f3ec925673:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063:panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "d57d585b-5a67-49ba-8dc4-cc4e863cd8a7:search_0",
+            "type": "search"
+        },
+        {
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "60fec35e-2965-441a-844b-cecc316a317c:search_0",
+            "type": "search"
+        },
+        {
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "49808b50-1864-407e-88de-2029cf9f50b0:panel_49808b50-1864-407e-88de-2029cf9f50b0",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T14:48:02.970Z",
-    "version": "WzY1MjMzLDdd"
+    "updated_at": "2022-04-15T13:59:44.472Z",
+    "version": "WzYzOTYyLDdd"
 }

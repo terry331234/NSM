@@ -23,13 +23,13 @@
                 },
                 "gridData": {
                     "h": 10,
-                    "i": "e338ff3a-8693-4a67-8b2f-7fe7fb1f231d",
+                    "i": "4447ccaf-8a60-4e64-8106-c631ed18aed3",
                     "w": 12,
                     "x": 0,
                     "y": 0
                 },
-                "panelIndex": "e338ff3a-8693-4a67-8b2f-7fe7fb1f231d",
-                "panelRefName": "panel_e338ff3a-8693-4a67-8b2f-7fe7fb1f231d",
+                "panelIndex": "4447ccaf-8a60-4e64-8106-c631ed18aed3",
+                "panelRefName": "panel_4447ccaf-8a60-4e64-8106-c631ed18aed3",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -44,7 +44,7 @@
                             },
                             {
                                 "id": "filebeat-*",
-                                "name": "indexpattern-datasource-layer-0d9c942d-5ed3-4b23-bc71-a9975e527411",
+                                "name": "indexpattern-datasource-layer-3407ccee-929e-4900-a33a-c8fd3557d1f0",
                                 "type": "index-pattern"
                             }
                         ],
@@ -52,42 +52,14 @@
                             "datasourceStates": {
                                 "indexpattern": {
                                     "layers": {
-                                        "0d9c942d-5ed3-4b23-bc71-a9975e527411": {
+                                        "3407ccee-929e-4900-a33a-c8fd3557d1f0": {
                                             "columnOrder": [
-                                                "2a66c43f-84c9-4076-ba10-1e36fbd5f03f",
-                                                "be4fcee4-efa8-4715-a60f-e718540d877d",
-                                                "971ca6b9-f10f-4b3b-ad17-b3df43045b8b"
+                                                "506f2196-1de5-49ef-a436-2552db6cea33",
+                                                "09bce38c-433c-4e14-9765-91ae49d69236",
+                                                "ffd19f6d-8b71-400d-87aa-7a384cfe0ae1"
                                             ],
                                             "columns": {
-                                                "2a66c43f-84c9-4076-ba10-1e36fbd5f03f": {
-                                                    "customLabel": true,
-                                                    "dataType": "string",
-                                                    "isBucketed": true,
-                                                    "label": "Protocol",
-                                                    "operationType": "terms",
-                                                    "params": {
-                                                        "missingBucket": true,
-                                                        "orderBy": {
-                                                            "columnId": "971ca6b9-f10f-4b3b-ad17-b3df43045b8b",
-                                                            "type": "column"
-                                                        },
-                                                        "orderDirection": "desc",
-                                                        "otherBucket": true,
-                                                        "size": 10
-                                                    },
-                                                    "scale": "ordinal",
-                                                    "sourceField": "zeek.ssl.version"
-                                                },
-                                                "971ca6b9-f10f-4b3b-ad17-b3df43045b8b": {
-                                                    "customLabel": true,
-                                                    "dataType": "number",
-                                                    "isBucketed": false,
-                                                    "label": "Count of logs",
-                                                    "operationType": "count",
-                                                    "scale": "ratio",
-                                                    "sourceField": "Records"
-                                                },
-                                                "be4fcee4-efa8-4715-a60f-e718540d877d": {
+                                                "09bce38c-433c-4e14-9765-91ae49d69236": {
                                                     "dataType": "date",
                                                     "isBucketed": true,
                                                     "label": "@timestamp",
@@ -97,6 +69,32 @@
                                                     },
                                                     "scale": "interval",
                                                     "sourceField": "@timestamp"
+                                                },
+                                                "506f2196-1de5-49ef-a436-2552db6cea33": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top values of zeek.sip.sequence.method",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "ffd19f6d-8b71-400d-87aa-7a384cfe0ae1",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "size": 6
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "zeek.sip.sequence.method"
+                                                },
+                                                "ffd19f6d-8b71-400d-87aa-7a384cfe0ae1": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count of records",
+                                                    "operationType": "count",
+                                                    "scale": "ratio",
+                                                    "sourceField": "Records"
                                                 }
                                             },
                                             "incompleteColumns": {}
@@ -107,37 +105,21 @@
                             "filters": [],
                             "query": {
                                 "language": "kuery",
-                                "query": "event.module : \"zeek\" and fileset.name : \"ssl\" "
+                                "query": "event.module : \"zeek\" and fileset.name : \"sip\"  "
                             },
                             "visualization": {
-                                "axisTitlesVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
-                                "fittingFunction": "None",
-                                "gridlinesVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
-                                "labelsOrientation": {
-                                    "x": 0,
-                                    "yLeft": 0,
-                                    "yRight": 0
-                                },
                                 "layers": [
                                     {
                                         "accessors": [
-                                            "971ca6b9-f10f-4b3b-ad17-b3df43045b8b"
+                                            "ffd19f6d-8b71-400d-87aa-7a384cfe0ae1"
                                         ],
-                                        "layerId": "0d9c942d-5ed3-4b23-bc71-a9975e527411",
+                                        "layerId": "3407ccee-929e-4900-a33a-c8fd3557d1f0",
                                         "layerType": "data",
                                         "position": "top",
                                         "seriesType": "bar_stacked",
                                         "showGridlines": false,
-                                        "splitAccessor": "2a66c43f-84c9-4076-ba10-1e36fbd5f03f",
-                                        "xAccessor": "be4fcee4-efa8-4715-a60f-e718540d877d"
+                                        "splitAccessor": "506f2196-1de5-49ef-a436-2552db6cea33",
+                                        "xAccessor": "09bce38c-433c-4e14-9765-91ae49d69236"
                                     }
                                 ],
                                 "legend": {
@@ -145,11 +127,7 @@
                                     "position": "right"
                                 },
                                 "preferredSeriesType": "bar_stacked",
-                                "tickLabelsVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
+                                "title": "Empty XY chart",
                                 "valueLabels": "hide",
                                 "yLeftExtent": {
                                     "mode": "full"
@@ -168,13 +146,13 @@
                 },
                 "gridData": {
                     "h": 16,
-                    "i": "9be44bf0-db6b-4e57-903b-5aaee042efda",
+                    "i": "5375b1d3-9a71-4c15-8667-7704b9e66f3b",
                     "w": 36,
                     "x": 12,
                     "y": 0
                 },
-                "panelIndex": "9be44bf0-db6b-4e57-903b-5aaee042efda",
-                "title": "SSL with Protocol",
+                "panelIndex": "5375b1d3-9a71-4c15-8667-7704b9e66f3b",
+                "title": "SIP with Method",
                 "type": "lens",
                 "version": "7.17.1"
             },
@@ -192,7 +170,7 @@
                                     "type": "count"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "339bb910-b721-11ec-8557-1b440f769a60",
                             "searchSource": {}
                         },
                         "description": "",
@@ -232,12 +210,12 @@
                 },
                 "gridData": {
                     "h": 6,
-                    "i": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                    "i": "1cd5427a-bcf6-40b5-95e5-f9f118ea6ef6",
                     "w": 12,
                     "x": 0,
                     "y": 10
                 },
-                "panelIndex": "add0871e-edb3-4c66-be27-4555dcd4511a",
+                "panelIndex": "1cd5427a-bcf6-40b5-95e5-f9f118ea6ef6",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -259,21 +237,21 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "JA3",
-                                        "field": "tls.client.ja3",
+                                        "customLabel": "Uri",
+                                        "field": "zeek.sip.uri",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
                                         "order": "desc",
                                         "orderBy": "1",
                                         "otherBucket": false,
                                         "otherBucketLabel": "Other",
-                                        "size": 100
+                                        "size": 50
                                     },
                                     "schema": "bucket",
                                     "type": "terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "339bb910-b721-11ec-8557-1b440f769a60",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -303,26 +281,196 @@
                         "params": {
                             "colWidth": [
                                 {
-                                    "colIndex": 1,
-                                    "width": 127
+                                    "colIndex": 0,
+                                    "width": 431
                                 },
                                 {
-                                    "colIndex": 0,
-                                    "width": 423
+                                    "colIndex": 1,
+                                    "width": 118
                                 }
                             ]
                         }
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "0fd66c4a-20c2-458a-831c-1e3614a76a27",
+                    "h": 16,
+                    "i": "4b046403-6614-4bb8-9997-bb6e2deda60d",
                     "w": 14,
+                    "x": 21,
+                    "y": 16
+                },
+                "panelIndex": "4b046403-6614-4bb8-9997-bb6e2deda60d",
+                "title": "SIP URI",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Uri",
+                                        "field": "destination.port",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "339bb910-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 375
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 118
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "c0ac8ad2-1560-492d-88d5-f16f63013fbf",
+                    "w": 13,
+                    "x": 35,
+                    "y": 16
+                },
+                "panelIndex": "c0ac8ad2-1560-492d-88d5-f16f63013fbf",
+                "title": "SIP Destination Port",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Source IP",
+                                        "field": "source.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "339bb910-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 307
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 118
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "3074c92a-91dc-4ac0-98da-5e048a6bd256",
+                    "w": 11,
                     "x": 0,
                     "y": 16
                 },
-                "panelIndex": "0fd66c4a-20c2-458a-831c-1e3614a76a27",
-                "title": "SSL Client JA3",
+                "panelIndex": "3074c92a-91dc-4ac0-98da-5e048a6bd256",
+                "title": "Source IP",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -344,106 +492,21 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "JA3S",
-                                        "field": "tls.server.ja3s",
+                                        "customLabel": "Destination IP",
+                                        "field": "destination.ip",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
                                         "order": "desc",
                                         "orderBy": "1",
                                         "otherBucket": false,
                                         "otherBucketLabel": "Other",
-                                        "size": 100
+                                        "size": 50
                                     },
                                     "schema": "bucket",
                                     "type": "terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
-                        },
-                        "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 1,
-                                    "width": 127
-                                },
-                                {
-                                    "colIndex": 0,
-                                    "width": 418
-                                }
-                            ]
-                        }
-                    }
-                },
-                "gridData": {
-                    "h": 17,
-                    "i": "2e75dc41-0387-479b-bc69-c0a2b7c2b595",
-                    "w": 14,
-                    "x": 14,
-                    "y": 16
-                },
-                "panelIndex": "2e75dc41-0387-479b-bc69-c0a2b7c2b595",
-                "title": "SSL Server JA3S",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "Server Name",
-                                        "field": "zeek.ssl.server.name",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 100
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                }
-                            ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "339bb910-b721-11ec-8557-1b440f769a60",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -474,25 +537,25 @@
                             "colWidth": [
                                 {
                                     "colIndex": 0,
-                                    "width": 335
+                                    "width": 277
                                 },
                                 {
                                     "colIndex": 1,
-                                    "width": 99
+                                    "width": 118
                                 }
                             ]
                         }
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "7b1dab77-edba-42f6-9693-aba21a13862f",
-                    "w": 11,
-                    "x": 28,
+                    "h": 16,
+                    "i": "0d669bd7-5136-4918-b1e7-298f5cd74a3d",
+                    "w": 10,
+                    "x": 11,
                     "y": 16
                 },
-                "panelIndex": "7b1dab77-edba-42f6-9693-aba21a13862f",
-                "title": "SSL Server Name",
+                "panelIndex": "0d669bd7-5136-4918-b1e7-298f5cd74a3d",
+                "title": "Destination IP",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -514,20 +577,98 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "field": "zeek.ssl.validation.status",
+                                        "customLabel": "Response From",
+                                        "field": "zeek.sip.response.from",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
                                         "order": "desc",
                                         "orderBy": "1",
                                         "otherBucket": false,
                                         "otherBucketLabel": "Other",
-                                        "size": 10
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "339bb910-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 112
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 378
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 12,
+                    "i": "80c6edb7-7937-44b2-9882-67ea0612fc03",
+                    "w": 13,
+                    "x": 27,
+                    "y": 32
+                },
+                "panelIndex": "80c6edb7-7937-44b2-9882-67ea0612fc03",
+                "title": "SIP Response From",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "field": "zeek.sip.user_agent",
+                                        "size": 20
                                     },
                                     "schema": "segment",
-                                    "type": "terms"
+                                    "type": "significant_terms"
                                 }
                             ],
-                            "savedSearchId": "4b9b1060-b721-11ec-8557-1b440f769a60",
+                            "savedSearchId": "339bb910-b721-11ec-8557-1b440f769a60",
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -572,14 +713,96 @@
                     }
                 },
                 "gridData": {
-                    "h": 17,
-                    "i": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
-                    "w": 9,
-                    "x": 39,
-                    "y": 16
+                    "h": 12,
+                    "i": "7e1d2203-4276-4fb3-92ab-cb9a178a05e1",
+                    "w": 14,
+                    "x": 0,
+                    "y": 32
                 },
-                "panelIndex": "a07d5399-9d41-46ba-94f4-3351c7d95fa2",
-                "title": "Cert Validation Status",
+                "panelIndex": "7e1d2203-4276-4fb3-92ab-cb9a178a05e1",
+                "title": "SIP User Agent",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Request From",
+                                        "field": "zeek.sip.request.from",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "339bb910-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 112
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 378
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 12,
+                    "i": "b9256385-0d18-4a28-8f4a-478c54be6ee0",
+                    "w": 13,
+                    "x": 14,
+                    "y": 32
+                },
+                "panelIndex": "b9256385-0d18-4a28-8f4a-478c54be6ee0",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -588,75 +811,90 @@
                     "enhancements": {}
                 },
                 "gridData": {
-                    "h": 26,
-                    "i": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                    "h": 21,
+                    "i": "9a43c626-e48c-422f-a915-55c0485297dd",
                     "w": 48,
                     "x": 0,
-                    "y": 33
+                    "y": 44
                 },
-                "panelIndex": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
-                "panelRefName": "panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+                "panelIndex": "9a43c626-e48c-422f-a915-55c0485297dd",
+                "panelRefName": "panel_9a43c626-e48c-422f-a915-55c0485297dd",
                 "type": "search",
                 "version": "7.17.1"
             }
         ],
         "timeRestore": false,
-        "title": "Zeek SSL",
+        "title": "Zeek SIP",
         "version": 1
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "d3d3b0b0-b7f1-11ec-8557-1b440f769a60",
+    "id": "37605bc0-bcbf-11ec-b18c-132531e841f5",
     "migrationVersion": {
         "dashboard": "7.17.0"
     },
     "references": [
         {
             "id": "a8124790-b736-11ec-8557-1b440f769a60",
-            "name": "e338ff3a-8693-4a67-8b2f-7fe7fb1f231d:panel_e338ff3a-8693-4a67-8b2f-7fe7fb1f231d",
+            "name": "4447ccaf-8a60-4e64-8106-c631ed18aed3:panel_4447ccaf-8a60-4e64-8106-c631ed18aed3",
             "type": "visualization"
         },
         {
             "id": "filebeat-*",
-            "name": "9be44bf0-db6b-4e57-903b-5aaee042efda:indexpattern-datasource-current-indexpattern",
+            "name": "5375b1d3-9a71-4c15-8667-7704b9e66f3b:indexpattern-datasource-current-indexpattern",
             "type": "index-pattern"
         },
         {
             "id": "filebeat-*",
-            "name": "9be44bf0-db6b-4e57-903b-5aaee042efda:indexpattern-datasource-layer-0d9c942d-5ed3-4b23-bc71-a9975e527411",
+            "name": "5375b1d3-9a71-4c15-8667-7704b9e66f3b:indexpattern-datasource-layer-3407ccee-929e-4900-a33a-c8fd3557d1f0",
             "type": "index-pattern"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "add0871e-edb3-4c66-be27-4555dcd4511a:search_0",
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "1cd5427a-bcf6-40b5-95e5-f9f118ea6ef6:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "0fd66c4a-20c2-458a-831c-1e3614a76a27:search_0",
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "4b046403-6614-4bb8-9997-bb6e2deda60d:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "2e75dc41-0387-479b-bc69-c0a2b7c2b595:search_0",
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "c0ac8ad2-1560-492d-88d5-f16f63013fbf:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "7b1dab77-edba-42f6-9693-aba21a13862f:search_0",
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "3074c92a-91dc-4ac0-98da-5e048a6bd256:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "a07d5399-9d41-46ba-94f4-3351c7d95fa2:search_0",
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "0d669bd7-5136-4918-b1e7-298f5cd74a3d:search_0",
             "type": "search"
         },
         {
-            "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
-            "name": "fc89af7a-af0c-4a43-bd09-83f6b5cf7063:panel_fc89af7a-af0c-4a43-bd09-83f6b5cf7063",
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "80c6edb7-7937-44b2-9882-67ea0612fc03:search_0",
+            "type": "search"
+        },
+        {
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "7e1d2203-4276-4fb3-92ab-cb9a178a05e1:search_0",
+            "type": "search"
+        },
+        {
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "b9256385-0d18-4a28-8f4a-478c54be6ee0:search_0",
+            "type": "search"
+        },
+        {
+            "id": "339bb910-b721-11ec-8557-1b440f769a60",
+            "name": "9a43c626-e48c-422f-a915-55c0485297dd:panel_9a43c626-e48c-422f-a915-55c0485297dd",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T14:48:02.970Z",
-    "version": "WzY1MjMzLDdd"
+    "updated_at": "2022-04-15T14:03:22.414Z",
+    "version": "WzY0MTY5LDdd"
 }

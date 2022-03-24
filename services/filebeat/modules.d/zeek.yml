@@ -54,14 +54,11 @@
   ocsp:
     enabled: false
   pe:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/pe.log"]
+    enabled: false
   radius:
     enabled: false
   rdp:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/rdp.log"]
-    var.internal_networks: "${TRUSTED_NET}"
+    enabled: false
   rfb:
     enabled: false
   signature:
@@ -79,9 +76,7 @@
   smtp:
     enabled: false
   snmp:
-    enabled: true
-    var.paths: ["${LOG_DIR}/zeek/current/snmp.log"]
-    var.internal_networks: "${TRUSTED_NET}"
+    enabled: false
   socks:
     enabled: false
   ssh:

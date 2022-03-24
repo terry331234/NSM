@@ -1,0 +1,553 @@
+{
+    "attributes": {
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 10,
+                    "i": "4447ccaf-8a60-4e64-8106-c631ed18aed3",
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "4447ccaf-8a60-4e64-8106-c631ed18aed3",
+                "panelRefName": "panel_4447ccaf-8a60-4e64-8106-c631ed18aed3",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "drop_partials": false,
+                                        "extended_bounds": {},
+                                        "field": "@timestamp",
+                                        "interval": "auto",
+                                        "min_doc_count": 1,
+                                        "scaleMetricValues": false,
+                                        "timeRange": {
+                                            "from": "now-30d/d",
+                                            "to": "now"
+                                        },
+                                        "useNormalizedEsInterval": true,
+                                        "used_interval": "12h"
+                                    },
+                                    "schema": "segment",
+                                    "type": "date_histogram"
+                                }
+                            ],
+                            "savedSearchId": "614b95b0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": true,
+                            "addTimeMarker": false,
+                            "addTooltip": true,
+                            "categoryAxes": [
+                                {
+                                    "id": "CategoryAxis-1",
+                                    "labels": {
+                                        "filter": true,
+                                        "show": true,
+                                        "truncate": 100
+                                    },
+                                    "position": "bottom",
+                                    "scale": {
+                                        "type": "linear"
+                                    },
+                                    "show": true,
+                                    "style": {},
+                                    "title": {},
+                                    "type": "category"
+                                }
+                            ],
+                            "detailedTooltip": true,
+                            "grid": {
+                                "categoryLines": false
+                            },
+                            "labels": {
+                                "show": false
+                            },
+                            "legendPosition": "right",
+                            "maxLegendLines": 1,
+                            "palette": {
+                                "name": "default",
+                                "type": "palette"
+                            },
+                            "radiusRatio": 0,
+                            "seriesParams": [
+                                {
+                                    "circlesRadius": 1,
+                                    "data": {
+                                        "id": "1",
+                                        "label": "Count"
+                                    },
+                                    "drawLinesBetweenPoints": true,
+                                    "interpolate": "linear",
+                                    "lineWidth": 2,
+                                    "mode": "stacked",
+                                    "show": true,
+                                    "showCircles": true,
+                                    "type": "histogram",
+                                    "valueAxis": "ValueAxis-1"
+                                }
+                            ],
+                            "thresholdLine": {
+                                "color": "#E7664C",
+                                "show": false,
+                                "style": "full",
+                                "value": 10,
+                                "width": 1
+                            },
+                            "times": [],
+                            "truncateLegend": true,
+                            "type": "histogram",
+                            "valueAxes": [
+                                {
+                                    "id": "ValueAxis-1",
+                                    "labels": {
+                                        "filter": false,
+                                        "rotate": 0,
+                                        "show": true,
+                                        "truncate": 100
+                                    },
+                                    "name": "LeftAxis-1",
+                                    "position": "left",
+                                    "scale": {
+                                        "mode": "normal",
+                                        "type": "linear"
+                                    },
+                                    "show": true,
+                                    "style": {},
+                                    "title": {
+                                        "text": ""
+                                    },
+                                    "type": "value"
+                                }
+                            ]
+                        },
+                        "title": "",
+                        "type": "histogram",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "10ed0f28-72fd-4911-a873-98a834d804ad",
+                    "w": 36,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "10ed0f28-72fd-4911-a873-98a834d804ad",
+                "title": "X509",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                }
+                            ],
+                            "savedSearchId": "614b95b0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {}
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": false,
+                            "addTooltip": true,
+                            "metric": {
+                                "colorSchema": "Green to Red",
+                                "colorsRange": [
+                                    {
+                                        "from": 0,
+                                        "to": 10000
+                                    }
+                                ],
+                                "invertColors": false,
+                                "labels": {
+                                    "show": true
+                                },
+                                "metricColorMode": "None",
+                                "percentageMode": false,
+                                "style": {
+                                    "bgColor": false,
+                                    "bgFill": "#000",
+                                    "fontSize": 60,
+                                    "labelColor": false,
+                                    "subText": ""
+                                },
+                                "useRanges": false
+                            },
+                            "type": "metric"
+                        },
+                        "title": "",
+                        "type": "metric",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 6,
+                    "i": "90e2ee71-e2f5-4b24-86e5-fb0539749ec3",
+                    "w": 12,
+                    "x": 0,
+                    "y": 10
+                },
+                "panelIndex": "90e2ee71-e2f5-4b24-86e5-fb0539749ec3",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "X509 Cert Issuer CN",
+                                        "field": "zeek.x509.certificate.issuer.common_name",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "614b95b0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 344
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 120
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "4ae5279d-6c8e-40ca-8156-5db433b9422c",
+                    "w": 12,
+                    "x": 0,
+                    "y": 16
+                },
+                "panelIndex": "4ae5279d-6c8e-40ca-8156-5db433b9422c",
+                "title": "X509 Cert Issuer Common Name",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "X509 Cert Issuer CN",
+                                        "field": "zeek.x509.certificate.issuer.common_name",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "614b95b0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 344
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 120
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "f68858b9-a5c4-47a0-a86b-b7cfa3c2581b",
+                    "w": 12,
+                    "x": 12,
+                    "y": 16
+                },
+                "panelIndex": "f68858b9-a5c4-47a0-a86b-b7cfa3c2581b",
+                "title": "X509 Cert Issuer Common Name",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "X509 Cert SAN DNS",
+                                        "field": "zeek.x509.san.dns",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "614b95b0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "45af4415-0e20-478a-8163-3b37f703f9bd",
+                    "w": 24,
+                    "x": 24,
+                    "y": 16
+                },
+                "panelIndex": "45af4415-0e20-478a-8163-3b37f703f9bd",
+                "title": "X509 SAN DNS",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "c38dea05-49cc-4e79-902a-05ebabb81304",
+                    "w": 48,
+                    "x": 0,
+                    "y": 31
+                },
+                "panelIndex": "c38dea05-49cc-4e79-902a-05ebabb81304",
+                "panelRefName": "panel_c38dea05-49cc-4e79-902a-05ebabb81304",
+                "type": "search",
+                "version": "7.17.1"
+            }
+        ],
+        "timeRestore": false,
+        "title": "Zeek X509",
+        "version": 1
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "c534bdf0-bcc5-11ec-b18c-132531e841f5",
+    "migrationVersion": {
+        "dashboard": "7.17.0"
+    },
+    "references": [
+        {
+            "id": "a8124790-b736-11ec-8557-1b440f769a60",
+            "name": "4447ccaf-8a60-4e64-8106-c631ed18aed3:panel_4447ccaf-8a60-4e64-8106-c631ed18aed3",
+            "type": "visualization"
+        },
+        {
+            "id": "614b95b0-b721-11ec-8557-1b440f769a60",
+            "name": "10ed0f28-72fd-4911-a873-98a834d804ad:search_0",
+            "type": "search"
+        },
+        {
+            "id": "614b95b0-b721-11ec-8557-1b440f769a60",
+            "name": "90e2ee71-e2f5-4b24-86e5-fb0539749ec3:search_0",
+            "type": "search"
+        },
+        {
+            "id": "614b95b0-b721-11ec-8557-1b440f769a60",
+            "name": "4ae5279d-6c8e-40ca-8156-5db433b9422c:search_0",
+            "type": "search"
+        },
+        {
+            "id": "614b95b0-b721-11ec-8557-1b440f769a60",
+            "name": "f68858b9-a5c4-47a0-a86b-b7cfa3c2581b:search_0",
+            "type": "search"
+        },
+        {
+            "id": "614b95b0-b721-11ec-8557-1b440f769a60",
+            "name": "45af4415-0e20-478a-8163-3b37f703f9bd:search_0",
+            "type": "search"
+        },
+        {
+            "id": "614b95b0-b721-11ec-8557-1b440f769a60",
+            "name": "c38dea05-49cc-4e79-902a-05ebabb81304:panel_c38dea05-49cc-4e79-902a-05ebabb81304",
+            "type": "search"
+        }
+    ],
+    "type": "dashboard",
+    "updated_at": "2022-04-15T15:06:08.812Z",
+    "version": "WzY1NjU1LDdd"
+}

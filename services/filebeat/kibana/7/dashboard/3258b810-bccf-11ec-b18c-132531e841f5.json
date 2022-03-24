@@ -1,0 +1,471 @@
+{
+    "attributes": {
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": "not network.direction : \"outbound\""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 10,
+                    "i": "3cc7629b-42ea-41fe-af40-520bfde9839f",
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "3cc7629b-42ea-41fe-af40-520bfde9839f",
+                "panelRefName": "panel_3cc7629b-42ea-41fe-af40-520bfde9839f",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": [
+                                {
+                                    "action": {
+                                        "config": {
+                                            "useCurrentDateRange": true,
+                                            "useCurrentFilters": true
+                                        },
+                                        "factoryId": "DASHBOARD_TO_DASHBOARD_DRILLDOWN",
+                                        "name": "View in Connection Dashboard"
+                                    },
+                                    "eventId": "552cc9b5-bb67-4cd1-8146-6ab6c2fabf96",
+                                    "triggers": [
+                                        "FILTER_TRIGGER"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [],
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\" "
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "axis_formatter": "number",
+                            "axis_position": "left",
+                            "axis_scale": "normal",
+                            "drop_last_bucket": 0,
+                            "id": "61ebcc6e-8630-4b04-b022-104e8ee43dfc",
+                            "index_pattern": "",
+                            "interval": "",
+                            "isModelInvalid": false,
+                            "max_lines_legend": 1,
+                            "series": [
+                                {
+                                    "axis_position": "left",
+                                    "chart_type": "line",
+                                    "color": "rgba(218,139,69,1)",
+                                    "fill": "0",
+                                    "filter": {
+                                        "language": "kuery",
+                                        "query": "not network.direction : \"outbound\" and event.duration \u003e= 0"
+                                    },
+                                    "formatter": "ns,s,",
+                                    "hide_in_legend": 0,
+                                    "id": "5d3f7ae0-bcd5-11ec-aff6-c9bfeb4f480e",
+                                    "ignore_global_filter": 0,
+                                    "label": "Connection Duration",
+                                    "line_width": 1,
+                                    "metrics": [
+                                        {
+                                            "field": "event.duration",
+                                            "id": "5d3fa1f0-bcd5-11ec-aff6-c9bfeb4f480e",
+                                            "percentiles": [
+                                                {
+                                                    "color": "rgba(231,102,76,1)",
+                                                    "id": "2dc64ff0-bcd5-11ec-aff6-c9bfeb4f480e",
+                                                    "mode": "band",
+                                                    "percentile": "90",
+                                                    "shade": 0.2,
+                                                    "value": "75"
+                                                },
+                                                {
+                                                    "color": "#68BC00",
+                                                    "id": "72574d30-bcd6-11ec-aff6-c9bfeb4f480e",
+                                                    "mode": "band",
+                                                    "percentile": "75",
+                                                    "shade": "0.2",
+                                                    "value": "0"
+                                                }
+                                            ],
+                                            "sigma": "",
+                                            "type": "percentile",
+                                            "unit": ""
+                                        }
+                                    ],
+                                    "override_index_pattern": 0,
+                                    "palette": {
+                                        "name": "default",
+                                        "type": "palette"
+                                    },
+                                    "point_size": 1,
+                                    "separate_axis": 1,
+                                    "series_drop_last_bucket": 0,
+                                    "split_filters": [
+                                        {
+                                            "color": "#68BC00",
+                                            "filter": {
+                                                "language": "kuery",
+                                                "query": ""
+                                            },
+                                            "id": "26523540-bbd6-11ec-92de-b34877403c4b",
+                                            "label": ""
+                                        }
+                                    ],
+                                    "split_mode": "everything",
+                                    "stacked": "none",
+                                    "time_range_mode": "entire_time_range"
+                                },
+                                {
+                                    "axis_max": "200",
+                                    "axis_min": "0",
+                                    "axis_position": "right",
+                                    "chart_type": "bar",
+                                    "color": "rgba(231,102,76,1)",
+                                    "fill": 0.5,
+                                    "filter": {
+                                        "language": "kuery",
+                                        "query": "event.module : \"suricata\" and event.kind : \"alert\" and  rule.category: (\"Attempted Denial of Service\"  or \"Detection of a Denial of Service Attack\" or \"Denial of Service\")"
+                                    },
+                                    "formatter": "default",
+                                    "id": "398ff060-bbd7-11ec-92de-b34877403c4b",
+                                    "ignore_global_filter": 0,
+                                    "label": "Dos Alert Count",
+                                    "line_width": 1,
+                                    "metrics": [
+                                        {
+                                            "id": "398ff061-bbd7-11ec-92de-b34877403c4b",
+                                            "type": "count"
+                                        }
+                                    ],
+                                    "override_index_pattern": 0,
+                                    "palette": {
+                                        "name": "default",
+                                        "type": "palette"
+                                    },
+                                    "point_size": 1,
+                                    "separate_axis": 1,
+                                    "series_drop_last_bucket": 0,
+                                    "split_mode": "everything",
+                                    "stacked": "none",
+                                    "time_range_mode": "entire_time_range"
+                                }
+                            ],
+                            "show_grid": 1,
+                            "show_legend": 1,
+                            "time_field": "",
+                            "time_range_mode": "entire_time_range",
+                            "tooltip_mode": "show_all",
+                            "truncate_legend": 1,
+                            "type": "timeseries",
+                            "use_kibana_indexes": true
+                        },
+                        "title": "",
+                        "type": "metrics",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 17,
+                    "i": "cec5ab30-9c89-4f30-beb4-588112e0cbf7",
+                    "w": 36,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "cec5ab30-9c89-4f30-beb4-588112e0cbf7",
+                "title": "Average Inbound Duration (Seconds), Alert Count",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": [
+                                {
+                                    "action": {
+                                        "config": {
+                                            "useCurrentDateRange": true,
+                                            "useCurrentFilters": true
+                                        },
+                                        "factoryId": "DASHBOARD_TO_DASHBOARD_DRILLDOWN",
+                                        "name": "View in Connection Dashboard"
+                                    },
+                                    "eventId": "fa8934f3-8297-44bc-bf11-74d148abdb8f",
+                                    "triggers": [
+                                        "FILTER_TRIGGER"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [],
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\" "
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "spec": "{\n  $schema: https://vega.github.io/schema/vega/v5.json\n  signals: [\n    {\n      name: hour_click\n      on: [\n        {\n          events: {\n            source: scope\n            type: click\n            markname: hour\n          }\n          update: kibanaSetTimeFilter(datum.key, datum.key + 60 * 60 * 1000)\n        }\n      ]\n    }\n  ]\n  data: [\n    {\n      name: conn\n      url: {\n        %context%: true\n        %timefield%: @timestamp\n        index: _all\n        body: {\n          aggs: {\n            time_buckets: {\n              date_histogram: {\n                field: @timestamp\n                fixed_interval: 1h\n                extended_bounds: {\n                  min: {\n                    %timefilter%: min\n                  }\n                  max: {\n                    %timefilter%: max\n                  }\n                }\n                min_doc_count: 0\n              }\n            }\n          }\n          size: 0\n        }\n      }\n      transform: [\n        {\n          type: formula\n          as: hour\n          expr: hours(datum.key_as_string)\n        }\n        {\n          type: formula\n          as: day\n          expr: datetime(year(datum.key_as_string), month(datum.key_as_string), date(datum.key_as_string))\n        }\n      ]\n      format: {\n        property: aggregations.time_buckets.buckets\n      }\n    }\n  ]\n  scales: [\n    {\n      name: x\n      type: time\n      domain: {\n        data: conn\n        field: key\n      }\n      range: width\n      nice: {\n        interval: day\n        step: 1\n      }\n    }\n    {\n      name: y\n      type: band\n      padding: 0.1\n      domain: [\n        0\n        1\n        2\n        3\n        4\n        5\n        6\n        7\n        8\n        9\n        10\n        11\n        12\n        13\n        14\n        15\n        16\n        17\n        18\n        19\n        20\n        21\n        22\n        23\n      ]\n      range: height\n    }\n    {\n      name: color\n      type: linear\n      range: {\n        scheme: LightGreyTeal\n      }\n      domain: {\n        data: conn\n        field: doc_count\n      }\n      zero: false\n      nice: true\n    }\n  ]\n  axes: [\n    {\n      orient: bottom\n      scale: x\n      title: Date\n      format: %e/%m\n    }\n    {\n      orient: left\n      scale: y\n      title: Hour\n      encode: {\n        labels: {\n          update: {\n            text: {\n              signal: datum.value \u003c 10 ? '0' + datum.value + ':00' : datum.value + ':00'\n            }\n          }\n        }\n      }\n    }\n  ]\n  legends: [\n    {\n      fill: color\n      type: gradient\n      padding: 14\n      title: Conn Count\n      titleFontSize: 12\n      titlePadding: 4\n      gradientLength: {\n        signal: height * .75\n      }\n    }\n  ]\n  marks: [\n    {\n      name: hour\n      type: rect\n      from: {\n        data: conn\n      }\n      encode: {\n        enter: {\n          x: {\n            scale: x\n            field: day\n          }\n          y: {\n            scale: y\n            field: hour\n          }\n          width: {\n            signal: width / 8\n          }\n          height: {\n            scale: y\n            band: 1\n          }\n          cursor: { value: \"pointer\" }\n          tooltip: {\n            signal: timeFormat(datum.key, '%b %d %H:00') + ': ' + datum.doc_count\n          }\n        }\n        update: {\n          fill: {\n            scale: color\n            field: doc_count\n          }\n        }\n      }\n    }\n  ]\n}"
+                        },
+                        "title": "",
+                        "type": "vega",
+                        "uiState": {}
+                    },
+                    "timeRange": {
+                        "from": "now-7d/d",
+                        "to": "now"
+                    }
+                },
+                "gridData": {
+                    "h": 27,
+                    "i": "6be8d03f-d2aa-4783-99ba-20c3f5c8f931",
+                    "w": 12,
+                    "x": 0,
+                    "y": 10
+                },
+                "panelIndex": "6be8d03f-d2aa-4783-99ba-20c3f5c8f931",
+                "title": "Hourly Connection Count",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Destination Port",
+                                        "extended_bounds": {
+                                            "max": "",
+                                            "min": ""
+                                        },
+                                        "field": "destination.port",
+                                        "has_extended_bounds": false,
+                                        "interval": "auto",
+                                        "maxBars": 30,
+                                        "min_doc_count": false,
+                                        "used_interval": 5000
+                                    },
+                                    "schema": "segment",
+                                    "type": "histogram"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": true,
+                            "addTimeMarker": false,
+                            "addTooltip": true,
+                            "categoryAxes": [
+                                {
+                                    "id": "CategoryAxis-1",
+                                    "labels": {
+                                        "filter": false,
+                                        "rotate": 0,
+                                        "show": true,
+                                        "truncate": 200
+                                    },
+                                    "position": "left",
+                                    "scale": {
+                                        "type": "linear"
+                                    },
+                                    "show": true,
+                                    "style": {},
+                                    "title": {},
+                                    "type": "category"
+                                }
+                            ],
+                            "detailedTooltip": true,
+                            "grid": {
+                                "categoryLines": false
+                            },
+                            "labels": {},
+                            "legendPosition": "right",
+                            "maxLegendLines": 1,
+                            "palette": {
+                                "name": "default",
+                                "type": "palette"
+                            },
+                            "radiusRatio": 0,
+                            "seriesParams": [
+                                {
+                                    "circlesRadius": 1,
+                                    "data": {
+                                        "id": "1",
+                                        "label": "Count"
+                                    },
+                                    "drawLinesBetweenPoints": true,
+                                    "interpolate": "linear",
+                                    "lineWidth": 2,
+                                    "mode": "normal",
+                                    "show": true,
+                                    "showCircles": true,
+                                    "type": "histogram",
+                                    "valueAxis": "ValueAxis-1"
+                                }
+                            ],
+                            "thresholdLine": {
+                                "color": "#E7664C",
+                                "show": false,
+                                "style": "full",
+                                "value": 10,
+                                "width": 1
+                            },
+                            "times": [],
+                            "truncateLegend": true,
+                            "type": "histogram",
+                            "valueAxes": [
+                                {
+                                    "id": "ValueAxis-1",
+                                    "labels": {
+                                        "filter": true,
+                                        "rotate": 75,
+                                        "show": true,
+                                        "truncate": 100
+                                    },
+                                    "name": "LeftAxis-1",
+                                    "position": "bottom",
+                                    "scale": {
+                                        "mode": "normal",
+                                        "type": "linear"
+                                    },
+                                    "show": true,
+                                    "style": {},
+                                    "title": {
+                                        "text": ""
+                                    },
+                                    "type": "value"
+                                }
+                            ]
+                        },
+                        "title": "",
+                        "type": "horizontal_bar",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 20,
+                    "i": "7f75ae20-d40d-4367-a420-afb40abe6522",
+                    "w": 36,
+                    "x": 12,
+                    "y": 17
+                },
+                "panelIndex": "7f75ae20-d40d-4367-a420-afb40abe6522",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 17,
+                    "i": "cb93e3ab-1515-4525-b3f6-ff255fa20ff8",
+                    "w": 48,
+                    "x": 0,
+                    "y": 37
+                },
+                "panelIndex": "cb93e3ab-1515-4525-b3f6-ff255fa20ff8",
+                "panelRefName": "panel_cb93e3ab-1515-4525-b3f6-ff255fa20ff8",
+                "type": "search",
+                "version": "7.17.1"
+            }
+        ],
+        "timeRestore": false,
+        "title": "DoS Attack",
+        "version": 1
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "3258b810-bccf-11ec-b18c-132531e841f5",
+    "migrationVersion": {
+        "dashboard": "7.17.0"
+    },
+    "references": [
+        {
+            "id": "a8124790-b736-11ec-8557-1b440f769a60",
+            "name": "3cc7629b-42ea-41fe-af40-520bfde9839f:panel_3cc7629b-42ea-41fe-af40-520bfde9839f",
+            "type": "visualization"
+        },
+        {
+            "id": "b968aa40-b725-11ec-8557-1b440f769a60",
+            "name": "cec5ab30-9c89-4f30-beb4-588112e0cbf7:drilldown:DASHBOARD_TO_DASHBOARD_DRILLDOWN:552cc9b5-bb67-4cd1-8146-6ab6c2fabf96:dashboardId",
+            "type": "dashboard"
+        },
+        {
+            "id": "b968aa40-b725-11ec-8557-1b440f769a60",
+            "name": "6be8d03f-d2aa-4783-99ba-20c3f5c8f931:drilldown:DASHBOARD_TO_DASHBOARD_DRILLDOWN:fa8934f3-8297-44bc-bf11-74d148abdb8f:dashboardId",
+            "type": "dashboard"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "7f75ae20-d40d-4367-a420-afb40abe6522:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "cb93e3ab-1515-4525-b3f6-ff255fa20ff8:panel_cb93e3ab-1515-4525-b3f6-ff255fa20ff8",
+            "type": "search"
+        }
+    ],
+    "type": "dashboard",
+    "updated_at": "2022-04-15T16:16:02.609Z",
+    "version": "WzY3NDEwLDdd"
+}

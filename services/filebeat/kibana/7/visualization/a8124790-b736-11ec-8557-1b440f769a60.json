@@ -17,7 +17,7 @@
             "aggs": [],
             "params": {
                 "fontSize": 12,
-                "markdown": "**Alerts**    \n[Suricata Alerts](/app/dashboards#/view/5b685c20-af3b-11ec-b242-538620b91dcb)\n\n**Zeek Datasets**    \n[Connection](/app/dashboards#/view/b968aa40-b725-11ec-8557-1b440f769a60) |\n[SSL](/app/dashboards#/view/d3d3b0b0-b7f1-11ec-8557-1b440f769a60) |",
+                "markdown": "**Suricata Alerts**    \n[All](/app/dashboards#/view/5b685c20-af3b-11ec-b242-538620b91dcb) |\n[Probe](/app/dashboards#/view/42e34590-b8a8-11ec-9514-dbbe999a6ec2) |\n[DoS](/app/dashboards#/view/0fdb5920-b8a9-11ec-9514-dbbe999a6ec2)\n\n**Zeek Datasets**    \n[Connection](/app/dashboards#/view/b968aa40-b725-11ec-8557-1b440f769a60) |\n[DHCP](/app/dashboards#/view/5f256e90-b817-11ec-9514-dbbe999a6ec2) |\n[DNS](/app/dashboards#/view/0ddad3d0-b81d-11ec-9514-dbbe999a6ec2) |\n[HTTP](/app/dashboards#/view/c58530a0-b81f-11ec-9514-dbbe999a6ec2) |\n[Files](/app/dashboards#/view/50406300-bca7-11ec-b18c-132531e841f5) |\n[NTP](/app/dashboards#/view/15c31c50-bcba-11ec-b18c-132531e841f5) |\n[SIP](/app/dashboards#/view/37605bc0-bcbf-11ec-b18c-132531e841f5) |\n[SSH](/app/dashboards#/view/ee3a1330-bca2-11ec-b18c-132531e841f5) |\n[SSL](/app/dashboards#/view/d3d3b0b0-b7f1-11ec-8557-1b440f769a60) |\n[X509](/app/dashboards#/view/c534bdf0-bcc5-11ec-b18c-132531e841f5) |\n\n**Anomaly Detection**   \n[Probe Attack](/app/dashboards#/view/d8ecd750-b8e3-11ec-9514-dbbe999a6ec2) |\n[DoS Attack](/app/dashboards#/view/3258b810-bccf-11ec-b18c-132531e841f5) |",
                 "openLinksInNewTab": false
             },
             "title": "Navigation",
@@ -31,6 +31,6 @@
     },
     "references": [],
     "type": "visualization",
-    "updated_at": "2022-04-09T10:43:30.161Z",
-    "version": "WzIwOTM2LDVd"
+    "updated_at": "2022-04-15T16:16:56.979Z",
+    "version": "WzY3NDIyLDdd"
 }

@@ -4,7 +4,54 @@
         "hits": 0,
         "kibanaSavedObjectMeta": {
             "searchSourceJSON": {
-                "filter": [],
+                "filter": [
+                    {
+                        "$state": {
+                            "store": "appState"
+                        },
+                        "meta": {
+                            "alias": null,
+                            "disabled": false,
+                            "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                            "key": "rule.category",
+                            "negate": false,
+                            "params": [
+                                "Detection of a Network Scan",
+                                "Attempted Information Leak",
+                                "Information Leak",
+                                "Large Scale Information Leak"
+                            ],
+                            "type": "phrases"
+                        },
+                        "query": {
+                            "bool": {
+                                "minimum_should_match": 1,
+                                "should": [
+                                    {
+                                        "match_phrase": {
+                                            "rule.category": "Detection of a Network Scan"
+                                        }
+                                    },
+                                    {
+                                        "match_phrase": {
+                                            "rule.category": "Attempted Information Leak"
+                                        }
+                                    },
+                                    {
+                                        "match_phrase": {
+                                            "rule.category": "Information Leak"
+                                        }
+                                    },
+                                    {
+                                        "match_phrase": {
+                                            "rule.category": "Large Scale Information Leak"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
                 "query": {
                     "language": "kuery",
                     "query": ""
@@ -22,7 +69,7 @@
                     "enhancements": {}
                 },
                 "gridData": {
-                    "h": 10,
+                    "h": 9,
                     "i": "cb0a348e-560f-423f-815f-b11e2ff5f0fb",
                     "w": 12,
                     "x": 0,
@@ -86,7 +133,7 @@
                     }
                 },
                 "gridData": {
-                    "h": 10,
+                    "h": 9,
                     "i": "c2236d90-7c44-498f-8034-419a238f0430",
                     "w": 12,
                     "x": 12,
@@ -99,6 +146,7 @@
             {
                 "embeddableConfig": {
                     "enhancements": {},
+                    "hidePanelTitles": true,
                     "savedVis": {
                         "data": {
                             "aggs": [],
@@ -116,8 +164,8 @@
                             "controls": [
                                 {
                                     "fieldName": "event.severity",
-                                    "id": "1649947738876",
-                                    "indexPatternRefName": "control_6c4f5357-e562-4aff-a3fe-1ce354c002cf_0_index_pattern",
+                                    "id": "1648542807518",
+                                    "indexPatternRefName": "control_ec78b5bb-8f3d-4d50-93d8-129272785602_0_index_pattern",
                                     "label": "Alert Severity",
                                     "options": {
                                         "dynamicOptions": true,
@@ -140,117 +188,13 @@
                     }
                 },
                 "gridData": {
-                    "h": 10,
-                    "i": "6c4f5357-e562-4aff-a3fe-1ce354c002cf",
-                    "w": 11,
+                    "h": 9,
+                    "i": "ec78b5bb-8f3d-4d50-93d8-129272785602",
+                    "w": 12,
                     "x": 24,
                     "y": 0
                 },
-                "panelIndex": "6c4f5357-e562-4aff-a3fe-1ce354c002cf",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "Rule Name",
-                                        "field": "rule.name",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 100
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "3",
-                                    "params": {
-                                        "customLabel": "Severity",
-                                        "field": "event.severity"
-                                    },
-                                    "schema": "metric",
-                                    "type": "median"
-                                }
-                            ],
-                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "row": false,
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
-                        },
-                        "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 0,
-                                    "width": 541
-                                },
-                                {
-                                    "colIndex": 1,
-                                    "width": 95
-                                },
-                                {
-                                    "colIndex": 2,
-                                    "width": 88
-                                }
-                            ],
-                            "sort": {
-                                "columnIndex": 2,
-                                "direction": "desc"
-                            }
-                        }
-                    }
-                },
-                "gridData": {
-                    "h": 14,
-                    "i": "b6a60756-8923-4261-bd35-f8f1d996148a",
-                    "w": 19,
-                    "x": 29,
-                    "y": 10
-                },
-                "panelIndex": "b6a60756-8923-4261-bd35-f8f1d996148a",
-                "title": "Top Alerts",
+                "panelIndex": "ec78b5bb-8f3d-4d50-93d8-129272785602",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -408,11 +352,115 @@
                     "i": "08b493a6-4b43-4c66-8870-e21eaea42fc9",
                     "w": 29,
                     "x": 0,
-                    "y": 10
+                    "y": 9
                 },
                 "panelIndex": "08b493a6-4b43-4c66-8870-e21eaea42fc9",
                 "title": "Alert With Types",
                 "type": "lens",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Rule Name",
+                                        "field": "rule.name",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 100
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "3",
+                                    "params": {
+                                        "customLabel": "Severity",
+                                        "field": "event.severity"
+                                    },
+                                    "schema": "metric",
+                                    "type": "median"
+                                }
+                            ],
+                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "row": false,
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 541
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 95
+                                },
+                                {
+                                    "colIndex": 2,
+                                    "width": 88
+                                }
+                            ],
+                            "sort": {
+                                "columnIndex": null,
+                                "direction": null
+                            }
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "b6a60756-8923-4261-bd35-f8f1d996148a",
+                    "w": 19,
+                    "x": 29,
+                    "y": 9
+                },
+                "panelIndex": "b6a60756-8923-4261-bd35-f8f1d996148a",
+                "title": "Top Alerts",
+                "type": "visualization",
                 "version": "7.17.1"
             },
             {
@@ -493,7 +541,7 @@
                     "i": "ab997834-0c74-4d24-a43d-3c482f4e389e",
                     "w": 15,
                     "x": 33,
-                    "y": 24
+                    "y": 23
                 },
                 "panelIndex": "ab997834-0c74-4d24-a43d-3c482f4e389e",
                 "title": "Top 10 Alerting Destination IP",
@@ -523,7 +571,7 @@
                     "i": "8ea259c5-02af-48da-9d11-b0ac344ff601",
                     "w": 18,
                     "x": 0,
-                    "y": 24
+                    "y": 23
                 },
                 "panelIndex": "8ea259c5-02af-48da-9d11-b0ac344ff601",
                 "panelRefName": "panel_8ea259c5-02af-48da-9d11-b0ac344ff601",
@@ -608,7 +656,7 @@
                     "i": "90eafb24-f942-46a5-a88b-7c699254a4f6",
                     "w": 15,
                     "x": 18,
-                    "y": 24
+                    "y": 23
                 },
                 "panelIndex": "90eafb24-f942-46a5-a88b-7c699254a4f6",
                 "title": "Top 10 Alerting Source IP",
@@ -693,7 +741,7 @@
                     "i": "07b42183-d557-4543-91d5-fa0bcf2641f8",
                     "w": 16,
                     "x": 0,
-                    "y": 38
+                    "y": 37
                 },
                 "panelIndex": "07b42183-d557-4543-91d5-fa0bcf2641f8",
                 "title": "Top 10 Destination Port",
@@ -702,37 +750,77 @@
             },
             {
                 "embeddableConfig": {
-                    "enhancements": {},
-                    "sort": [
-                        [
-                            "event.severity",
-                            "desc"
-                        ]
-                    ]
+                    "enhancements": {}
                 },
                 "gridData": {
                     "h": 14,
                     "i": "13f4e595-2319-47f8-8d96-546ae071fb18",
                     "w": 48,
                     "x": 0,
-                    "y": 46
+                    "y": 45
                 },
                 "panelIndex": "13f4e595-2319-47f8-8d96-546ae071fb18",
                 "panelRefName": "panel_13f4e595-2319-47f8-8d96-546ae071fb18",
                 "type": "search",
                 "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [],
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\" "
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "spec": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v5.json\",\n  \"autosize\": {\n    \"type\": \"fit\",\n    \"contains\": \"padding\"\n  },\n  \"data\": {\n    \"url\": {\n      \"%context%\": true,\n      \"%timefield%\": \"@timestamp\",\n      \"index\": \"_all\",\n      \"body\": {\n        \"aggs\": {\n          \"time_buckets\": {\n            \"date_histogram\": {\n              \"field\": \"@timestamp\",\n              \"fixed_interval\": \"1h\",\n              \"extended_bounds\": {\n                \"min\": {\"%timefilter%\": \"min\"},\n                \"max\": {\"%timefilter%\": \"max\"}\n              },\n              \"min_doc_count\": 0\n            },\n          }\n        },\n        \"size\": 0\n      }\n    },\n    \"format\": {\"property\": \"aggregations.time_buckets.buckets\"}\n  },\n  \"mark\": \"rect\",\n  \"config\": {\"axis\": {\"grid\": true, \"tickBand\": \"extent\"}},\n  \"autosize\": {\"type\": \"fit\", \"contains\": \"padding\", \"resize\": true},\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"key\",\n      \"timeUnit\": \"yearmonthdate\",\n      \"type\": \"ordinal\",\n      \"title\": \"Date\",\n      \"axis\": {\"labelAngle\": 0, \"format\": \"%e/%m\"}\n    },\n    \"y\": {\n      \"field\": \"key\",\n      \"timeUnit\": \"hours\",\n      \"type\": \"ordinal\",\n      \"title\": \"Hours\"\n    },\n    \"color\": {\n      \"field\": \"doc_count\",\n      \"type\": \"quantitative\",\n      \"scale\": {\"scheme\": \"greens\", \"type\": \"linear\"},\n      \"legend\": {\n        \"padding\": 20,\n      },\n      \"title\": \"Total Conn Count\"\n    },\n    \"tooltip\": [{\n      \"field\": key\n      \"type\": temporal\n      \"format\": \"%Y-%m-%d %Hh\"\n      \"title\": \"Date\"\n    }, {\n      \"field\": doc_count\n      \"type\": quantitative\n      \"title\": \"Conn\"\n    }]\n  },\n}"
+                        },
+                        "title": "",
+                        "type": "vega",
+                        "uiState": {}
+                    },
+                    "timeRange": {
+                        "from": "now-7d/d",
+                        "to": "now"
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "845ede18-4de9-49e3-b89d-05f1ae3b0ed4",
+                    "w": 24,
+                    "x": 0,
+                    "y": 59
+                },
+                "panelIndex": "845ede18-4de9-49e3-b89d-05f1ae3b0ed4",
+                "title": "Hourly Average Packet Count",
+                "type": "visualization",
+                "version": "7.17.1"
             }
         ],
         "timeRestore": false,
-        "title": "Suricata Alerts",
+        "title": "Suricata Alerts [Probe]",
         "version": 1
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "5b685c20-af3b-11ec-b242-538620b91dcb",
+    "id": "42e34590-b8a8-11ec-9514-dbbe999a6ec2",
     "migrationVersion": {
         "dashboard": "7.17.0"
     },
     "references": [
+        {
+            "id": "filebeat-*",
+            "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+            "type": "index-pattern"
+        },
         {
             "id": "a8124790-b736-11ec-8557-1b440f769a60",
             "name": "cb0a348e-560f-423f-815f-b11e2ff5f0fb:panel_cb0a348e-560f-423f-815f-b11e2ff5f0fb",
@@ -745,13 +833,8 @@
         },
         {
             "id": "filebeat-*",
-            "name": "6c4f5357-e562-4aff-a3fe-1ce354c002cf:control_6c4f5357-e562-4aff-a3fe-1ce354c002cf_0_index_pattern",
+            "name": "ec78b5bb-8f3d-4d50-93d8-129272785602:control_ec78b5bb-8f3d-4d50-93d8-129272785602_0_index_pattern",
             "type": "index-pattern"
-        },
-        {
-            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
-            "name": "b6a60756-8923-4261-bd35-f8f1d996148a:search_0",
-            "type": "search"
         },
         {
             "id": "filebeat-*",
@@ -762,6 +845,11 @@
             "id": "filebeat-*",
             "name": "08b493a6-4b43-4c66-8870-e21eaea42fc9:indexpattern-datasource-layer-3448c725-4547-46bb-9df3-f7edd0cf5564",
             "type": "index-pattern"
+        },
+        {
+            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+            "name": "b6a60756-8923-4261-bd35-f8f1d996148a:search_0",
+            "type": "search"
         },
         {
             "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
@@ -790,6 +878,6 @@
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T15:13:50.141Z",
-    "version": "WzY1ODk1LDdd"
+    "updated_at": "2022-04-14T11:59:51.035Z",
+    "version": "WzU1ODkxLDdd"
 }

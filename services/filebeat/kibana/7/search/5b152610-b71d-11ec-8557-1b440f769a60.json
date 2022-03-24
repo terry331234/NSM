@@ -1,17 +1,22 @@
 {
     "attributes": {
         "columns": [
-            "rule.name",
-            "rule.id",
-            "event.severity",
-            "search_community_id",
-            "source.ip",
             "destination.ip",
-            "source.port",
-            "destination.port"
+            "source.ip",
+            "network.community_id",
+            "zeek.dhcp.address.mac",
+            "zeek.dhcp.address.assigned",
+            "zeek.dhcp.lease_time",
+            "zeek.dhcp.msg.types"
         ],
         "description": "",
-        "grid": {},
+        "grid": {
+            "columns": {
+                "network.community_id": {
+                    "width": 294
+                }
+            }
+        },
         "hideChart": false,
         "kibanaSavedObjectMeta": {
             "searchSourceJSON": {
@@ -19,7 +24,7 @@
                 "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
                 "query": {
                     "language": "kuery",
-                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" "
+                    "query": "event.module : \"zeek\" and fileset.name : \"dhcp\"    "
                 }
             }
         },
@@ -29,10 +34,10 @@
                 "desc"
             ]
         ],
-        "title": "Suricata Alerts"
+        "title": "Zeek DHCP"
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+    "id": "5b152610-b71d-11ec-8557-1b440f769a60",
     "migrationVersion": {
         "search": "7.9.3"
     },
@@ -44,6 +49,6 @@
         }
     ],
     "type": "search",
-    "updated_at": "2022-04-09T13:01:38.177Z",
-    "version": "WzU0NTAwLDdd"
+    "updated_at": "2022-04-09T15:11:31.503Z",
+    "version": "WzU0NTEyLDdd"
 }
