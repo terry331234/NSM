@@ -3,8 +3,13 @@
 ### Include Suricata, Zeek, FileBeat, ElasticSearch and Kibana
 
 ### Prerequisite
+- Linux Host - host networking driver only works on Linux hosts
 - Docker Engine
-- Docker Compose version 1.10.0 or newer
+- Docker Compose
+
+Tested on:
+- Debian 10/Docker Engine v20.10.8/Docker Compose v1.26.2
+- Ubuntu 20.04.3/Docker Engine v20.10.12/Docker Compose v1.29.2
 
 ### Usage
 #### Setting Up
@@ -29,6 +34,16 @@ Clone this repository and start services locally using Docker Compose:
 $ docker-compose up
 #Run in background
 $ docker-compose up -d
+```
+
+#### Modify Config
+Edit the corresponding files in `services/filebeat, services/kibana, services/suricata/config, services/zeek/config`\
+And restart the corresponding container
+
+#### Update Suricata Rules
+Run in the repository directory
+```console
+$ docker-compose exec -u suricata suricata ./update.sh
 ```
 
 #### Cleanup
