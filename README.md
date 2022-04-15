@@ -40,17 +40,18 @@ $ docker-compose up -d
 Edit the corresponding files in `services/filebeat, services/kibana, services/suricata/config, services/zeek/config`\
 And restart the corresponding container
 
-#### Update Suricata Rules
+#### Update Suricata Rulesets
 Run in the repository directory
 ```console
-$ docker-compose exec -u suricata suricata ./update.sh
+$ docker-compose restart suricata
 ```
+The suricata container will update its rules on every startup
 
 #### Cleanup
 
 Elasticsearch data is stored inside a volume.
 
-To entirely shutdown the solution remove all persisted data, run:
+To entirely shutdown the solution and remove all persisted data, run:
 
 ```console
 $ docker-compose down -v
