@@ -7,7 +7,7 @@
                 "filter": [],
                 "query": {
                     "language": "kuery",
-                    "query": "not zeek.connection.history :     (ShA* or ShR* or ShD* or Fa* or Da* or Dd*) and not network.direction : \"outbound\""
+                    "query": "not zeek.connection.history :     (ShA* or ShD* or Fa* or Da* or Dd*) and not network.direction : \"outbound\""
                 }
             }
         },
@@ -70,7 +70,7 @@
                                 "filter": [],
                                 "query": {
                                     "language": "kuery",
-                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\"  and not network.direction : \"outbound\" and zeek.connection.history:* and not zeek.connection.history :   (ShA* or ShR* or ShD* or Fa* or Da* or Dd*)"
+                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\"  and not network.direction : \"outbound\" and zeek.connection.history:* and not zeek.connection.history :   (ShA* or ShD* or Fa* or Da* or Dd*)"
                                 }
                             }
                         },
@@ -136,7 +136,7 @@
                                 "filter": [],
                                 "query": {
                                     "language": "kuery",
-                                    "query": "not network.direction : \"outbound\" and not zeek.connection.history :  (ShA* or ShR* or ShD* or Fa* or Da* or Dd*)"
+                                    "query": "not network.direction : \"outbound\" and not zeek.connection.history :  (ShA* or ShD* or Fa* or Da* or Dd*)"
                                 }
                             }
                         },
@@ -243,7 +243,7 @@
                                 "filter": [],
                                 "query": {
                                     "language": "kuery",
-                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\"  and not network.direction : \"outbound\" and zeek.connection.history:* and not zeek.connection.history :   (ShA* or ShR* or ShD* or Fa* or Da* or Dd*)"
+                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\"  and not network.direction : \"outbound\" and zeek.connection.history:* and not zeek.connection.history :   (ShA* or ShD* or Fa* or Da* or Dd*)"
                                 }
                             }
                         },
@@ -345,7 +345,7 @@
                                     "fill": "0",
                                     "filter": {
                                         "language": "kuery",
-                                        "query": "not network.transport:\"icmp\" and not zeek.connection.history :   (ShA* or ShR* or ShD* or Fa* or Da* or Dd*) and not network.direction : \"outbound\""
+                                        "query": "not network.transport:\"icmp\" and not zeek.connection.history :   (ShA* or ShD* or Fa* or Da* or Dd*) and not network.direction : \"outbound\""
                                     },
                                     "formatter": "default",
                                     "id": "faac88db-be78-4b50-aec6-f8697168b551",
@@ -470,11 +470,11 @@
                                         "min_doc_count": 1,
                                         "scaleMetricValues": false,
                                         "timeRange": {
-                                            "from": "now-7d/d",
+                                            "from": "now-15m",
                                             "to": "now"
                                         },
                                         "useNormalizedEsInterval": true,
-                                        "used_interval": "3h"
+                                        "used_interval": "30s"
                                     },
                                     "schema": "segment",
                                     "type": "date_histogram"
@@ -569,7 +569,7 @@
                                 "filter": [],
                                 "query": {
                                     "language": "kuery",
-                                    "query": "not network.direction : \"outbound\" and not network.transport : \"icmp\"  and  not zeek.connection.history :   (ShA* or ShR* or ShD* or Fa* or Da* or Dd*)"
+                                    "query": "not network.direction : \"outbound\" and not network.transport : \"icmp\"  and  not zeek.connection.history :   (ShA*  or ShD* or Fa* or Da* or Dd*)"
                                 }
                             }
                         },
@@ -616,11 +616,11 @@
                         "uiState": {
                             "vis": {
                                 "defaultColors": {
-                                    "1 - 1,549": "rgb(247,251,255)",
-                                    "1,549 - 3,097": "rgb(207,225,242)",
-                                    "3,097 - 4,644": "rgb(146,195,223)",
-                                    "4,644 - 6,192": "rgb(75,151,201)",
-                                    "6,192 - 7,739": "rgb(23,100,171)"
+                                    "1 - 4": "rgb(247,251,255)",
+                                    "10 - 13": "rgb(75,151,201)",
+                                    "13 - 15": "rgb(23,100,171)",
+                                    "4 - 7": "rgb(207,225,242)",
+                                    "7 - 10": "rgb(146,195,223)"
                                 }
                             }
                         }
@@ -802,6 +802,6 @@
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-17T14:27:33.090Z",
-    "version": "WzgyOTY3LDdd"
+    "updated_at": "2022-04-18T03:38:23.003Z",
+    "version": "Wzg1MjM4LDdd"
 }

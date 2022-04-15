@@ -19,7 +19,7 @@
                 "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
                 "query": {
                     "language": "kuery",
-                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" "
+                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" and rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
                 }
             }
         },
@@ -44,6 +44,6 @@
         }
     ],
     "type": "search",
-    "updated_at": "2022-04-17T16:19:05.245Z",
-    "version": "WzgzNzc3LDdd"
+    "updated_at": "2022-04-18T03:45:42.584Z",
+    "version": "Wzg1MzkxLDdd"
 }

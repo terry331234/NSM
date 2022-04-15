@@ -49,7 +49,7 @@ if [ ! -e $CONTAINER_INITED ]; then
       "runtimeField": {
           "type": "keyword",
           "script": {
-              "source": "if (doc['\''network.community_id'\''].size() == 0 ) {\r\n    emit(\"\");\r\n    return;\r\n}\r\ndef cid = doc['\''network.community_id'\''].value;\r\ndef link = \"kibana#/dashboard/b968aa40-b725-11ec-8557-1b440f769a60?_g=(filters:!(('\''$state'\'':(store:globalState),meta:(alias:!n,disabled:!f,index:'\''filebeat-*'\'',key:network.community_id,negate:!f,params:(query:'\''\" + cid + \"'\''),type:phrase),query:(match_phrase:(network.community_id:'\''\" + cid + \"'\'')))),refreshInterval:(pause:!t,value:0),time:(from:'\''\"\r\n+ doc['\''@timestamp'\''].value.minusMinutes(15)\r\n+ \"'\'',mode:quick,to:'\''\" + doc['\''@timestamp'\''].value.plusMinutes(15) + \"'\''))\";\r\n\r\nemit(link);"
+              "source": "if (doc['\''network.community_id'\''].size() == 0 ) {\r\n    emit(\"\");\r\n    return;\r\n}\r\ndef cid = doc['\''network.community_id'\''].value.replace('\''+'\'', '\''%2B'\'');\r\ndef link = \"kibana#/dashboard/b968aa40-b725-11ec-8557-1b440f769a60?_g=(filters:!(('\''$state'\'':(store:globalState),meta:(alias:!n,disabled:!f,index:'\''filebeat-*'\'',key:network.community_id,negate:!f,params:(query:'\''\" + cid + \"'\''),type:phrase),query:(match_phrase:(network.community_id:'\''\" + cid + \"'\'')))),refreshInterval:(pause:!t,value:0),time:(from:'\''\"\r\n+ doc['\''@timestamp'\''].value.minusMinutes(15)\r\n+ \"'\'',mode:quick,to:'\''\" + doc['\''@timestamp'\''].value.plusMinutes(15) + \"'\''))\";\r\n\r\nemit(link);"
           }
       }
   }')

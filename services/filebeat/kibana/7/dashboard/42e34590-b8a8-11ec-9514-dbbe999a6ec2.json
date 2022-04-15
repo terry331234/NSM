@@ -48,7 +48,13 @@
                                 }
                             ],
                             "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {}
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
+                                }
+                            }
                         },
                         "description": "",
                         "id": "",
@@ -418,236 +424,6 @@
             },
             {
                 "embeddableConfig": {
-                    "attributes": {
-                        "description": "",
-                        "layerListJSON": [
-                            {
-                                "alpha": 1,
-                                "id": "82efe8da-fd76-4eb1-9e72-db8b71241721",
-                                "includeInFitToBounds": true,
-                                "label": null,
-                                "maxZoom": 24,
-                                "minZoom": 0,
-                                "sourceDescriptor": {
-                                    "isAutoSelect": true,
-                                    "type": "EMS_TMS"
-                                },
-                                "style": {
-                                    "type": "TILE"
-                                },
-                                "type": "VECTOR_TILE",
-                                "visible": true
-                            },
-                            {
-                                "alpha": 0.75,
-                                "id": "67170c88-9ead-4c74-94e0-18e257fc4b9f",
-                                "includeInFitToBounds": true,
-                                "joins": [],
-                                "label": "Probe Alert - Source Location",
-                                "maxZoom": 16,
-                                "minZoom": 0,
-                                "query": {
-                                    "language": "kuery",
-                                    "query": "event.kind : \"alert\"  and event.module : \"suricata\" and rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
-                                },
-                                "sourceDescriptor": {
-                                    "applyForceRefresh": true,
-                                    "applyGlobalQuery": true,
-                                    "applyGlobalTime": true,
-                                    "geoField": "source.geo.location",
-                                    "id": "4351ee42-25fb-489b-bce5-3c86e1217a15",
-                                    "indexPatternId": "filebeat-*",
-                                    "metrics": [
-                                        {
-                                            "label": "Alerts",
-                                            "type": "count"
-                                        }
-                                    ],
-                                    "requestType": "point",
-                                    "resolution": "MOST_FINE",
-                                    "type": "ES_GEO_GRID"
-                                },
-                                "style": {
-                                    "isTimeAware": true,
-                                    "properties": {
-                                        "fillColor": {
-                                            "options": {
-                                                "color": "Yellow to Red",
-                                                "colorCategory": "palette_0",
-                                                "field": {
-                                                    "name": "doc_count",
-                                                    "origin": "source"
-                                                },
-                                                "fieldMetaOptions": {
-                                                    "isEnabled": false,
-                                                    "sigma": 3
-                                                },
-                                                "type": "ORDINAL"
-                                            },
-                                            "type": "DYNAMIC"
-                                        },
-                                        "icon": {
-                                            "options": {
-                                                "value": "marker"
-                                            },
-                                            "type": "STATIC"
-                                        },
-                                        "iconOrientation": {
-                                            "options": {
-                                                "orientation": 0
-                                            },
-                                            "type": "STATIC"
-                                        },
-                                        "iconSize": {
-                                            "options": {
-                                                "field": {
-                                                    "name": "doc_count",
-                                                    "origin": "source"
-                                                },
-                                                "fieldMetaOptions": {
-                                                    "isEnabled": false,
-                                                    "sigma": 3
-                                                },
-                                                "maxSize": 16,
-                                                "minSize": 2
-                                            },
-                                            "type": "DYNAMIC"
-                                        },
-                                        "labelBorderColor": {
-                                            "options": {
-                                                "color": "#FFFFFF"
-                                            },
-                                            "type": "STATIC"
-                                        },
-                                        "labelBorderSize": {
-                                            "options": {
-                                                "size": "SMALL"
-                                            }
-                                        },
-                                        "labelColor": {
-                                            "options": {
-                                                "color": "#000000"
-                                            },
-                                            "type": "STATIC"
-                                        },
-                                        "labelSize": {
-                                            "options": {
-                                                "size": 14
-                                            },
-                                            "type": "STATIC"
-                                        },
-                                        "labelText": {
-                                            "options": {
-                                                "value": ""
-                                            },
-                                            "type": "STATIC"
-                                        },
-                                        "lineColor": {
-                                            "options": {
-                                                "color": "#3d3d3d"
-                                            },
-                                            "type": "STATIC"
-                                        },
-                                        "lineWidth": {
-                                            "options": {
-                                                "size": 1
-                                            },
-                                            "type": "STATIC"
-                                        },
-                                        "symbolizeAs": {
-                                            "options": {
-                                                "value": "circle"
-                                            }
-                                        }
-                                    },
-                                    "type": "VECTOR"
-                                },
-                                "type": "VECTOR",
-                                "visible": true
-                            }
-                        ],
-                        "mapStateJSON": {
-                            "center": {
-                                "lat": 23.39299,
-                                "lon": 2.3153
-                            },
-                            "filters": [],
-                            "query": {
-                                "language": "kuery",
-                                "query": "event.kind : \"alert\"  and event.module : \"suricata\" "
-                            },
-                            "refreshConfig": {
-                                "interval": 0,
-                                "isPaused": true
-                            },
-                            "settings": {
-                                "autoFitToDataBounds": false,
-                                "backgroundColor": "#ffffff",
-                                "browserLocation": {
-                                    "zoom": 2
-                                },
-                                "disableInteractive": false,
-                                "disableTooltipControl": false,
-                                "fixedLocation": {
-                                    "lat": 0,
-                                    "lon": 0,
-                                    "zoom": 2
-                                },
-                                "hideLayerControl": false,
-                                "hideToolbarOverlay": false,
-                                "hideViewControl": false,
-                                "initialLocation": "LAST_SAVED_LOCATION",
-                                "maxZoom": 24,
-                                "minZoom": 0,
-                                "showScaleControl": false,
-                                "showSpatialFilters": true,
-                                "showTimesliderToggleButton": true,
-                                "spatialFiltersAlpa": 0.3,
-                                "spatialFiltersFillColor": "#DA8B45",
-                                "spatialFiltersLineColor": "#DA8B45"
-                            },
-                            "timeFilters": {
-                                "from": "now-24h/h",
-                                "to": "now"
-                            },
-                            "zoom": 0.55
-                        },
-                        "title": "",
-                        "uiStateJSON": {
-                            "isLayerTOCOpen": true,
-                            "openTOCDetails": []
-                        }
-                    },
-                    "enhancements": {},
-                    "hiddenLayers": [],
-                    "isLayerTOCOpen": false,
-                    "mapBuffer": {
-                        "maxLat": 85.05113,
-                        "maxLon": 360,
-                        "minLat": -85.05113,
-                        "minLon": -180
-                    },
-                    "mapCenter": {
-                        "lat": 23.39299,
-                        "lon": 2.3153,
-                        "zoom": 0.55
-                    },
-                    "openTOCDetails": []
-                },
-                "gridData": {
-                    "h": 14,
-                    "i": "6b6195f0-16ec-4d1c-8763-8ab9851990f5",
-                    "w": 18,
-                    "x": 0,
-                    "y": 23
-                },
-                "panelIndex": "6b6195f0-16ec-4d1c-8763-8ab9851990f5",
-                "title": "Alert Source Map",
-                "type": "map",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
                     "enhancements": {},
                     "hidePanelTitles": false,
                     "savedVis": {
@@ -916,6 +692,37 @@
                 "panelRefName": "panel_bb85008c-ff8c-4750-bc7c-21b3d26065b7",
                 "type": "search",
                 "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hiddenLayers": [],
+                    "hidePanelTitles": false,
+                    "isLayerTOCOpen": false,
+                    "mapBuffer": {
+                        "maxLat": 85.05113,
+                        "maxLon": 360,
+                        "minLat": -85.05113,
+                        "minLon": -180
+                    },
+                    "mapCenter": {
+                        "lat": 23.39299,
+                        "lon": 2.3153,
+                        "zoom": 0.55
+                    },
+                    "openTOCDetails": []
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "20ebaf88-28ec-4ae5-9459-536c027959e7",
+                    "w": 18,
+                    "x": 0,
+                    "y": 23
+                },
+                "panelIndex": "20ebaf88-28ec-4ae5-9459-536c027959e7",
+                "panelRefName": "panel_20ebaf88-28ec-4ae5-9459-536c027959e7",
+                "type": "map",
+                "version": "7.17.1"
             }
         ],
         "timeRestore": false,
@@ -959,11 +766,6 @@
             "type": "search"
         },
         {
-            "id": "filebeat-*",
-            "name": "6b6195f0-16ec-4d1c-8763-8ab9851990f5:layer_1_source_index_pattern",
-            "type": "index-pattern"
-        },
-        {
             "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
             "name": "90eafb24-f942-46a5-a88b-7c699254a4f6:search_0",
             "type": "search"
@@ -982,9 +784,14 @@
             "id": "19ecc180-be6a-11ec-b18c-132531e841f5",
             "name": "bb85008c-ff8c-4750-bc7c-21b3d26065b7:panel_bb85008c-ff8c-4750-bc7c-21b3d26065b7",
             "type": "search"
+        },
+        {
+            "id": "2fe68ec0-bec0-11ec-b18c-132531e841f5",
+            "name": "20ebaf88-28ec-4ae5-9459-536c027959e7:panel_20ebaf88-28ec-4ae5-9459-536c027959e7",
+            "type": "map"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-17T16:23:56.722Z",
-    "version": "Wzg0MDMzLDdd"
+    "updated_at": "2022-04-18T02:37:20.224Z",
+    "version": "Wzg0NzE4LDdd"
 }
