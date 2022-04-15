@@ -264,6 +264,76 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
+                                        "customLabel": "Source IP",
+                                        "field": "source.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "05593960-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "3017c172-88d7-46f8-a0cd-09e37a1bed5a",
+                    "w": 24,
+                    "x": 0,
+                    "y": 16
+                },
+                "panelIndex": "3017c172-88d7-46f8-a0cd-09e37a1bed5a",
+                "title": "Top 50 Source IP",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
                                         "customLabel": "Destination IP",
                                         "field": "destination.ip",
                                         "missingBucket": false,
@@ -318,72 +388,18 @@
             },
             {
                 "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "Source IP",
-                                        "field": "source.ip",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 50
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                }
-                            ],
-                            "savedSearchId": "05593960-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
-                        },
-                        "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    }
+                    "enhancements": {}
                 },
                 "gridData": {
-                    "h": 15,
-                    "i": "3017c172-88d7-46f8-a0cd-09e37a1bed5a",
-                    "w": 24,
+                    "h": 17,
+                    "i": "c1450e32-075f-4265-8e84-8a41c7d4f9d7",
+                    "w": 48,
                     "x": 0,
-                    "y": 16
+                    "y": 31
                 },
-                "panelIndex": "3017c172-88d7-46f8-a0cd-09e37a1bed5a",
-                "title": "Top 50 Source IP",
-                "type": "visualization",
+                "panelIndex": "c1450e32-075f-4265-8e84-8a41c7d4f9d7",
+                "panelRefName": "panel_c1450e32-075f-4265-8e84-8a41c7d4f9d7",
+                "type": "search",
                 "version": "7.17.1"
             }
         ],
@@ -414,16 +430,21 @@
         },
         {
             "id": "05593960-b721-11ec-8557-1b440f769a60",
+            "name": "3017c172-88d7-46f8-a0cd-09e37a1bed5a:search_0",
+            "type": "search"
+        },
+        {
+            "id": "05593960-b721-11ec-8557-1b440f769a60",
             "name": "2a44ef35-527d-4c13-9cbf-20b2d98d08bd:search_0",
             "type": "search"
         },
         {
             "id": "05593960-b721-11ec-8557-1b440f769a60",
-            "name": "3017c172-88d7-46f8-a0cd-09e37a1bed5a:search_0",
+            "name": "c1450e32-075f-4265-8e84-8a41c7d4f9d7:panel_c1450e32-075f-4265-8e84-8a41c7d4f9d7",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T14:03:10.621Z",
-    "version": "WzY0MTU4LDdd"
+    "updated_at": "2022-04-16T07:26:55.761Z",
+    "version": "WzY4NzAwLDdd"
 }

@@ -202,6 +202,7 @@
             {
                 "embeddableConfig": {
                     "enhancements": {},
+                    "hidePanelTitles": false,
                     "savedVis": {
                         "data": {
                             "aggs": [
@@ -216,9 +217,94 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "Top 50 unusual file names",
-                                        "field": "zeek.files.filename",
+                                        "customLabel": "File Type",
+                                        "field": "file.mime_type",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
                                         "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 93
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 376
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 18,
+                    "i": "cfb3d590-f959-4171-9a3f-a5884253e8ab",
+                    "w": 12,
+                    "x": 0,
+                    "y": 16
+                },
+                "panelIndex": "cfb3d590-f959-4171-9a3f-a5884253e8ab",
+                "title": "Top 50 File Type",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Unusual filenames",
+                                        "field": "zeek.files.filename",
+                                        "size": 20
                                     },
                                     "schema": "bucket",
                                     "type": "significant_terms"
@@ -270,9 +356,10 @@
                     "i": "4bf5797b-8e84-47c5-99d1-6025d36057da",
                     "w": 18,
                     "x": 12,
-                    "y": 16
+                    "y": 34
                 },
                 "panelIndex": "4bf5797b-8e84-47c5-99d1-6025d36057da",
+                "title": "Top 20 Unusual Filename",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -354,7 +441,7 @@
                 "gridData": {
                     "h": 18,
                     "i": "3169316d-5561-4d32-8bba-e195e3c3f13d",
-                    "w": 10,
+                    "w": 7,
                     "x": 30,
                     "y": 16
                 },
@@ -366,6 +453,7 @@
             {
                 "embeddableConfig": {
                     "enhancements": {},
+                    "hidePanelTitles": false,
                     "savedVis": {
                         "data": {
                             "aggs": [
@@ -380,9 +468,9 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "Top 50 unusual file types",
+                                        "customLabel": "Unusual file types",
                                         "field": "file.mime_type",
-                                        "size": 50
+                                        "size": 20
                                     },
                                     "schema": "bucket",
                                     "type": "significant_terms"
@@ -434,9 +522,95 @@
                     "i": "1ca88d8c-57f5-4299-9b2d-1c763c9e0767",
                     "w": 12,
                     "x": 0,
-                    "y": 16
+                    "y": 34
                 },
                 "panelIndex": "1ca88d8c-57f5-4299-9b2d-1c763c9e0767",
+                "title": "Top 20 Unusual File Type",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Filename",
+                                        "field": "zeek.files.filename",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 50
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 93
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 624
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 18,
+                    "i": "a5c5a87c-9d1e-41f3-b0c0-5edbf354f9b7",
+                    "w": 18,
+                    "x": 12,
+                    "y": 16
+                },
+                "panelIndex": "a5c5a87c-9d1e-41f3-b0c0-5edbf354f9b7",
+                "title": "Top 50 Filename",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -449,7 +623,7 @@
                     "i": "3d13ed64-b25c-4dd9-b1b8-ccc207076dc8",
                     "w": 48,
                     "x": 0,
-                    "y": 34
+                    "y": 52
                 },
                 "panelIndex": "3d13ed64-b25c-4dd9-b1b8-ccc207076dc8",
                 "panelRefName": "panel_3d13ed64-b25c-4dd9-b1b8-ccc207076dc8",
@@ -489,6 +663,11 @@
         },
         {
             "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+            "name": "cfb3d590-f959-4171-9a3f-a5884253e8ab:search_0",
+            "type": "search"
+        },
+        {
+            "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
             "name": "4bf5797b-8e84-47c5-99d1-6025d36057da:search_0",
             "type": "search"
         },
@@ -504,11 +683,16 @@
         },
         {
             "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
+            "name": "a5c5a87c-9d1e-41f3-b0c0-5edbf354f9b7:search_0",
+            "type": "search"
+        },
+        {
+            "id": "0a3208f0-b621-11ec-8d8e-c50a555f7061",
             "name": "3d13ed64-b25c-4dd9-b1b8-ccc207076dc8:panel_3d13ed64-b25c-4dd9-b1b8-ccc207076dc8",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T14:02:53.903Z",
-    "version": "WzY0MTM0LDdd"
+    "updated_at": "2022-04-16T10:18:59.493Z",
+    "version": "WzcwNjUyLDdd"
 }

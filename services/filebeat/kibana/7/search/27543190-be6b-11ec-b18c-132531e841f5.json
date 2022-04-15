@@ -1,17 +1,14 @@
 {
     "attributes": {
         "columns": [
-            "network.community_id",
-            "destination.ip",
-            "destination.port",
+            "rule.name",
+            "rule.id",
+            "event.severity",
+            "search_community_id",
             "source.ip",
+            "destination.ip",
             "source.port",
-            "zeek.ssl.server.name",
-            "tls.version",
-            "tls.server.x509.subject.common_name",
-            "search_session_id",
-            "tls.client.ja3",
-            "tls.server.ja3s"
+            "destination.port"
         ],
         "description": "",
         "grid": {},
@@ -22,7 +19,7 @@
                 "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
                 "query": {
                     "language": "kuery",
-                    "query": "event.module : \"zeek\" and fileset.name : \"ssl\"   "
+                    "query": "event.module : \"suricata\"  and event.kind : \"alert\" and rule.category: (\"Attempted Denial of Service\" or \"Denial of Service\" or \"Detection of a Denial of Service Attack\")"
                 }
             }
         },
@@ -32,10 +29,10 @@
                 "desc"
             ]
         ],
-        "title": "Zeek SSL"
+        "title": "Suricata DoS Alerts"
     },
     "coreMigrationVersion": "7.17.1",
-    "id": "4b9b1060-b721-11ec-8557-1b440f769a60",
+    "id": "27543190-be6b-11ec-b18c-132531e841f5",
     "migrationVersion": {
         "search": "7.9.3"
     },
@@ -47,6 +44,6 @@
         }
     ],
     "type": "search",
-    "updated_at": "2022-04-17T05:40:39.115Z",
-    "version": "Wzc4NDMxLDdd"
+    "updated_at": "2022-04-17T16:26:37.228Z",
+    "version": "Wzg0MjI4LDdd"
 }

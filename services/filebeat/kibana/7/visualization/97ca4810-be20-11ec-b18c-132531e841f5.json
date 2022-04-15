@@ -1,0 +1,34 @@
+{
+    "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": "event.module : \"zeek\" and fileset.name : \"connection\" and not network.direction : \"outbound\""
+                }
+            }
+        },
+        "title": "Hourly Inbound Connection Count",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+            "aggs": [],
+            "params": {
+                "spec": "{\n  $schema: https://vega.github.io/schema/vega/v5.json\n  signals: [\n    {\n      name: hour_click\n      on: [\n        {\n          events: {\n            source: scope\n            type: click\n            markname: hour\n          }\n          update: kibanaSetTimeFilter(datum.key, datum.key + 60 * 60 * 1000)\n        }\n      ]\n    }\n  ]\n  data: [\n    {\n      name: conn\n      url: {\n        %context%: true\n        %timefield%: @timestamp\n        index: filebeat-*\n        body: {\n          aggs: {\n            time_buckets: {\n              date_histogram: {\n                field: @timestamp\n                fixed_interval: 1h\n                extended_bounds: {\n                  min: {\n                    %timefilter%: min\n                  }\n                  max: {\n                    %timefilter%: max\n                  }\n                }\n                min_doc_count: 0\n              }\n            }\n          }\n          size: 0\n        }\n      }\n      transform: [\n        {\n          type: formula\n          as: hour\n          expr: hours(datum.key_as_string)\n        }\n        {\n          type: formula\n          as: day\n          expr: datetime(year(datum.key_as_string), month(datum.key_as_string), date(datum.key_as_string))\n        }\n        {\n          type: formula\n          as: shiftedDate\n          expr: time(datetime(year(datum.key_as_string), month(datum.key_as_string), date(datum.key_as_string), 0)) - 86400000\n        }\n      ]\n      format: {\n        property: aggregations.time_buckets.buckets\n      }\n    }\n  ]\n  scales: [\n    {\n      name: x\n      type: time\n      domain: {\n        data: conn\n        field: shiftedDate\n      }\n      range: width\n      nice: {\n        interval: day\n        step: 2\n      }\n    }\n    {\n      name: y\n      type: band\n      padding: 0.1\n      domain: [\n        0\n        1\n        2\n        3\n        4\n        5\n        6\n        7\n        8\n        9\n        10\n        11\n        12\n        13\n        14\n        15\n        16\n        17\n        18\n        19\n        20\n        21\n        22\n        23\n      ]\n      range: height\n    }\n    {\n      name: color\n      type: linear\n      range: {\n        scheme: LightGreyTeal\n      }\n      domain: {\n        data: conn\n        field: doc_count\n      }\n      zero: false\n      nice: true\n    }\n  ]\n  axes: [\n    {\n      orient: bottom\n      scale: x\n      title: Date\n      format: %e/%m\n    }\n    {\n      orient: left\n      scale: y\n      title: Hour\n      encode: {\n        labels: {\n          update: {\n            text: {\n              signal: datum.value \u003c 10 ? '0' + datum.value + ':00' : datum.value + ':00'\n            }\n          }\n        }\n      }\n    }\n  ]\n  legends: [\n    {\n      fill: color\n      type: gradient\n      padding: 14\n      title: Conn Count\n      titleFontSize: 12\n      titlePadding: 4\n      gradientLength: {\n        signal: height * .75\n      }\n    }\n  ]\n  marks: [\n    {\n      name: hour\n      type: rect\n      from: {\n        data: conn\n      }\n      encode: {\n        enter: {\n          x: {\n            scale: x\n            field: shiftedDate\n          }\n          y: {\n            scale: y\n            field: hour\n          }\n          width: {\n            signal: width / 8\n          }\n          height: {\n            scale: y\n            band: 1\n          }\n          cursor: {\n            value: pointer\n          }\n          tooltip: {\n            signal: timeFormat(datum.key, '%b %d %H:00') + ': ' + datum.doc_count\n          }\n        }\n        update: {\n          fill: {\n            scale: color\n            field: doc_count\n          }\n        }\n      }\n    }\n  ]\n}"
+            },
+            "title": "Hourly Inbound Connection Count",
+            "type": "vega"
+        }
+    },
+    "coreMigrationVersion": "7.17.1",
+    "id": "97ca4810-be20-11ec-b18c-132531e841f5",
+    "migrationVersion": {
+        "visualization": "7.17.0"
+    },
+    "references": [],
+    "type": "visualization",
+    "updated_at": "2022-04-17T07:32:53.652Z",
+    "version": "Wzc5NjMwLDdd"
+}

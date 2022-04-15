@@ -238,7 +238,7 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "Source IP",
+                                        "customLabel": "Top 20 Source IP",
                                         "field": "source.ip",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
@@ -246,7 +246,7 @@
                                         "orderBy": "1",
                                         "otherBucket": false,
                                         "otherBucketLabel": "Other",
-                                        "size": 100
+                                        "size": 20
                                     },
                                     "schema": "bucket",
                                     "type": "terms"
@@ -275,18 +275,7 @@
                         },
                         "title": "",
                         "type": "table",
-                        "uiState": {
-                            "vis": {
-                                "params": {
-                                    "colWidth": [
-                                        {
-                                            "colIndex": 1,
-                                            "width": 100
-                                        }
-                                    ]
-                                }
-                            }
-                        }
+                        "uiState": {}
                     },
                     "vis": {
                         "params": {
@@ -333,7 +322,7 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "Destination IP",
+                                        "customLabel": "Top 20 Destination IP",
                                         "field": "destination.ip",
                                         "missingBucket": false,
                                         "missingBucketLabel": "Missing",
@@ -341,7 +330,7 @@
                                         "orderBy": "1",
                                         "otherBucket": false,
                                         "otherBucketLabel": "Other",
-                                        "size": 100
+                                        "size": 20
                                     },
                                     "schema": "bucket",
                                     "type": "terms"
@@ -490,73 +479,6 @@
                                 {
                                     "enabled": true,
                                     "id": "1",
-                                    "params": {
-                                        "customLabel": ""
-                                    },
-                                    "schema": "metric",
-                                    "type": "count"
-                                },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "Top 5 Significant HTTP Method",
-                                        "field": "http.request.method",
-                                        "size": 5
-                                    },
-                                    "schema": "segment",
-                                    "type": "significant_terms"
-                                }
-                            ],
-                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": ""
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "maxFontSize": 72,
-                            "minFontSize": 18,
-                            "orientation": "single",
-                            "palette": {
-                                "name": "default",
-                                "type": "palette"
-                            },
-                            "scale": "linear",
-                            "showLabel": true
-                        },
-                        "title": "",
-                        "type": "tagcloud",
-                        "uiState": {}
-                    }
-                },
-                "gridData": {
-                    "h": 14,
-                    "i": "b6fd37f4-cee4-401a-88ce-49f3ec925673",
-                    "w": 12,
-                    "x": 0,
-                    "y": 30
-                },
-                "panelIndex": "b6fd37f4-cee4-401a-88ce-49f3ec925673",
-                "title": "HTTP Request Method",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
                                     "params": {},
                                     "schema": "metric",
                                     "type": "count"
@@ -565,11 +487,17 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "field": "zeek.http.status_msg",
-                                        "size": 10
+                                        "field": "http.response.status_code",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 20
                                     },
                                     "schema": "segment",
-                                    "type": "significant_terms"
+                                    "type": "terms"
                                 }
                             ],
                             "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
@@ -609,22 +537,21 @@
                         },
                         "title": "",
                         "type": "pie",
-                        "uiState": {
-                            "vis": {
-                                "legendOpen": false
-                            }
-                        }
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "legendOpen": false
                     }
                 },
                 "gridData": {
-                    "h": 14,
+                    "h": 15,
                     "i": "d57d585b-5a67-49ba-8dc4-cc4e863cd8a7",
-                    "w": 18,
-                    "x": 12,
+                    "w": 12,
+                    "x": 0,
                     "y": 30
                 },
                 "panelIndex": "d57d585b-5a67-49ba-8dc4-cc4e863cd8a7",
-                "title": "HTTP Significant Response Message",
+                "title": "HTTP Response Message",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -646,12 +573,18 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "Top 20 Significant User Agent",
-                                        "field": "user_agent.original",
+                                        "customLabel": "Top 20 Domain",
+                                        "field": "url.domain",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
                                         "size": 20
                                     },
                                     "schema": "bucket",
-                                    "type": "significant_terms"
+                                    "type": "terms"
                                 }
                             ],
                             "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
@@ -685,7 +618,250 @@
                             "colWidth": [
                                 {
                                     "colIndex": 0,
-                                    "width": 615.5
+                                    "width": 608
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 97
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "bf2fde1a-8347-4cd7-bb06-40dc3432244d",
+                    "w": 18,
+                    "x": 12,
+                    "y": 30
+                },
+                "panelIndex": "bf2fde1a-8347-4cd7-bb06-40dc3432244d",
+                "title": "HTTP Top Domain",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Top 20 Url Path",
+                                        "field": "url.original",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 20
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 608
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 97
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "8810ad2d-06b4-4958-bc93-d6d2f86eb3f1",
+                    "w": 18,
+                    "x": 30,
+                    "y": 30
+                },
+                "panelIndex": "8810ad2d-06b4-4958-bc93-d6d2f86eb3f1",
+                "title": "HTTP Top URL Path",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {
+                                        "customLabel": ""
+                                    },
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Top Method",
+                                        "field": "http.request.method",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "segment",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "maxFontSize": 72,
+                            "minFontSize": 18,
+                            "orientation": "single",
+                            "palette": {
+                                "name": "default",
+                                "type": "palette"
+                            },
+                            "scale": "linear",
+                            "showLabel": true
+                        },
+                        "title": "",
+                        "type": "tagcloud",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "b6fd37f4-cee4-401a-88ce-49f3ec925673",
+                    "w": 8,
+                    "x": 0,
+                    "y": 45
+                },
+                "panelIndex": "b6fd37f4-cee4-401a-88ce-49f3ec925673",
+                "title": "HTTP Request Method",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Top 20 User Agent",
+                                        "field": "user_agent.original",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 20
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 1126.5
                                 }
                             ]
                         }
@@ -694,12 +870,12 @@
                 "gridData": {
                     "h": 14,
                     "i": "60fec35e-2965-441a-844b-cecc316a317c",
-                    "w": 18,
-                    "x": 30,
-                    "y": 30
+                    "w": 30,
+                    "x": 8,
+                    "y": 45
                 },
                 "panelIndex": "60fec35e-2965-441a-844b-cecc316a317c",
-                "title": "HTTP Significant User Agent",
+                "title": "HTTP Top User Agent",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -712,7 +888,7 @@
                     "i": "49808b50-1864-407e-88de-2029cf9f50b0",
                     "w": 48,
                     "x": 0,
-                    "y": 44
+                    "y": 59
                 },
                 "panelIndex": "49808b50-1864-407e-88de-2029cf9f50b0",
                 "panelRefName": "panel_49808b50-1864-407e-88de-2029cf9f50b0",
@@ -767,12 +943,22 @@
         },
         {
             "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
-            "name": "b6fd37f4-cee4-401a-88ce-49f3ec925673:search_0",
+            "name": "d57d585b-5a67-49ba-8dc4-cc4e863cd8a7:search_0",
             "type": "search"
         },
         {
             "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
-            "name": "d57d585b-5a67-49ba-8dc4-cc4e863cd8a7:search_0",
+            "name": "bf2fde1a-8347-4cd7-bb06-40dc3432244d:search_0",
+            "type": "search"
+        },
+        {
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "8810ad2d-06b4-4958-bc93-d6d2f86eb3f1:search_0",
+            "type": "search"
+        },
+        {
+            "id": "5ff4b6f0-b61e-11ec-8d8e-c50a555f7061",
+            "name": "b6fd37f4-cee4-401a-88ce-49f3ec925673:search_0",
             "type": "search"
         },
         {
@@ -787,6 +973,6 @@
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T13:59:44.472Z",
-    "version": "WzYzOTYyLDdd"
+    "updated_at": "2022-04-16T10:12:20.505Z",
+    "version": "WzcwNDYzLDdd"
 }

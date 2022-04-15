@@ -7,7 +7,7 @@
                 "filter": [],
                 "query": {
                     "language": "kuery",
-                    "query": "not zeek.connection.history : (*h* or D*) and not network.direction : \"outbound\" and not zeek.connection.state_message : \"Normal establishment and termination.\" "
+                    "query": "not zeek.connection.history :     (ShA* or ShR* or ShD* or Fa* or Da* or Dd*) and not network.direction : \"outbound\""
                 }
             }
         },
@@ -30,6 +30,263 @@
                 },
                 "panelIndex": "3cc7629b-42ea-41fe-af40-520bfde9839f",
                 "panelRefName": "panel_3cc7629b-42ea-41fe-af40-520bfde9839f",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Destination Port",
+                                        "field": "destination.port",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\"  and not network.direction : \"outbound\" and zeek.connection.history:* and not zeek.connection.history :   (ShA* or ShR* or ShD* or Fa* or Da* or Dd*)"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 79
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 163
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 10,
+                    "i": "6aa6af9f-d428-4ddc-a436-9385da28080a",
+                    "w": 10,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "6aa6af9f-d428-4ddc-a436-9385da28080a",
+                "title": "Possible Probe - Top 10 Inbound Port - For Filtering Out Ports",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "not network.direction : \"outbound\" and not zeek.connection.history :  (ShA* or ShR* or ShD* or Fa* or Da* or Dd*)"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": false,
+                            "addTooltip": true,
+                            "metric": {
+                                "colorSchema": "Green to Red",
+                                "colorsRange": [
+                                    {
+                                        "from": 0,
+                                        "to": 10000
+                                    }
+                                ],
+                                "invertColors": false,
+                                "labels": {
+                                    "show": true
+                                },
+                                "metricColorMode": "None",
+                                "percentageMode": false,
+                                "style": {
+                                    "bgColor": false,
+                                    "bgFill": "#000",
+                                    "fontSize": 60,
+                                    "labelColor": false,
+                                    "subText": ""
+                                },
+                                "useRanges": false
+                            },
+                            "type": "metric"
+                        },
+                        "title": "",
+                        "type": "metric",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 10,
+                    "i": "130eca24-9eeb-45a5-bd6e-238133b70172",
+                    "w": 11,
+                    "x": 22,
+                    "y": 0
+                },
+                "panelIndex": "130eca24-9eeb-45a5-bd6e-238133b70172",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "timeRange": {
+                        "from": "now-7d/d",
+                        "to": "now"
+                    }
+                },
+                "gridData": {
+                    "h": 22,
+                    "i": "989af854-6547-414f-9b8f-04335373b2cd",
+                    "w": 12,
+                    "x": 0,
+                    "y": 10
+                },
+                "panelIndex": "989af854-6547-414f-9b8f-04335373b2cd",
+                "panelRefName": "panel_989af854-6547-414f-9b8f-04335373b2cd",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
+                                        "customLabel": "Destination Port",
+                                        "field": "source.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\"  and not network.direction : \"outbound\" and zeek.connection.history:* and not zeek.connection.history :   (ShA* or ShR* or ShD* or Fa* or Da* or Dd*)"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 1,
+                                    "width": 79
+                                },
+                                {
+                                    "colIndex": 0,
+                                    "width": 218
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 10,
+                    "i": "c7873c7f-38bd-44bc-a89f-2ade1201d201",
+                    "w": 10,
+                    "x": 33,
+                    "y": 0
+                },
+                "panelIndex": "c7873c7f-38bd-44bc-a89f-2ade1201d201",
+                "title": "Possible Probe - Top 10 Source IP",
                 "type": "visualization",
                 "version": "7.17.1"
             },
@@ -78,6 +335,7 @@
                             "index_pattern": "",
                             "interval": "",
                             "isModelInvalid": false,
+                            "legend_position": "left",
                             "max_lines_legend": 1,
                             "series": [
                                 {
@@ -87,7 +345,7 @@
                                     "fill": "0",
                                     "filter": {
                                         "language": "kuery",
-                                        "query": "not zeek.connection.history : (*h* or D*) and not network.direction : \"outbound\" and not zeek.connection.state_message : \"Normal establishment and termination.\" "
+                                        "query": "not network.transport:\"icmp\" and not zeek.connection.history :   (ShA* or ShR* or ShD* or Fa* or Da* or Dd*) and not network.direction : \"outbound\""
                                     },
                                     "formatter": "default",
                                     "id": "faac88db-be78-4b50-aec6-f8697168b551",
@@ -98,53 +356,6 @@
                                         {
                                             "field": "destination.port",
                                             "id": "0c3f12d4-661a-41ca-a2d6-5c1971c638fb",
-                                            "sigma": "",
-                                            "type": "cardinality",
-                                            "unit": ""
-                                        }
-                                    ],
-                                    "override_index_pattern": 0,
-                                    "palette": {
-                                        "name": "default",
-                                        "type": "palette"
-                                    },
-                                    "point_size": 1,
-                                    "separate_axis": 0,
-                                    "series_drop_last_bucket": 0,
-                                    "split_filters": [
-                                        {
-                                            "color": "#68BC00",
-                                            "filter": {
-                                                "language": "kuery",
-                                                "query": ""
-                                            },
-                                            "id": "26523540-bbd6-11ec-92de-b34877403c4b",
-                                            "label": ""
-                                        }
-                                    ],
-                                    "split_mode": "everything",
-                                    "stacked": "none",
-                                    "time_range_mode": "entire_time_range"
-                                },
-                                {
-                                    "axis_max": "65535",
-                                    "axis_min": "0",
-                                    "axis_position": "right",
-                                    "chart_type": "line",
-                                    "color": "rgba(96,146,192,1)",
-                                    "fill": "0",
-                                    "filter": {
-                                        "language": "kuery",
-                                        "query": "not zeek.connection.history : (*h* or D*) and not network.direction : \"outbound\" and not zeek.connection.state_message : \"Normal establishment and termination.\" "
-                                    },
-                                    "formatter": "default",
-                                    "id": "b862c940-bbd6-11ec-92de-b34877403c4b",
-                                    "label": "Unique Src IP",
-                                    "line_width": 1,
-                                    "metrics": [
-                                        {
-                                            "field": "source.ip",
-                                            "id": "b862c941-bbd6-11ec-92de-b34877403c4b",
                                             "sigma": "",
                                             "type": "cardinality",
                                             "unit": ""
@@ -186,7 +397,7 @@
                                     },
                                     "formatter": "default",
                                     "id": "398ff060-bbd7-11ec-92de-b34877403c4b",
-                                    "ignore_global_filter": 0,
+                                    "ignore_global_filter": 1,
                                     "label": "Probe Alert Count",
                                     "line_width": 1,
                                     "metrics": [
@@ -209,7 +420,7 @@
                                 }
                             ],
                             "show_grid": 1,
-                            "show_legend": 1,
+                            "show_legend": 0,
                             "time_field": "",
                             "time_range_mode": "entire_time_range",
                             "tooltip_mode": "show_all",
@@ -223,80 +434,21 @@
                     }
                 },
                 "gridData": {
-                    "h": 17,
+                    "h": 18,
                     "i": "cec5ab30-9c89-4f30-beb4-588112e0cbf7",
-                    "w": 36,
-                    "x": 12,
-                    "y": 0
-                },
-                "panelIndex": "cec5ab30-9c89-4f30-beb4-588112e0cbf7",
-                "title": "Unique Destination Port/Source IP, Alert Count",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {
-                        "dynamicActions": {
-                            "events": [
-                                {
-                                    "action": {
-                                        "config": {
-                                            "useCurrentDateRange": true,
-                                            "useCurrentFilters": true
-                                        },
-                                        "factoryId": "DASHBOARD_TO_DASHBOARD_DRILLDOWN",
-                                        "name": "View in Connection Dashboard"
-                                    },
-                                    "eventId": "fa8934f3-8297-44bc-bf11-74d148abdb8f",
-                                    "triggers": [
-                                        "FILTER_TRIGGER"
-                                    ]
-                                }
-                            ]
-                        }
-                    },
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [],
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\" "
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "spec": "{\n  $schema: https://vega.github.io/schema/vega/v5.json\n  signals: [\n    {\n      name: hour_click\n      on: [\n        {\n          events: {\n            source: scope\n            type: click\n            markname: hour\n          }\n          update: kibanaSetTimeFilter(datum.key, datum.key + 60 * 60 * 1000)\n        }\n      ]\n    }\n  ]\n  data: [\n    {\n      name: conn\n      url: {\n        %context%: true\n        %timefield%: @timestamp\n        index: _all\n        body: {\n          aggs: {\n            time_buckets: {\n              date_histogram: {\n                field: @timestamp\n                fixed_interval: 1h\n                extended_bounds: {\n                  min: {\n                    %timefilter%: min\n                  }\n                  max: {\n                    %timefilter%: max\n                  }\n                }\n                min_doc_count: 0\n              }\n            }\n          }\n          size: 0\n        }\n      }\n      transform: [\n        {\n          type: formula\n          as: hour\n          expr: hours(datum.key_as_string)\n        }\n        {\n          type: formula\n          as: day\n          expr: datetime(year(datum.key_as_string), month(datum.key_as_string), date(datum.key_as_string))\n        }\n      ]\n      format: {\n        property: aggregations.time_buckets.buckets\n      }\n    }\n  ]\n  scales: [\n    {\n      name: x\n      type: time\n      domain: {\n        data: conn\n        field: key\n      }\n      range: width\n      nice: {\n        interval: day\n        step: 1\n      }\n    }\n    {\n      name: y\n      type: band\n      padding: 0.1\n      domain: [\n        0\n        1\n        2\n        3\n        4\n        5\n        6\n        7\n        8\n        9\n        10\n        11\n        12\n        13\n        14\n        15\n        16\n        17\n        18\n        19\n        20\n        21\n        22\n        23\n      ]\n      range: height\n    }\n    {\n      name: color\n      type: linear\n      range: {\n        scheme: LightGreyTeal\n      }\n      domain: {\n        data: conn\n        field: doc_count\n      }\n      zero: false\n      nice: true\n    }\n  ]\n  axes: [\n    {\n      orient: bottom\n      scale: x\n      title: Date\n      format: %e/%m\n    }\n    {\n      orient: left\n      scale: y\n      title: Hour\n      encode: {\n        labels: {\n          update: {\n            text: {\n              signal: datum.value \u003c 10 ? '0' + datum.value + ':00' : datum.value + ':00'\n            }\n          }\n        }\n      }\n    }\n  ]\n  legends: [\n    {\n      fill: color\n      type: gradient\n      padding: 14\n      title: Conn Count\n      titleFontSize: 12\n      titlePadding: 4\n      gradientLength: {\n        signal: height * .75\n      }\n    }\n  ]\n  marks: [\n    {\n      name: hour\n      type: rect\n      from: {\n        data: conn\n      }\n      encode: {\n        enter: {\n          x: {\n            scale: x\n            field: day\n          }\n          y: {\n            scale: y\n            field: hour\n          }\n          width: {\n            signal: width / 8\n          }\n          height: {\n            scale: y\n            band: 1\n          }\n          cursor: { value: \"pointer\" }\n          tooltip: {\n            signal: timeFormat(datum.key, '%b %d %H:00') + ': ' + datum.doc_count\n          }\n        }\n        update: {\n          fill: {\n            scale: color\n            field: doc_count\n          }\n        }\n      }\n    }\n  ]\n}"
-                        },
-                        "title": "",
-                        "type": "vega",
-                        "uiState": {}
-                    },
-                    "timeRange": {
-                        "from": "now-7d/d",
-                        "to": "now"
-                    }
-                },
-                "gridData": {
-                    "h": 27,
-                    "i": "6be8d03f-d2aa-4783-99ba-20c3f5c8f931",
-                    "w": 12,
-                    "x": 0,
+                    "w": 34,
+                    "x": 14,
                     "y": 10
                 },
-                "panelIndex": "6be8d03f-d2aa-4783-99ba-20c3f5c8f931",
-                "title": "Hourly Connection Count",
+                "panelIndex": "cec5ab30-9c89-4f30-beb4-588112e0cbf7",
+                "title": "Possible Probe - Unique Inbound Destination Ports, Alert Count",
                 "type": "visualization",
                 "version": "7.17.1"
             },
             {
                 "embeddableConfig": {
                     "enhancements": {},
+                    "hidePanelTitles": false,
                     "savedVis": {
                         "data": {
                             "aggs": [
@@ -311,23 +463,202 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
-                                        "customLabel": "Destination Port",
-                                        "extended_bounds": {
-                                            "max": "",
-                                            "min": ""
-                                        },
-                                        "field": "destination.port",
-                                        "has_extended_bounds": false,
+                                        "drop_partials": false,
+                                        "extended_bounds": {},
+                                        "field": "@timestamp",
                                         "interval": "auto",
-                                        "maxBars": 30,
-                                        "min_doc_count": false,
-                                        "used_interval": 5000
+                                        "min_doc_count": 1,
+                                        "scaleMetricValues": false,
+                                        "timeRange": {
+                                            "from": "now-7d/d",
+                                            "to": "now"
+                                        },
+                                        "useNormalizedEsInterval": true,
+                                        "used_interval": "3h"
                                     },
                                     "schema": "segment",
-                                    "type": "histogram"
+                                    "type": "date_histogram"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "3",
+                                    "params": {
+                                        "customLabel": "",
+                                        "field": "destination.port",
+                                        "ranges": [
+                                            {
+                                                "from": 0,
+                                                "to": 1000
+                                            },
+                                            {
+                                                "from": 1000,
+                                                "to": 2000
+                                            },
+                                            {
+                                                "from": 2000,
+                                                "to": 3000
+                                            },
+                                            {
+                                                "from": 3000,
+                                                "to": 4000
+                                            },
+                                            {
+                                                "from": 4000,
+                                                "to": 5000
+                                            },
+                                            {
+                                                "from": 5000,
+                                                "to": 7500
+                                            },
+                                            {
+                                                "from": 7500,
+                                                "to": 10000
+                                            },
+                                            {
+                                                "from": 10000,
+                                                "to": 15000
+                                            },
+                                            {
+                                                "from": 15000,
+                                                "to": 20000
+                                            },
+                                            {
+                                                "from": 20000,
+                                                "to": 25000
+                                            },
+                                            {
+                                                "from": 25000,
+                                                "to": 30000
+                                            },
+                                            {
+                                                "from": 30000,
+                                                "to": 35000
+                                            },
+                                            {
+                                                "from": 35000,
+                                                "to": 40000
+                                            },
+                                            {
+                                                "from": 40000,
+                                                "to": 45000
+                                            },
+                                            {
+                                                "from": 45000,
+                                                "to": 50000
+                                            },
+                                            {
+                                                "from": 50000,
+                                                "to": 55000
+                                            },
+                                            {
+                                                "from": 55000,
+                                                "to": 60000
+                                            },
+                                            {
+                                                "from": 60000,
+                                                "to": 65535
+                                            }
+                                        ]
+                                    },
+                                    "schema": "group",
+                                    "type": "range"
                                 }
                             ],
                             "savedSearchId": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "not network.direction : \"outbound\" and not network.transport : \"icmp\"  and  not zeek.connection.history :   (ShA* or ShR* or ShD* or Fa* or Da* or Dd*)"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "addLegend": true,
+                            "addTooltip": true,
+                            "colorSchema": "Blues",
+                            "colorsNumber": 5,
+                            "colorsRange": [
+                                {
+                                    "from": 0,
+                                    "to": 100
+                                }
+                            ],
+                            "enableHover": false,
+                            "invertColors": false,
+                            "legendPosition": "bottom",
+                            "percentageMode": false,
+                            "setColorRange": false,
+                            "times": [],
+                            "type": "heatmap",
+                            "valueAxes": [
+                                {
+                                    "id": "ValueAxis-1",
+                                    "labels": {
+                                        "color": "black",
+                                        "overwriteColor": false,
+                                        "rotate": 0,
+                                        "show": false
+                                    },
+                                    "scale": {
+                                        "defaultYExtents": true,
+                                        "type": "log"
+                                    },
+                                    "show": false,
+                                    "type": "value"
+                                }
+                            ]
+                        },
+                        "title": "",
+                        "type": "heatmap",
+                        "uiState": {
+                            "vis": {
+                                "defaultColors": {
+                                    "1 - 1,549": "rgb(247,251,255)",
+                                    "1,549 - 3,097": "rgb(207,225,242)",
+                                    "3,097 - 4,644": "rgb(146,195,223)",
+                                    "4,644 - 6,192": "rgb(75,151,201)",
+                                    "6,192 - 7,739": "rgb(23,100,171)"
+                                }
+                            }
+                        }
+                    },
+                    "table": null,
+                    "vis": {
+                        "defaultColors": {
+                            "1 - 1,211": "rgb(247,251,255)",
+                            "1,211 - 2,420": "rgb(195,219,238)",
+                            "2,420 - 3,630": "rgb(109,174,213)",
+                            "3,630 - 4,839": "rgb(34,113,179)"
+                        },
+                        "legendOpen": false
+                    }
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "5e351695-6185-4fe3-bbb0-0b45f7da0b84",
+                    "w": 35,
+                    "x": 12,
+                    "y": 28
+                },
+                "panelIndex": "5e351695-6185-4fe3-bbb0-0b45f7da0b84",
+                "title": "Possible Probe - Inbound Destination Port Heatmap",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": []
+                        }
+                    },
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [],
                             "searchSource": {
                                 "filter": [],
                                 "query": {
@@ -339,121 +670,88 @@
                         "description": "",
                         "id": "",
                         "params": {
-                            "addLegend": true,
-                            "addTimeMarker": false,
-                            "addTooltip": true,
-                            "categoryAxes": [
+                            "axis_formatter": "number",
+                            "axis_position": "left",
+                            "axis_scale": "normal",
+                            "drop_last_bucket": 0,
+                            "id": "61ebcc6e-8630-4b04-b022-104e8ee43dfc",
+                            "index_pattern": "",
+                            "interval": "",
+                            "isModelInvalid": false,
+                            "legend_position": "left",
+                            "max_lines_legend": 1,
+                            "series": [
                                 {
-                                    "id": "CategoryAxis-1",
-                                    "labels": {
-                                        "filter": false,
-                                        "rotate": 0,
-                                        "show": true,
-                                        "truncate": 200
+                                    "axis_position": "right",
+                                    "chart_type": "line",
+                                    "color": "rgba(214,191,87,1)",
+                                    "fill": "0",
+                                    "filter": {
+                                        "language": "kuery",
+                                        "query": "not network.direction : \"outbound\" and network.transport : \"icmp\" and zeek.connection.icmp.type  : \"8\""
                                     },
-                                    "position": "left",
-                                    "scale": {
-                                        "type": "linear"
+                                    "formatter": "default",
+                                    "id": "faac88db-be78-4b50-aec6-f8697168b551",
+                                    "ignore_global_filter": 1,
+                                    "label": "Ping Traffic",
+                                    "line_width": 1,
+                                    "metrics": [
+                                        {
+                                            "field": "destination.port",
+                                            "id": "0c3f12d4-661a-41ca-a2d6-5c1971c638fb",
+                                            "sigma": "",
+                                            "type": "count",
+                                            "unit": ""
+                                        }
+                                    ],
+                                    "override_index_pattern": 0,
+                                    "palette": {
+                                        "name": "default",
+                                        "type": "palette"
                                     },
-                                    "show": true,
-                                    "style": {},
-                                    "title": {},
-                                    "type": "category"
+                                    "point_size": 1,
+                                    "separate_axis": 0,
+                                    "series_drop_last_bucket": 0,
+                                    "split_filters": [
+                                        {
+                                            "color": "#68BC00",
+                                            "filter": {
+                                                "language": "kuery",
+                                                "query": ""
+                                            },
+                                            "id": "26523540-bbd6-11ec-92de-b34877403c4b",
+                                            "label": ""
+                                        }
+                                    ],
+                                    "split_mode": "everything",
+                                    "stacked": "none",
+                                    "time_range_mode": "entire_time_range"
                                 }
                             ],
-                            "detailedTooltip": true,
-                            "grid": {
-                                "categoryLines": false
-                            },
-                            "labels": {},
-                            "legendPosition": "right",
-                            "maxLegendLines": 1,
-                            "palette": {
-                                "name": "default",
-                                "type": "palette"
-                            },
-                            "radiusRatio": 0,
-                            "seriesParams": [
-                                {
-                                    "circlesRadius": 1,
-                                    "data": {
-                                        "id": "1",
-                                        "label": "Count"
-                                    },
-                                    "drawLinesBetweenPoints": true,
-                                    "interpolate": "linear",
-                                    "lineWidth": 2,
-                                    "mode": "normal",
-                                    "show": true,
-                                    "showCircles": true,
-                                    "type": "histogram",
-                                    "valueAxis": "ValueAxis-1"
-                                }
-                            ],
-                            "thresholdLine": {
-                                "color": "#E7664C",
-                                "show": false,
-                                "style": "full",
-                                "value": 10,
-                                "width": 1
-                            },
-                            "times": [],
-                            "truncateLegend": true,
-                            "type": "histogram",
-                            "valueAxes": [
-                                {
-                                    "id": "ValueAxis-1",
-                                    "labels": {
-                                        "filter": true,
-                                        "rotate": 75,
-                                        "show": true,
-                                        "truncate": 100
-                                    },
-                                    "name": "LeftAxis-1",
-                                    "position": "bottom",
-                                    "scale": {
-                                        "mode": "normal",
-                                        "type": "linear"
-                                    },
-                                    "show": true,
-                                    "style": {},
-                                    "title": {
-                                        "text": ""
-                                    },
-                                    "type": "value"
-                                }
-                            ]
+                            "show_grid": 1,
+                            "show_legend": 0,
+                            "time_field": "",
+                            "time_range_mode": "entire_time_range",
+                            "tooltip_mode": "show_all",
+                            "truncate_legend": 1,
+                            "type": "timeseries",
+                            "use_kibana_indexes": true
                         },
                         "title": "",
-                        "type": "horizontal_bar",
+                        "type": "metrics",
                         "uiState": {}
                     }
                 },
                 "gridData": {
-                    "h": 20,
-                    "i": "7f75ae20-d40d-4367-a420-afb40abe6522",
-                    "w": 36,
-                    "x": 12,
-                    "y": 17
+                    "h": 8,
+                    "i": "ef2344f5-94ae-4d42-80f0-68a91334dd17",
+                    "w": 34,
+                    "x": 14,
+                    "y": 43
                 },
-                "panelIndex": "7f75ae20-d40d-4367-a420-afb40abe6522",
+                "panelIndex": "ef2344f5-94ae-4d42-80f0-68a91334dd17",
+                "title": "Ping Traffic",
                 "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {}
-                },
-                "gridData": {
-                    "h": 17,
-                    "i": "cb93e3ab-1515-4525-b3f6-ff255fa20ff8",
-                    "w": 48,
-                    "x": 0,
-                    "y": 37
-                },
-                "panelIndex": "cb93e3ab-1515-4525-b3f6-ff255fa20ff8",
-                "panelRefName": "panel_cb93e3ab-1515-4525-b3f6-ff255fa20ff8",
-                "type": "search",
                 "version": "7.17.1"
             }
         ],
@@ -473,27 +771,37 @@
             "type": "visualization"
         },
         {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "6aa6af9f-d428-4ddc-a436-9385da28080a:search_0",
+            "type": "search"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "130eca24-9eeb-45a5-bd6e-238133b70172:search_0",
+            "type": "search"
+        },
+        {
+            "id": "97ca4810-be20-11ec-b18c-132531e841f5",
+            "name": "989af854-6547-414f-9b8f-04335373b2cd:panel_989af854-6547-414f-9b8f-04335373b2cd",
+            "type": "visualization"
+        },
+        {
+            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
+            "name": "c7873c7f-38bd-44bc-a89f-2ade1201d201:search_0",
+            "type": "search"
+        },
+        {
             "id": "b968aa40-b725-11ec-8557-1b440f769a60",
             "name": "cec5ab30-9c89-4f30-beb4-588112e0cbf7:drilldown:DASHBOARD_TO_DASHBOARD_DRILLDOWN:552cc9b5-bb67-4cd1-8146-6ab6c2fabf96:dashboardId",
             "type": "dashboard"
         },
         {
-            "id": "b968aa40-b725-11ec-8557-1b440f769a60",
-            "name": "6be8d03f-d2aa-4783-99ba-20c3f5c8f931:drilldown:DASHBOARD_TO_DASHBOARD_DRILLDOWN:fa8934f3-8297-44bc-bf11-74d148abdb8f:dashboardId",
-            "type": "dashboard"
-        },
-        {
             "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
-            "name": "7f75ae20-d40d-4367-a420-afb40abe6522:search_0",
-            "type": "search"
-        },
-        {
-            "id": "c7a3dd60-b61b-11ec-8d8e-c50a555f7061",
-            "name": "cb93e3ab-1515-4525-b3f6-ff255fa20ff8:panel_cb93e3ab-1515-4525-b3f6-ff255fa20ff8",
+            "name": "5e351695-6185-4fe3-bbb0-0b45f7da0b84:search_0",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-15T15:16:21.443Z",
-    "version": "WzY1OTc4LDdd"
+    "updated_at": "2022-04-17T14:27:33.090Z",
+    "version": "WzgyOTY3LDdd"
 }

@@ -4,54 +4,7 @@
         "hits": 0,
         "kibanaSavedObjectMeta": {
             "searchSourceJSON": {
-                "filter": [
-                    {
-                        "$state": {
-                            "store": "appState"
-                        },
-                        "meta": {
-                            "alias": null,
-                            "disabled": false,
-                            "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
-                            "key": "rule.category",
-                            "negate": false,
-                            "params": [
-                                "Detection of a Network Scan",
-                                "Attempted Information Leak",
-                                "Information Leak",
-                                "Large Scale Information Leak"
-                            ],
-                            "type": "phrases"
-                        },
-                        "query": {
-                            "bool": {
-                                "minimum_should_match": 1,
-                                "should": [
-                                    {
-                                        "match_phrase": {
-                                            "rule.category": "Detection of a Network Scan"
-                                        }
-                                    },
-                                    {
-                                        "match_phrase": {
-                                            "rule.category": "Attempted Information Leak"
-                                        }
-                                    },
-                                    {
-                                        "match_phrase": {
-                                            "rule.category": "Information Leak"
-                                        }
-                                    },
-                                    {
-                                        "match_phrase": {
-                                            "rule.category": "Large Scale Information Leak"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ],
+                "filter": [],
                 "query": {
                     "language": "kuery",
                     "query": ""
@@ -287,7 +240,7 @@
                             "filters": [],
                             "query": {
                                 "language": "kuery",
-                                "query": "event.kind : \"alert\" and event.module : \"suricata\" "
+                                "query": "event.kind : \"alert\" and event.module : \"suricata\" and rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
                             },
                             "visualization": {
                                 "axisTitlesVisibilitySettings": {
@@ -406,7 +359,7 @@
                                 "filter": [],
                                 "query": {
                                     "language": "kuery",
-                                    "query": ""
+                                    "query": "rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
                                 }
                             }
                         },
@@ -465,91 +418,206 @@
             },
             {
                 "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [
-                                {
-                                    "enabled": true,
-                                    "id": "1",
-                                    "params": {},
-                                    "schema": "metric",
-                                    "type": "count"
+                    "attributes": {
+                        "description": "",
+                        "layerListJSON": [
+                            {
+                                "alpha": 1,
+                                "id": "82efe8da-fd76-4eb1-9e72-db8b71241721",
+                                "includeInFitToBounds": true,
+                                "label": null,
+                                "maxZoom": 24,
+                                "minZoom": 0,
+                                "sourceDescriptor": {
+                                    "isAutoSelect": true,
+                                    "type": "EMS_TMS"
                                 },
-                                {
-                                    "enabled": true,
-                                    "id": "2",
-                                    "params": {
-                                        "customLabel": "Destination IP",
-                                        "field": "destination.ip",
-                                        "missingBucket": false,
-                                        "missingBucketLabel": "Missing",
-                                        "order": "desc",
-                                        "orderBy": "1",
-                                        "otherBucket": false,
-                                        "otherBucketLabel": "Other",
-                                        "size": 10
-                                    },
-                                    "schema": "bucket",
-                                    "type": "terms"
-                                }
-                            ],
-                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
-                            "searchSource": {
-                                "filter": [],
+                                "style": {
+                                    "type": "TILE"
+                                },
+                                "type": "VECTOR_TILE",
+                                "visible": true
+                            },
+                            {
+                                "alpha": 0.75,
+                                "id": "67170c88-9ead-4c74-94e0-18e257fc4b9f",
+                                "includeInFitToBounds": true,
+                                "joins": [],
+                                "label": "Probe Alert - Source Location",
+                                "maxZoom": 16,
+                                "minZoom": 0,
                                 "query": {
                                     "language": "kuery",
-                                    "query": ""
-                                }
+                                    "query": "event.kind : \"alert\"  and event.module : \"suricata\" and rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
+                                },
+                                "sourceDescriptor": {
+                                    "applyForceRefresh": true,
+                                    "applyGlobalQuery": true,
+                                    "applyGlobalTime": true,
+                                    "geoField": "source.geo.location",
+                                    "id": "4351ee42-25fb-489b-bce5-3c86e1217a15",
+                                    "indexPatternId": "filebeat-*",
+                                    "metrics": [
+                                        {
+                                            "label": "Alerts",
+                                            "type": "count"
+                                        }
+                                    ],
+                                    "requestType": "point",
+                                    "resolution": "MOST_FINE",
+                                    "type": "ES_GEO_GRID"
+                                },
+                                "style": {
+                                    "isTimeAware": true,
+                                    "properties": {
+                                        "fillColor": {
+                                            "options": {
+                                                "color": "Yellow to Red",
+                                                "colorCategory": "palette_0",
+                                                "field": {
+                                                    "name": "doc_count",
+                                                    "origin": "source"
+                                                },
+                                                "fieldMetaOptions": {
+                                                    "isEnabled": false,
+                                                    "sigma": 3
+                                                },
+                                                "type": "ORDINAL"
+                                            },
+                                            "type": "DYNAMIC"
+                                        },
+                                        "icon": {
+                                            "options": {
+                                                "value": "marker"
+                                            },
+                                            "type": "STATIC"
+                                        },
+                                        "iconOrientation": {
+                                            "options": {
+                                                "orientation": 0
+                                            },
+                                            "type": "STATIC"
+                                        },
+                                        "iconSize": {
+                                            "options": {
+                                                "field": {
+                                                    "name": "doc_count",
+                                                    "origin": "source"
+                                                },
+                                                "fieldMetaOptions": {
+                                                    "isEnabled": false,
+                                                    "sigma": 3
+                                                },
+                                                "maxSize": 16,
+                                                "minSize": 2
+                                            },
+                                            "type": "DYNAMIC"
+                                        },
+                                        "labelBorderColor": {
+                                            "options": {
+                                                "color": "#FFFFFF"
+                                            },
+                                            "type": "STATIC"
+                                        },
+                                        "labelBorderSize": {
+                                            "options": {
+                                                "size": "SMALL"
+                                            }
+                                        },
+                                        "labelColor": {
+                                            "options": {
+                                                "color": "#000000"
+                                            },
+                                            "type": "STATIC"
+                                        },
+                                        "labelSize": {
+                                            "options": {
+                                                "size": 14
+                                            },
+                                            "type": "STATIC"
+                                        },
+                                        "labelText": {
+                                            "options": {
+                                                "value": ""
+                                            },
+                                            "type": "STATIC"
+                                        },
+                                        "lineColor": {
+                                            "options": {
+                                                "color": "#3d3d3d"
+                                            },
+                                            "type": "STATIC"
+                                        },
+                                        "lineWidth": {
+                                            "options": {
+                                                "size": 1
+                                            },
+                                            "type": "STATIC"
+                                        },
+                                        "symbolizeAs": {
+                                            "options": {
+                                                "value": "circle"
+                                            }
+                                        }
+                                    },
+                                    "type": "VECTOR"
+                                },
+                                "type": "VECTOR",
+                                "visible": true
                             }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "autoFitRowToContent": false,
-                            "perPage": 10,
-                            "percentageCol": "",
-                            "showMetricsAtAllLevels": false,
-                            "showPartialRows": false,
-                            "showToolbar": false,
-                            "showTotal": false,
-                            "totalFunc": "sum"
+                        ],
+                        "mapStateJSON": {
+                            "center": {
+                                "lat": 23.39299,
+                                "lon": 2.3153
+                            },
+                            "filters": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.kind : \"alert\"  and event.module : \"suricata\" "
+                            },
+                            "refreshConfig": {
+                                "interval": 0,
+                                "isPaused": true
+                            },
+                            "settings": {
+                                "autoFitToDataBounds": false,
+                                "backgroundColor": "#ffffff",
+                                "browserLocation": {
+                                    "zoom": 2
+                                },
+                                "disableInteractive": false,
+                                "disableTooltipControl": false,
+                                "fixedLocation": {
+                                    "lat": 0,
+                                    "lon": 0,
+                                    "zoom": 2
+                                },
+                                "hideLayerControl": false,
+                                "hideToolbarOverlay": false,
+                                "hideViewControl": false,
+                                "initialLocation": "LAST_SAVED_LOCATION",
+                                "maxZoom": 24,
+                                "minZoom": 0,
+                                "showScaleControl": false,
+                                "showSpatialFilters": true,
+                                "showTimesliderToggleButton": true,
+                                "spatialFiltersAlpa": 0.3,
+                                "spatialFiltersFillColor": "#DA8B45",
+                                "spatialFiltersLineColor": "#DA8B45"
+                            },
+                            "timeFilters": {
+                                "from": "now-24h/h",
+                                "to": "now"
+                            },
+                            "zoom": 0.55
                         },
                         "title": "",
-                        "type": "table",
-                        "uiState": {}
-                    },
-                    "table": null,
-                    "vis": {
-                        "params": {
-                            "colWidth": [
-                                {
-                                    "colIndex": 0,
-                                    "width": 489
-                                },
-                                {
-                                    "colIndex": 1,
-                                    "width": 134
-                                }
-                            ]
+                        "uiStateJSON": {
+                            "isLayerTOCOpen": true,
+                            "openTOCDetails": []
                         }
-                    }
-                },
-                "gridData": {
-                    "h": 14,
-                    "i": "ab997834-0c74-4d24-a43d-3c482f4e389e",
-                    "w": 15,
-                    "x": 33,
-                    "y": 23
-                },
-                "panelIndex": "ab997834-0c74-4d24-a43d-3c482f4e389e",
-                "title": "Top 10 Alerting Destination IP",
-                "type": "visualization",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
+                    },
                     "enhancements": {},
                     "hiddenLayers": [],
                     "isLayerTOCOpen": false,
@@ -568,13 +636,13 @@
                 },
                 "gridData": {
                     "h": 14,
-                    "i": "8ea259c5-02af-48da-9d11-b0ac344ff601",
+                    "i": "6b6195f0-16ec-4d1c-8763-8ab9851990f5",
                     "w": 18,
                     "x": 0,
                     "y": 23
                 },
-                "panelIndex": "8ea259c5-02af-48da-9d11-b0ac344ff601",
-                "panelRefName": "panel_8ea259c5-02af-48da-9d11-b0ac344ff601",
+                "panelIndex": "6b6195f0-16ec-4d1c-8763-8ab9851990f5",
+                "title": "Alert Source Map",
                 "type": "map",
                 "version": "7.17.1"
             },
@@ -615,7 +683,7 @@
                                 "filter": [],
                                 "query": {
                                     "language": "kuery",
-                                    "query": ""
+                                    "query": "rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
                                 }
                             }
                         },
@@ -681,6 +749,91 @@
                                     "enabled": true,
                                     "id": "2",
                                     "params": {
+                                        "customLabel": "Destination IP",
+                                        "field": "destination.ip",
+                                        "missingBucket": false,
+                                        "missingBucketLabel": "Missing",
+                                        "order": "desc",
+                                        "orderBy": "1",
+                                        "otherBucket": false,
+                                        "otherBucketLabel": "Other",
+                                        "size": 10
+                                    },
+                                    "schema": "bucket",
+                                    "type": "terms"
+                                }
+                            ],
+                            "savedSearchId": "8c6eacf0-b721-11ec-8557-1b440f769a60",
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": "rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "id": "",
+                        "params": {
+                            "autoFitRowToContent": false,
+                            "perPage": 10,
+                            "percentageCol": "",
+                            "showMetricsAtAllLevels": false,
+                            "showPartialRows": false,
+                            "showToolbar": false,
+                            "showTotal": false,
+                            "totalFunc": "sum"
+                        },
+                        "title": "",
+                        "type": "table",
+                        "uiState": {}
+                    },
+                    "table": null,
+                    "vis": {
+                        "params": {
+                            "colWidth": [
+                                {
+                                    "colIndex": 0,
+                                    "width": 489
+                                },
+                                {
+                                    "colIndex": 1,
+                                    "width": 134
+                                }
+                            ]
+                        }
+                    }
+                },
+                "gridData": {
+                    "h": 14,
+                    "i": "ab997834-0c74-4d24-a43d-3c482f4e389e",
+                    "w": 15,
+                    "x": 33,
+                    "y": 23
+                },
+                "panelIndex": "ab997834-0c74-4d24-a43d-3c482f4e389e",
+                "title": "Top 10 Alerting Destination IP",
+                "type": "visualization",
+                "version": "7.17.1"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {},
+                    "hidePanelTitles": false,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [
+                                {
+                                    "enabled": true,
+                                    "id": "1",
+                                    "params": {},
+                                    "schema": "metric",
+                                    "type": "count"
+                                },
+                                {
+                                    "enabled": true,
+                                    "id": "2",
+                                    "params": {
                                         "customLabel": "Destination Port",
                                         "field": "destination.port",
                                         "missingBucket": false,
@@ -700,7 +853,7 @@
                                 "filter": [],
                                 "query": {
                                     "language": "kuery",
-                                    "query": ""
+                                    "query": "rule.category: (\"Detection of a Network Scan\" or \"Attempted Information Leak\" or \"Information Leak\" or \"Large Scale Information Leak\")"
                                 }
                             }
                         },
@@ -754,55 +907,14 @@
                 },
                 "gridData": {
                     "h": 14,
-                    "i": "13f4e595-2319-47f8-8d96-546ae071fb18",
+                    "i": "bb85008c-ff8c-4750-bc7c-21b3d26065b7",
                     "w": 48,
                     "x": 0,
                     "y": 45
                 },
-                "panelIndex": "13f4e595-2319-47f8-8d96-546ae071fb18",
-                "panelRefName": "panel_13f4e595-2319-47f8-8d96-546ae071fb18",
+                "panelIndex": "bb85008c-ff8c-4750-bc7c-21b3d26065b7",
+                "panelRefName": "panel_bb85008c-ff8c-4750-bc7c-21b3d26065b7",
                 "type": "search",
-                "version": "7.17.1"
-            },
-            {
-                "embeddableConfig": {
-                    "enhancements": {},
-                    "hidePanelTitles": false,
-                    "savedVis": {
-                        "data": {
-                            "aggs": [],
-                            "searchSource": {
-                                "filter": [],
-                                "query": {
-                                    "language": "kuery",
-                                    "query": "event.module : \"zeek\" and fileset.name : \"connection\" "
-                                }
-                            }
-                        },
-                        "description": "",
-                        "id": "",
-                        "params": {
-                            "spec": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v5.json\",\n  \"autosize\": {\n    \"type\": \"fit\",\n    \"contains\": \"padding\"\n  },\n  \"data\": {\n    \"url\": {\n      \"%context%\": true,\n      \"%timefield%\": \"@timestamp\",\n      \"index\": \"_all\",\n      \"body\": {\n        \"aggs\": {\n          \"time_buckets\": {\n            \"date_histogram\": {\n              \"field\": \"@timestamp\",\n              \"fixed_interval\": \"1h\",\n              \"extended_bounds\": {\n                \"min\": {\"%timefilter%\": \"min\"},\n                \"max\": {\"%timefilter%\": \"max\"}\n              },\n              \"min_doc_count\": 0\n            },\n          }\n        },\n        \"size\": 0\n      }\n    },\n    \"format\": {\"property\": \"aggregations.time_buckets.buckets\"}\n  },\n  \"mark\": \"rect\",\n  \"config\": {\"axis\": {\"grid\": true, \"tickBand\": \"extent\"}},\n  \"autosize\": {\"type\": \"fit\", \"contains\": \"padding\", \"resize\": true},\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"key\",\n      \"timeUnit\": \"yearmonthdate\",\n      \"type\": \"ordinal\",\n      \"title\": \"Date\",\n      \"axis\": {\"labelAngle\": 0, \"format\": \"%e/%m\"}\n    },\n    \"y\": {\n      \"field\": \"key\",\n      \"timeUnit\": \"hours\",\n      \"type\": \"ordinal\",\n      \"title\": \"Hours\"\n    },\n    \"color\": {\n      \"field\": \"doc_count\",\n      \"type\": \"quantitative\",\n      \"scale\": {\"scheme\": \"greens\", \"type\": \"linear\"},\n      \"legend\": {\n        \"padding\": 20,\n      },\n      \"title\": \"Total Conn Count\"\n    },\n    \"tooltip\": [{\n      \"field\": key\n      \"type\": temporal\n      \"format\": \"%Y-%m-%d %Hh\"\n      \"title\": \"Date\"\n    }, {\n      \"field\": doc_count\n      \"type\": quantitative\n      \"title\": \"Conn\"\n    }]\n  },\n}"
-                        },
-                        "title": "",
-                        "type": "vega",
-                        "uiState": {}
-                    },
-                    "timeRange": {
-                        "from": "now-7d/d",
-                        "to": "now"
-                    }
-                },
-                "gridData": {
-                    "h": 15,
-                    "i": "845ede18-4de9-49e3-b89d-05f1ae3b0ed4",
-                    "w": 24,
-                    "x": 0,
-                    "y": 59
-                },
-                "panelIndex": "845ede18-4de9-49e3-b89d-05f1ae3b0ed4",
-                "title": "Hourly Average Packet Count",
-                "type": "visualization",
                 "version": "7.17.1"
             }
         ],
@@ -816,11 +928,6 @@
         "dashboard": "7.17.0"
     },
     "references": [
-        {
-            "id": "filebeat-*",
-            "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
-            "type": "index-pattern"
-        },
         {
             "id": "a8124790-b736-11ec-8557-1b440f769a60",
             "name": "cb0a348e-560f-423f-815f-b11e2ff5f0fb:panel_cb0a348e-560f-423f-815f-b11e2ff5f0fb",
@@ -852,14 +959,9 @@
             "type": "search"
         },
         {
-            "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
-            "name": "ab997834-0c74-4d24-a43d-3c482f4e389e:search_0",
-            "type": "search"
-        },
-        {
-            "id": "a7cd32d0-b737-11ec-8557-1b440f769a60",
-            "name": "8ea259c5-02af-48da-9d11-b0ac344ff601:panel_8ea259c5-02af-48da-9d11-b0ac344ff601",
-            "type": "map"
+            "id": "filebeat-*",
+            "name": "6b6195f0-16ec-4d1c-8763-8ab9851990f5:layer_1_source_index_pattern",
+            "type": "index-pattern"
         },
         {
             "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
@@ -868,16 +970,21 @@
         },
         {
             "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
-            "name": "07b42183-d557-4543-91d5-fa0bcf2641f8:search_0",
+            "name": "ab997834-0c74-4d24-a43d-3c482f4e389e:search_0",
             "type": "search"
         },
         {
             "id": "8c6eacf0-b721-11ec-8557-1b440f769a60",
-            "name": "13f4e595-2319-47f8-8d96-546ae071fb18:panel_13f4e595-2319-47f8-8d96-546ae071fb18",
+            "name": "07b42183-d557-4543-91d5-fa0bcf2641f8:search_0",
+            "type": "search"
+        },
+        {
+            "id": "19ecc180-be6a-11ec-b18c-132531e841f5",
+            "name": "bb85008c-ff8c-4750-bc7c-21b3d26065b7:panel_bb85008c-ff8c-4750-bc7c-21b3d26065b7",
             "type": "search"
         }
     ],
     "type": "dashboard",
-    "updated_at": "2022-04-14T11:59:51.035Z",
-    "version": "WzU1ODkxLDdd"
+    "updated_at": "2022-04-17T16:23:56.722Z",
+    "version": "Wzg0MDMzLDdd"
 }

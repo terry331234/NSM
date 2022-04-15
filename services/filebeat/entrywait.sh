@@ -69,7 +69,22 @@ if [ ! -e $CONTAINER_INITED ]; then
       }
   }')
 
-  # Set search_community_id,search_session_id and ip field format
+  echo "Adding cert valid period field"
+  # Add cert valid period field 'cert_valid_period'
+  addLinkResult=$(curl -s -u elastic:${ELASTICSEARCH_PASSWORD} --location --request POST 'kibana:5601/api/index_patterns/index_pattern/filebeat-*/runtime_field' \
+    --header 'kbn-xsrf: reporting' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+    "name": "cert_valid_period",
+      "runtimeField": {
+          "type": "long",
+          "script": {
+              "source": "if (doc['\''file.x509.not_after'\''].size() == 0 || doc['\''file.x509.not_before'\''].size() == 0 ) {\r\n    emit(0);\r\n    return;\r\n}\r\ndef start = doc['\''file.x509.not_before'\''].value.millis;\r\ndef end = doc['\''file.x509.not_after'\''].value.millis;\r\n\r\nemit((end - start)/86400000);"
+          }
+      }
+  }')
+
+  # Set search_community_id,search_session_id, duration and ip field format
   addFormatResult=$(curl -s -u elastic:${ELASTICSEARCH_PASSWORD} --location --request POST 'kibana:5601/api/index_patterns/index_pattern/filebeat-*/fields' \
     --header 'kbn-xsrf: reporting' \
     --header 'Content-Type: application/json' \
@@ -82,6 +97,18 @@ if [ ! -e $CONTAINER_INITED ]; then
                     "params": {
                         "urlTemplate": "{{ rawValue }}",
                         "labelTemplate": "Find Related Logs"
+                    }
+                }
+            },
+            "event.duration": {
+                "count": 0,
+                "format": {
+                    "id": "duration",
+                    "params": {
+                        "inputFormat": "nanoseconds",
+                        "outputFormat": "asSeconds",
+                        "outputPrecision": 2,
+                        "showSuffix": true
                     }
                 }
             },
@@ -111,8 +138,19 @@ if [ ! -e $CONTAINER_INITED ]; then
                   "id": "url",
                   "params": {
                       "urlTemplate": "{{ rawValue }}",
-                      "labelTemplate": "Find Related Metadata Logs",
-                      "openLinkInCurrentTab": true
+                      "labelTemplate": "Find Related Metadata Logs"
+                  }
+                }
+            },
+            "cert_valid_period": {
+                "count": 0,
+                "format": {
+                  "id": "duration",
+                  "params": {
+                      "inputFormat": "days",
+                      "outputFormat": "asYears",
+                      "showSuffix": true,
+                      "useShortSuffix": true
                   }
                 }
             }
@@ -122,7 +160,7 @@ if [ ! -e $CONTAINER_INITED ]; then
   #check disabled, added field
   #Find Related Logs - part of format option
   #dashboard ids - part of runtime field scripts
-  if [[ "$addFormatResult" == *"Find Related Logs"* && "$addFormatResult" == *"11d8c090-bcab-11ec-b18c-132531e841f5"* && "$addFormatResult" == *"b968aa40-b725-11ec-8557-1b440f769a60"* && $disabledCount -eq 11 ]];
+  if [[ "$addFormatResult" == *"Find Related Logs"* && "$addFormatResult" == *"cert_valid_period"* && "$addFormatResult" == *"11d8c090-bcab-11ec-b18c-132531e841f5"* && "$addFormatResult" == *"b968aa40-b725-11ec-8557-1b440f769a60"* && $disabledCount -eq 11 ]];
     then
       touch $CONTAINER_INITED
       echo "Kibana first time setup complete"

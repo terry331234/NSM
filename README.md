@@ -18,7 +18,7 @@ TRUSTED_NET=CIDR1,CIDR2       #optional, default 192.168.0.0/16,10.0.0.0/8,172.1
 UID=uid                       #optional, default 1000
 GID=gid                       #optional, default 1000
 ```
-Set the value to suit your usecase\
+Set the value to suit your usecase
 - Username for kibana web: elastic
 - `UID/GID` set the owner of files in `NSM_LOG_DIR`, and user/group running zeek & suricata
 - `TRUSTED_NET` set the trusted subnet for zeek & suricata
@@ -41,4 +41,22 @@ To entirely shutdown the solution remove all persisted data, run:
 $ docker-compose down -v
 ```
 
+#### Alternative Setup
 
+Elasticsearch data can be stored directly in a directory.\
+To do this, create a file `docker-compose.override.yml` with:
+
+```
+version: '3'
+# use bind mount
+volumes:
+  elasticsearch:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ${ES_DATA_DIR?missing ES_DATA_DIR}
+```
+And set `ES_DATA_DIR` in `.env`
+
+With this setup, `docker-compose down -v` will not delete Elasticsearch data
